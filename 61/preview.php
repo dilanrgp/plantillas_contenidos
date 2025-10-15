@@ -195,6 +195,7 @@ while ($datos=mysqli_fetch_array($registro))
 <input type="hidden" name="oldimage" id="oldimage" value="<?=$old_image?>">
 <input type="hidden" name="destinationPath" id="destinationPath" value="<?=$destination_path?>">
 <input type="hidden" name="idcampaign" id="idcampaign" value="<?=$idcampaign?>">
+<input type="hidden" name="idcustomer" id="idcustomer" value="<?= $idcustomer ?>">
 <!--- ENDJCAM -->
 
 
@@ -269,12 +270,13 @@ while ($datos=mysqli_fetch_array($registro))
 				//
 				$('#saveplantilla').prop('onclick',null).off('click');
 
-				var atributos = document.getElementById("atributos").value;
-				var plantilla = document.getElementById("idcontenttemplate").value;
-				var contenido = document.getElementById("idcontent").value;
-				/* var idcampaign = document.getElementById("idcampaign").value;
-				var oldimage = document.getElementById("oldimage").value;
-				var destinationPath = document.getElementById("destinationPath").value; */
+                                var atributos = document.getElementById("atributos").value;
+                                var plantilla = document.getElementById("idcontenttemplate").value;
+                                var contenido = document.getElementById("idcontent").value;
+                                var idcampaign = document.getElementById("idcampaign").value;
+                                var oldimage = document.getElementById("oldimage").value;
+                                var destinationPath = document.getElementById("destinationPath").value;
+                                var idcustomer = document.getElementById("idcustomer").value;
 				var contenedor =
 				
 								 "<html lang='es'><head><meta http-equiv='Content-type' content='text/html; charset=utf-8'>"+								 
@@ -313,11 +315,20 @@ while ($datos=mysqli_fetch_array($registro))
 								 "</body></html>";
 	//			$('.loading').css('display','block');
 
-	if (window.XMLHttpRequest)
-				 {
-						// code for IE7+, Firefox, Chrome, Opera, Safari
-						xmlhttp = new XMLHttpRequest();
-				 }
+        var $saveButton = $('#saveplantilla');
+
+        function enableSaveButton() {
+                $saveButton.removeClass('disabled');
+                $saveButton.off('click').on('click', grabarplantilla);
+        }
+
+        var imagenData = $('#saveplantilla').data('imagen') || '';
+
+        if (window.XMLHttpRequest)
+                                 {
+                                                // code for IE7+, Firefox, Chrome, Opera, Safari
+                                                xmlhttp = new XMLHttpRequest();
+                                 }
 				 else
 				 {
 						// code for IE6, IE5
@@ -327,26 +338,45 @@ while ($datos=mysqli_fetch_array($registro))
 				 xmlhttp.onreadystatechange = function()
 				 {
 					 
-						if (xmlhttp.responseText != 1)
-						
-						if (xmlhttp.readyState == 4 || xmlhttp.status == 200)  // http completado y ha sido ok
-						{
-							var response = xmlhttp.responseText; // 
-							var result = JSON.parse(response);
-							if(result.success) {
-								parent.postMessage({domain:'ladorian.ids.template', 'key': 'template-url', 'value': result.data}, '*');
-							}
-						  
-							//Se cierra la ventana y se vuelve al Formulario  
-							window.close();
+                                                if (xmlhttp.readyState === 4) {
+                                                        if (xmlhttp.status === 200) {
+                                                                var responseText = xmlhttp.responseText || '';
+                                                                var result = null;
 
-						}
-				 };
-				// Se pasa de esta forma ya que si se pasa por GET se pasan caracteres raros en el contenido
-				params= "html="+contenedor+"&atributos="+atributos+"&plantilla="+plantilla+"&contenido="+contenido;				 
-				xmlhttp.open("POST","<?php echo $directoriobase.'/grabaplantilla.php'?>",true);				
-				xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				xmlhttp.send(params);
+                                                                try {
+                                                                        result = JSON.parse(responseText);
+                                                                } catch (error) {
+                                                                        result = null;
+                                                                }
+
+                                                                if (result && result.success) {
+                                                                        parent.postMessage({domain:'ladorian.ids.template', 'key': 'template-url', 'value': result.data}, '*');
+                                                                        window.close();
+                                                                } else {
+                                                                        var message = (result && result.error) ? result.error : 'Se ha producido un error al guardar la plantilla.';
+                                                                        alert(message);
+                                                                        enableSaveButton();
+                                                                }
+                                                        } else {
+                                                                alert('Se ha producido un error al guardar la plantilla.');
+                                                                enableSaveButton();
+                                                        }
+                                                }
+                                 };
+                                // Se pasa de esta forma ya que si se pasa por GET se pasan caracteres raros en el contenido
+                                params =
+                                        "html=" + encodeURIComponent(contenedor) +
+                                        "&atributos=" + encodeURIComponent(atributos) +
+                                        "&plantilla=" + encodeURIComponent(plantilla) +
+                                        "&contenido=" + encodeURIComponent(contenido) +
+                                        "&idcampaign=" + encodeURIComponent(idcampaign) +
+                                        "&idcustomer=" + encodeURIComponent(idcustomer) +
+                                        "&imagen=" + encodeURIComponent(imagenData) +
+                                        "&oldimage=" + encodeURIComponent(oldimage) +
+                                        "&destinationPath=" + encodeURIComponent(destinationPath);
+                                xmlhttp.open("POST","<?php echo $directoriobase.'/grabaplantilla.php'?>",true);
+                                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                xmlhttp.send(params);
 				
 			}
 
