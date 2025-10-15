@@ -13,6 +13,8 @@
 	}
 ?>
 <?php
+        require_once __DIR__ . '/../accesomysql.php';
+
 	$template			= $_POST["TEMPLATE"];
 	$template_number	= substr($template, -1);
 
@@ -65,14 +67,14 @@
 		$bg_clases .= ' no_img';
 	}
 
-    $template_dir = '/plantillascontenidov4/141';
+    $template_dir = BASE_PATH . '/141';
     $path_upload = $template_dir ."/uploads";
     $destination_path = getcwd().DIRECTORY_SEPARATOR . "uploads/";
     if($_FILES['IMG']['name']!=""){
         $nombre_image = time() . ".".pathinfo($_FILES['IMG']['name'], PATHINFO_EXTENSION);
         $target_path = $destination_path . $nombre_image;
         move_uploaded_file($_FILES['IMG']['tmp_name'], $target_path);
-        $data['img'] = "https://".$_SERVER["HTTP_HOST"]. $path_upload. "/" .$nombre_image;
+        $data['img'] = BASE_URL . '/141/uploads/' . $nombre_image;
     }
 ?>
 

@@ -14,9 +14,11 @@
 ?>
 
 <?php
+        require_once __DIR__ . '/../accesomysql.php';
+
 	$template			= $_POST["TEMPLATE"];
 	$template_number	= substr($template, -1);
-	$template_dir       = '/plantillascontenidov4/128';
+	$template_dir       = BASE_PATH . '/128';
 	$image_url			= '';
 
 	$dev = ($_SERVER['HTTP_HOST'] === 'localhost');
@@ -52,7 +54,7 @@
 	<script language="JavaScript">
 			function grabarplantilla()
 			{
-                var template_dir = '/plantillascontenidov4/128';
+                var template_dir = '<?php echo $template_dir; ?>';
 				var atributos = null;
 				var plantilla = null;
 				var contenido = null;
