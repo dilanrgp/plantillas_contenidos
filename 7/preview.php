@@ -193,7 +193,6 @@ $json_string = str_replace("\"", "^", $json_string);
 <input type="hidden" name="oldimage" id="oldimage" value="<?= $old_image ?>">
 <input type="hidden" name="destinationPath" id="destinationPath" value="<?= $destination_path ?>">
 <input type="hidden" name="idcampaign" id="idcampaign" value="<?= $idcampaign ?>">
-<input type="hidden" name="idcustomer" id="idcustomer" value="<?= $idcustomer ?>">
 <!--- ENDJCAM -->
 
 
@@ -266,11 +265,9 @@ $json_string = str_replace("\"", "^", $json_string);
             var oldimage = document.getElementById("oldimage").value;
             var destinationPath = document.getElementById("destinationPath").value;
 
-            var idcustomer = document.getElementById("idcustomer").value;
-
             var contenedor =
                 "<html lang='es'><head><meta http-equiv='Content-type' content='text/html; charset=utf-8'>" +
-                //"<title>Plantilla de menus diarios</title>"+
+                //"<title>Plantilla de menus diarios</title>"+								 
 
                 "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'>" +
                 "<link rel='stylesheet' href='<?php echo $directoriobase ?>/fonts/font-awesome.min.css'>" +
@@ -309,13 +306,6 @@ $json_string = str_replace("\"", "^", $json_string);
                 document.getElementById("divcuerpoHTML").outerHTML +
                 "</div></body></html>";
 
-            var $saveButton = $('#saveplantilla');
-
-            function enableSaveButton() {
-                $saveButton.removeClass('disabled');
-                $saveButton.off('click').on('click', grabarplantilla);
-            }
-
             $.ajax({
                     url: "../grabaplantilla.php",
                     method: "POST",
@@ -325,7 +315,6 @@ $json_string = str_replace("\"", "^", $json_string);
                         plantilla: plantilla,
                         contenido: contenido,
                         idcampaign: idcampaign,
-                        idcustomer: idcustomer,
                         imagen: $('#saveplantilla').data('imagen'),
                         oldimage: oldimage,
                         destinationPath: destinationPath
@@ -333,7 +322,7 @@ $json_string = str_replace("\"", "^", $json_string);
                     dataType: "json"
                 })
                 .done(function(result) {
-                    if (result && result.success) {
+                    if (result.success) {
                         parent.postMessage({
                             domain: 'ladorian.ids.template',
                             'key': 'template-url',
@@ -344,19 +333,9 @@ $json_string = str_replace("\"", "^", $json_string);
                             'key': 'template_url',
                             'value': "<?php echo $template_url; ?>"
                         }, '*');
-                        window.close();
-                    } else {
-                        var message = (result && result.error) ? result.error : 'Se ha producido un error al guardar la plantilla.';
-                        alert(message);
-                        enableSaveButton();
                     }
-                }).fail(function(jqXHR) {
-                    var message = 'Se ha producido un error al guardar la plantilla.';
-                    if (jqXHR.responseJSON && jqXHR.responseJSON.error) {
-                        message = jqXHR.responseJSON.error;
-                    }
-                    alert(message);
-                    enableSaveButton();
+                }).fail(function() {}).always(function() {
+                    window.close();
                 });
         }
     </script>
