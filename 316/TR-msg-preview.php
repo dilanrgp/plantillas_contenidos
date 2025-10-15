@@ -1,0 +1,185 @@
+<?php
+	function nl2p($string) {
+		$originalP = explode("\n", $string);
+		$output = '';
+
+		foreach ( $originalP as $line) {
+			if (trim($line))
+				$output .= '<p class="msg">' . $line . '</p>';
+		}
+
+		return $output;
+	}
+
+	$template			= $_POST["TEMPLATE"];
+	$template_number	= substr($template, -1);
+
+	switch ( $template_number ) {
+		case '1':
+			$screen = 'vertical';
+			break;
+		case '2':
+			$screen = 'horizontal';
+			break;
+	}
+
+	$msg = $_POST["CONTENT"];
+
+
+$idcustomer   = $_POST["idcustomer"];	
+$idcontent    = $_POST["idcontent"];
+$idcampaign   = $_POST["idcampaign"];	
+	include("../accesomysql.php");
+	
+	$directoriocliente = $directoriobase."/".$idcustomer."/";
+	$dirbase = "dev.ladorianids.com";
+	$dirbase = "idsv4.ladorianids.es";
+	$plantillascontenido = "/plantillascontenidov4/".$idcustomer."/";	
+	 
+	$conexionbd  = mysqli_connect($sql_host,$sql_login,$sql_pass,$sql_base) or die("Error en la conexión a la Base de Datos...:".mysqli_connect_error());
+	mysqli_select_db($conexionbd,$sql_base) OR  die ('Error en la selección de la Base de Datos...' . mysqli_error());
+	
+		$sql = "SELECT idcontenttemplate AS wid from content_template where idcustomer = ". $idcustomer.
+		   " AND name = '". $template  ."'";	  	
+	$registro=mysqli_query($conexionbd,$sql) or die("Error en la query...:". $sql."  ".mysqli_error($conexionbd));	
+
+	$idcontenttemplate="";
+	while ($datos=mysqli_fetch_array($registro))  
+	{
+		$idcontenttemplate = $datos["wid"];
+	}	
+	$json_string = json_encode($_POST['CONTENT']);
+?>
+
+<input type="hidden" name="atributos" id="atributos" value="">
+<input type="hidden" name="idcontenttemplate" id="idcontenttemplate" value="">
+<input type="hidden" name="idcontent" id="idcontent" value="">
+<input type="hidden" name="textconntent" id="textconntent" value="<?=str_replace("\"","'",nl2p($msg))?>">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Plantillas </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/TR-msg.css">
+	<script language="JavaScript">
+			function grabarplantilla()
+			{
+
+				var atributos = document.getElementById("atributos").value;
+				var plantilla = document.getElementById("idcontenttemplate").value;
+				var contenido = document.getElementById("idcontent").value;
+				var texto = document.getElementById("textconntent").value;;
+
+				var contenedor =
+								 "<html lang='en'><head><meta http-equiv='Content-type' content='text/html; charset=utf-8'>"+
+								 "<link rel='stylesheet' href='<?php echo $directoriocliente?>"+"css/TR-msg.css'>"+					 
+								 "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'>"+						 
+								 "</head>"+
+								 "<body class='<?php echo $screen; ?>'>"+
+
+								"<div class='wrapper'  id='TEMPLATE_CONTENT'>"+		
+
+								"<div name='divcuerpoHTML' id='divcuerpoHTML' class='contenedor'>"+
+								"<img src='<?=$directoriocliente;?>/img/AW_BEONX_LOGO_COLOUR.jpg' class='logo'>"+
+								"<section class='msg-container'>"+
+								texto+
+								"</section>"+
+								"</div>"+
+
+								 "<script src='<?php echo $directoriocliente?>js/jquery-3.2.1.min.js'><\/script>"+
+								 "<script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js'><\/script>" +
+								 "<script src='<?php echo $directoriocliente?>js/TR-msg.js'><\/script>"+
+								 "</body></html>";
+
+				if (window.XMLHttpRequest)
+				 {
+						// code for IE7+, Firefox, Chrome, Opera, Safari
+						xmlhttp = new XMLHttpRequest();
+				 }
+				 else
+				 {
+						// code for IE6, IE5
+						xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				 }
+
+				 xmlhttp.onreadystatechange = function()
+				 {
+					 
+					 
+						if (xmlhttp.readyState == 4 || xmlhttp.status == 200)  // http completado y ha sido ok
+						{
+							var response = xmlhttp.responseText; // 
+							var result = JSON.parse(response);
+							if(result.success) {
+								parent.postMessage({domain:'ladorian.ids.template', 'key': 'template-url', 'value': result.data}, '*');
+							}
+						  
+							  //Se cierra la ventana y se vuelve al Formulario  
+							  window.close();
+
+						}
+				 };
+				// Se pasa de esta forma ya que si se pasa por GET se pasan caracteres raros en el contenido
+				params= "html="+contenedor+"&atributos="+atributos+"&plantilla="+plantilla+"&contenido="+contenido+"&textconntent="+texto;				 
+				//params= "html="+contenedor+"&atributos="+atributos+"&plantilla="+plantilla+"&contenido="+contenido;				 
+				xmlhttp.open("POST","<?php echo $directoriobase.'/grabaplantilla.php'?>",true);				
+				xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xmlhttp.send(params);
+
+			}
+	</script>	
+</head>
+
+<body class="<?php echo $screen; ?>">
+	<div class="wrapper" id="TEMPLATE_CONTENT">
+		<div name="divcuerpoHTML" id="divcuerpoHTML" class="contenedor">
+			<img src="<?=$directoriocliente;?>/img/AW_BEONX_LOGO_COLOUR.jpg" class="logo">
+			<section class="msg-container">
+				<?php echo nl2p($msg); ?>
+			</section>
+		</div>
+	</div>
+
+	<div class="wrapper" id="BUTTONS">
+		<div class="btns">
+			<input type="button" class="btn btn-success" name="guardar" value="Grabar Plantilla" onclick="grabarplantilla();window.close();">
+			<input type="button" class="btn btn-primary" name="volver" value="Volver" onclick="window.close();	window.history.back();">
+		</div>
+	</div>
+</body>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+	<script src="js/TR-msg.js"></script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

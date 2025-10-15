@@ -1,0 +1,344 @@
+/*
+	COLORS & FONTS
+*/
+:root {
+	--c-blue: #001c71;
+}
+@font-face {
+	font-family: "Univers";
+	font-weight: normal;
+	src: url("../fonts/UniversLTStd.otf");
+}
+@font-face {
+	font-family: "Univers";
+	font-weight: bold;
+	src: url("../fonts/UniversLTStd-Bold.otf");
+}
+@font-face {
+	font-family: "Univers";
+	font-style: 100;
+	src: url("../fonts/UniversLTStd-Light.otf");
+}
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-weight: normal;
+	line-height: 1.2;
+}
+img {
+	max-width: 100%;
+}
+h3 {
+	font-size: 2rem;
+	font-weight: bold;
+}
+h4 em {
+	font-size: 0.75em;
+}
+p {
+	font-size: 1.5rem;
+}
+fieldset {
+	border: 1px solid #ccc;
+}
+	fieldset h3 {
+		margin-top: 15px;
+		margin-bottom: 30px;
+	}
+.table {
+	display: table;
+}
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+.cell + .cell {
+	padding-left: 5%;
+}
+
+#CONFIG_2 .config-container{
+	position: relative;
+	width: 384px;
+	height: 288px;
+	margin: auto;
+	margin-bottom: 32px;
+	background: url(../img/templates/bg_price.png) no-repeat center center;
+}
+	
+.precios .template-config input[type=text] {
+	background: rgba(255,255,255,0.25);
+	border: 1px solid rgba(0,0,0,0.75);
+	color: #000;
+	text-align: center;
+	transition: all .2s ease-in-out;
+}
+.precios .template-config input[type=text]:focus {
+	background: none;
+	border-color: #fff !important;
+	outline: none;
+}
+.precios .price {
+	width: 348px;
+	height: 126px;
+	margin-top: 2px;
+	line-height: 126px;
+	font-size: 136px;
+	font-weight: bold;
+}
+
+#TEMPLATE_FORM {
+	margin-top: 20px;
+}
+
+.template-selection {
+	display: table;
+}
+.template-selection img {
+	border: 1px solid #000;
+}
+
+#CONFIG {
+	display: none;
+}
+
+#CONFIG .config-container {
+	max-width: 960px;
+	margin: auto;
+}
+
+.img-preview {
+	border: 1px solid #000;
+	background: #fff url(../img/select-file.gif) no-repeat center center;
+	background-size: contain;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+.extra-fields {
+	overflow: hidden;
+}
+
+#CONFIG .template-config {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: 56.25%;
+	margin-bottom: 2em;
+	outline: 1px solid #000;
+	background-size: contain;
+	background-repeat: no-repeat;
+	color: var(--c-blue);
+}
+#CONFIG	.template-config input[type=text],
+	.template-config textarea {
+		background: rgba(255,255,255,0.25);
+		border: 1px solid rgba(0,0,0,0.75);
+		color: var(--c-blue);
+		transition: all .2s ease-in-out;
+	}
+		.offer_3 input[type=text],
+		.offer_3 textarea {
+			color: #fff;
+		}
+	.template-config input[type=text]:focus,
+	.template-config textarea:focus {
+		background: none;
+		border-color: #fff !important;
+		outline: none;
+	}
+	.required {
+		border: 2px solid #F4436C;
+	}
+
+.fields-ofertas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	padding-top: 1.3%;
+	padding-left: 1.3%;
+	transition: all .2s ease-in-out;
+}
+
+#PRICE {
+	width: 60%;
+	height: 1em;
+	padding: 0;
+	font-size: 110px;
+	font-weight: 800;
+}
+	.offer_1 #PRICE {
+		color: #fff;
+		font-size: 90px;
+	}
+
+#SUBPRICE {
+	width: 80%;
+	padding: 0;
+	font-size: 45px;
+	font-weight: 800;
+	color: #fff;
+}
+
+#LEGAL {
+	position: absolute;
+    left: 25px;
+    bottom: 10px;
+    width: 100%;
+    font-size: 14px;
+	font-weight: 300;
+}
+	.offer_1 #LEGAL {
+		color: #fff;
+	}
+
+.info {
+	position: absolute;
+	left: 30%;
+	top: 50%;
+	width: 70%;
+	transition: all .2s ease-in-out;
+}
+#DESCRIPCION,
+#SUBDESCRIPCION,
+#DESCRIPCION_2,
+#SUBDESCRIPCION_2 {
+	display: block;
+	width: 100%;
+	resize: vertical;
+}
+#DESCRIPCION,
+#DESCRIPCION_2 {
+	height: 1.2em;
+	font-size: 36px;
+	font-weight: 800;
+	line-height: 0.8333;
+}
+#SUBDESCRIPCION,
+#SUBDESCRIPCION_2 {
+	min-height: 2.7em;
+	font-size: 24px;
+}
+
+#CLAIM {
+	position: absolute;
+    left: 15%;
+    bottom: 15%;
+    width: 35%;
+    height: 12%;
+    font-size: 24px;
+    font-weight: 800;
+}
+	.message #CLAIM {
+		width: 84.375%;
+		left: 4.5%;
+		top: 6.5%;
+		height: 80%;
+		padding: 40px 20px;
+		font-size: 36px;
+		font-weight: 500;
+	}
+
+.img-preview {
+	position: absolute;
+	top: 50%;
+	left: 73.5%;
+	transform: translate(-50%, -50%);
+	width: 46.5625%;
+	height: 75%;
+}
+	.offer_2 .img-preview {
+		top: 44.5%;
+		left: 67.25%;
+		height: 74%;
+		width: 52.5%;
+		border-radius: 20px;
+	}
+
+.offer_2 .fields-ofertas {
+	width: 41%;
+	padding: 8% 1.3%;
+}
+.offer_2 .info {
+	position: static;
+	width: 100%;
+}
+
+.offer_2 #SUBPRICE,
+.offer_2 #PRICE,
+.offer_2 #DESCRIPCION,
+.offer_2 #SUBDESCRIPCION {
+	width: 100%;
+}
+
+.offer_2 #CLAIM {
+	left: 1.3%;
+	width: 38.4%;
+	color: #fff;
+}
+
+.offer_3 {
+	font-family: 'Univers';
+}
+	.offer_3 #SUBPRICE {
+		width: 100%;
+		font-size: 51px;
+		font-weight: 100;
+	}
+	.offer_3 #PRICE {
+		width: 100%;
+		font-size: 160px;
+	}
+	.offer_3 #DESCRIPCION,
+	.offer_3 #DESCRIPCION_2 {
+		font-size: 40px;
+		font-weight: bold;
+	}
+	.offer_3 #SUBDESCRIPCION,
+	.offer_3 #SUBDESCRIPCION_2 {
+		font-size: 25px;
+	}
+	.offer_3 #CLAIM {
+		display: none;
+	}
+	.offer_3 .info {
+		position: static;
+		width: 100%;
+	}
+	.offer_3 #LEGAL {
+		font-size: 10px;
+		font-weight: 100;
+	}
+	.offer_3 .img-preview {
+		background-color: transparent;
+	}
+
+
+.validation {
+	min-height: 1px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+.validation p {
+	margin-top: 20px;
+	margin-bottom: 0;
+	color: #F22771;
+	font-size: 1.25em;
+	font-weight: 500;
+}
+.validation p + p {
+	margin-top: 5px;
+}

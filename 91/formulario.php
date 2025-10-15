@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario de creacion de promocion para cofares</title>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/carralero-template.css">
+</head>
+<?php   
+error_reporting(E_ALL);
+////////// JCAM
+
+// Conexión a la B.D.
+include("../accesomysql.php");
+$idcustomer = 91;  // carralero
+$directoriocliente = $directoriobase."/".$idcustomer."/";
+$template="TEMPLATE-1";
+$idcontent   = 	0;
+$idcampaign   = 0;
+
+// Inicializar todos los valores posibles que se pasan como atributos
+/* $farmacia = "";
+$title = "";		
+$img= "";
+$content= "";
+$price= "";
+$claim="";
+$horario_1="";		
+$horario_2="";		
+$horario_3="";
+$facebook="";
+$twitter="";
+$pinterest="";
+$youtube="";
+$linkedin=""; */
+
+
+?>
+
+
+<body>
+
+<div class="container body" role="main">
+<div class="row">
+	<form action="carralero-preview.php" method="POST" id="TEMPLATE_FORM" enctype="multipart/form-data">
+	<input type="hidden" name="idcustomer" id="idcustomer" value="<?php echo $idcustomer?>">
+	<input type="hidden" name="imagenamostrar" id="imagenamostrar" value="">	
+
+		<fieldset class="col-md-12 form-group" id="TEMPLATE">
+			<h3>Elije tu diseño</h3>
+			<div class="row align-items-center">
+				<div class="form-check col col-md-3">
+					<label for="TEMPLATE-1" class="template-selection">
+						<div class="cell">
+							<input type="radio" name="TEMPLATE" id="TEMPLATE-1" <?php if ($template == "TEMPLATE-1") echo "checked";?> value="TEMPLATE-1">
+						</div>
+						<div class="cell">
+							<p>Oferta 1</p>
+							<img src="carralero-templates/templates/oferta_1.jpg">
+						</div>
+					</label>
+				</div>
+				<div class="form-check col col-md-3">
+					<label for="TEMPLATE-2" class="template-selection">
+						<div class="cell">
+							<input type="radio" name="TEMPLATE" id="TEMPLATE-2" <?php if ($template == "TEMPLATE-2") echo "checked";?> value="TEMPLATE-2">
+						</div>
+						<div class="cell">
+							<p>Oferta 2</p>
+							<img src="carralero-templates/templates/oferta_2.jpg">
+						</div>
+					</label>
+				</div>
+				<div class="form-check col col-md-3">
+					<label for="TEMPLATE-3" class="template-selection">
+						<div class="cell">
+							<input type="radio" name="TEMPLATE" id="TEMPLATE-3" <?php if ($template == "TEMPLATE-3") echo "checked";?> value="TEMPLATE-3">
+						</div>
+						<div class="cell">
+							<p>Descripción</p>
+							<img src="carralero-templates/templates/descripcion.jpg">
+						</div>
+					</label>
+				</div>
+				<div class="form-check col col-md-3">
+					<label for="TEMPLATE-4" class="template-selection">
+						<div class="cell">
+							<input type="radio" name="TEMPLATE" id="TEMPLATE-4" <?php if ($template == "TEMPLATE-4") echo "checked";?> value="TEMPLATE-4">
+						</div>
+						<div class="cell">
+							<p>Mensaje informativo</p>
+							<img src="carralero-templates/templates/mensaje.jpg">
+						</div>
+					</label>
+				</div>
+			</div>
+		</fieldset>
+
+
+		<fieldset class="col-md-12 form-group" id="CONFIG">
+			<h3>Configura tu plantilla</h3>
+
+			<div class="config-container">
+				<div class="template-config">
+					<textarea name="TITLE" id="TITLE"></textarea>
+
+	 				<div class="fields-ofertas">
+	 					<div class="info">
+							<textarea name="DESCRIPCION" id="DESCRIPCION"></textarea>
+							<textarea name="SUBDESCRIPCION" id="SUBDESCRIPCION"></textarea>
+						</div>
+
+						<div class="field-price">
+							<input type="text" name="PRICE" id="PRICE" placeholder="Por sólo 72 €/mes">
+							<input type="text" name="SUBPRICE" id="SUBPRICE" placeholder="Financiación en 12 meses">
+							<input type="text" name="LEGAL" id="LEGAL" placeholder="Promoción válida hasta el 31 de mayo de 2021">
+						</div>
+					</div>
+
+					<div class="img-preview" ><img src="<?php //echo $img?>"></div>
+					<div class="img-border"></div>
+
+					<div class="fields-dientes" id="TEETH">
+						<div class="column">
+							<textarea name="DIENTE_1" id="DIENTE_1"></textarea>
+							<textarea name="DIENTE_2" id="DIENTE_2"></textarea>
+						</div>
+						<div class="column">
+							<textarea name="DIENTE_3" id="DIENTE_3"></textarea>
+							<textarea name="DIENTE_4" id="DIENTE_4"></textarea>
+						</div>
+						<div class="column">
+							<textarea name="DIENTE_5" id="DIENTE_5"></textarea>
+							<textarea name="DIENTE_6" id="DIENTE_6"></textarea>
+						</div>
+						<div class="column">
+							<textarea name="DIENTE_7" id="DIENTE_7"></textarea>
+							<textarea name="DIENTE_8" id="DIENTE_8"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="extra-fields">
+					<div class="fields-img">
+						<h5>Imagen</h5>
+						<div class="img_changer" id="IMG_CHANGER">
+							<label for="CAMBIO_IMG">con imagen?</label>
+							<input type="checkbox" name="CAMBIO_IMG" id="CAMBIO_IMG">
+						</div>
+						<input type="file" name="IMG" id="IMG" value="" style="color: transparent;">
+					</div>
+
+					<div class="fields-desc_config" id="TEETH_CONFIG">
+						<h5>Descripción</h5>
+						<label for="NUM_DIENTES">Número de bloques</label>
+						<select name="NUM_DIENTES" id="NUM_DIENTES">
+							<option value="4">4</option>
+							<option value="6" selected="selected">6</option>
+							<option value="8">8</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="validation"></div>
+
+			<div class="form-group text-center">
+				<input type="submit" name="SUBMIT" id="SUBMIT" value="Previsualizar" class="btn btn-success">
+				<input type="button" class="btn btn-success" name="volver" value="Volver" onclick="window.close();	window.history.back();">
+			</div>
+		</fieldset>
+	</form>
+</div>
+</div>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/carralero.js?tmp=<?=time()?>"></script>
+	<script language="JavaScript">
+			function cerrar(){
+				parent.postMessage({message: "close"}, "*");
+			}
+			<script>
+
+</body>
+</html>

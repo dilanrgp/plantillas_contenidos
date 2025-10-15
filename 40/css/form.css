@@ -1,0 +1,341 @@
+/*
+	COLORS
+		"white": 	#fcfdfa;
+		orange:		#de6e4b;
+		green:		#7fd1b9;
+		brown:		#7a6563;
+*/
+/*
+	FONTS
+*/
+@font-face {
+	font-family: 'Trade Gothic Condensed';
+	src: url('../fonts/TradeGothicLTStd-BdCn20.woff') format('woff'),
+		 url('../fonts/TradeGothicLTStd-BdCn20.ttf') format('truetype'),
+		 url('../fonts/TradeGothicLTStd-BdCn20.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Trade Gothic Extended';
+	src: url('../fonts/TradeGothicLTStd-BoldExt.woff') format('woff'),
+		 url('../fonts/TradeGothicLTStd-BoldExt.ttf') format('truetype'),
+		 url('../fonts/TradeGothicLTStd-BoldExt.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Abril Fatface';
+	src: url('../fonts/Abril Fatface regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Euro sans';
+	src: url('../fonts/EuroSanBol.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+img {
+	max-width: 100%;
+}
+fieldset {
+	border: 1px solid #ccc;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+textarea {
+	resize: none;
+}
+
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+	.cell + .cell {
+		padding-left: 15px;
+	}
+
+
+#TEMPLATE_FORM {
+	margin-top: 20px;
+}
+
+.template-selection {
+	display: table;
+	width: 100%;
+}
+
+#CONFIG {
+	display: none;
+}
+
+.config-container {
+	position: relative;
+	width: 960px;
+	height: 540px;
+	margin: 20px auto 60px;
+	outline: 1px solid #000;
+}
+
+#OFERTA {
+	background: url(../images/img-muffin.jpg) no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.config-container input,
+.config-container textarea {
+	position: absolute;
+	padding: 0;
+	opacity: .75;
+	font-family: "Trade Gothic Condensed";
+	line-height: 1;
+}
+	.config-container input:focus,
+	.config-container textarea:focus {
+		opacity: 1;
+	}
+
+label[for="OFFER_IMG"] {
+	position: absolute;
+	top: 560px;
+	line-height: 1;
+}
+
+#OFFER_TITLE {
+	left: 200px;
+	top: 52px;
+	width: 370px;
+	height: 76px;
+	font-family: 'Abril Fatface';
+	font-size: 62px;
+}
+
+#OFFER_SUBTITLE {
+	left: 200px;
+	top: 130px;
+	width: 370px;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+
+#OFFER_IMG {
+	top: 560px;
+	left: 60px;
+}
+
+#OFFER_PRICE {
+	top: 55px;
+	right: 196px;
+	width: 180px;
+	font-size: 75px;
+	line-height: 1;
+	text-align: right;
+}
+
+#OFFER_CONDITIONS {
+	top: 126px;
+	left: 700px;
+	width: 150px;
+	font-size: 42px;
+}
+
+#OFFER_DESC {
+	top: 272px;
+	right: 0;
+	width: 250px;
+	height: 95px;
+	padding: 10px 20px 10px 10px;
+	background: #d40029;
+	color: #fff;
+	font-size: 26px;
+	line-height: 1;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	overflow: hidden;
+}
+
+#MENUBOARD {
+	background: url(../images/ref_BG_MB.png) no-repeat;
+	background: url(../images/bg.png) no-repeat;
+	background-size: cover;
+}
+
+.columna {
+	position: absolute;
+	top: 28px;
+	height: 483px;
+}
+
+.menus {
+	width: 455px;
+	left: 25px;
+	overflow: hidden;
+}
+.oferta {
+	width: 428px;
+	right: 32px;
+	border: 2px solid #0066a0;
+	border-radius: 16px;
+}
+
+.menu {
+	width: 45%;
+	height: 50%;
+	float: left;
+	margin-right: 5%;
+}
+	.menu input {
+		position: relative;
+		height: auto;
+		margin-bottom: 5px;
+		line-height: 1;
+	}
+
+	.menu-name {
+		font-size: 30px;
+		background: #006491 !important;
+		color: #fff !important;
+		text-transform: uppercase;
+	}
+	.menu-subtitle {
+		color: #d40029 !important;
+		font-size: 28px;
+		text-transform: uppercase;
+	}
+	.menu-desc {
+		font-size: 21px;
+	}
+	.menu-desc-small {
+		font-size: 19px;
+	}
+	.menu-price {
+		color: #d40029 !important;
+		font-size: 20px;
+		width: 35%;
+		margin-left: 65%;
+	}
+
+
+#PROMO_DER_TXT_1,
+#PROMO_DER_TXT_2,
+#PROMO_DER_TXT_3,
+#PROMO_DER_BTN {
+	text-align: center;
+	text-transform: uppercase;
+	line-height: .5;
+	padding: 0;
+}
+
+#PROMO_DER_TXT_1 {
+	top: 10px;
+	height: 32px;
+	color: #d40029;
+	font-family: "Trade Gothic Extended";
+	font-size: 24px;
+}
+
+#PROMO_DER_TXT_2 {
+	top: 45px;
+	height: 48px;
+	color: #006491;
+	font-size: 38px;
+}
+
+#PROMO_DER_TXT_3 {
+	top: 96px;
+	height: 78px;
+	color: #d40029;
+	font-size: 72px;
+}
+
+.conditions {
+	position: absolute;
+	top: 190px;
+	right: 30px;
+	z-index: 10;
+	width: 102px;
+	height: 98px;
+	font-size: 20px;
+	background: url(../images/banner_white.png) no-repeat;
+	background-size: contain;
+}
+
+
+#PROMO_DER_BTN {
+	top: 140px;
+	left: 1em;
+	width: 240px;
+	transform: translateY(50%);
+	padding: .75em .35em .5em;
+	background-color: #d40029;
+	color: #fff;
+	font-size: 25px;
+	line-height: .5;
+	border-radius: .333em;
+	border: 4px solid #fff;
+}
+
+#PROMO_DER_PRICE {
+	width: 70px;
+	height: auto;
+	top: 5px;
+	left: 17px;
+	font-size: 40px;
+}
+#PROMO_DER_COND {
+	width: 70px;
+	height: auto;
+	top: 45px;
+	right: 15px;
+	text-align: right;
+}
+
+.video_area {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 240px;
+	border-top: 4px solid #0066a0;
+}
+
+label[for="PROMO_DER_VIDEO"] {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	margin-bottom: 0;
+}
+
+#PROMO_DER_VIDEO {
+	top: 50%;
+	left: 80px;
+}

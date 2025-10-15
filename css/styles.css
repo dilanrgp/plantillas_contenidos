@@ -1,0 +1,588 @@
+/*
+	COLORS
+		"white": 	#fcfdfa;
+		orange:		#de6e4b;
+		green:		#7fd1b9;
+		brown:		#7a6563;
+*/
+
+/*
+	FONTS
+*/
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir';
+  src: url('../fonts/AvenirNextLTPro-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+main {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	width: 1920px;
+	height: 1080px;
+	overflow: hidden;
+	font-family: 'Avenir';
+	background: #fcfdfa;
+}
+body {
+	width: 100%;
+	height: 100%;
+}
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.bg-mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1920px;
+	height: 1080px;
+	background: rgba(255, 255, 255, 0.25);
+}
+
+/*
+	STYLES HORARIOS
+*/
+.horarios {
+	width: 100%;
+	height: 100%;
+	padding: 5vh 5vw;
+	background: #de6e4b;
+	color: #fcfdfa;
+}
+	.horarios .nombre {
+		float: left;
+		height: 231px;
+		padding-left: 250px;
+		background: url(../img/cruz-verde.png) no-repeat left center;
+		-webkit-background-size: contain;
+		background-size: contain;
+		animation: fadeIn 1.5s ease-in-out;
+	}
+		.horarios .nombre h2,
+		.horarios .RRSS p {
+			font-family: 'Roboto Slab';
+			font-weight: bold;
+			position: relative;
+			top: -10px;
+			font-size: 40px;
+			line-height: 1.2;
+			animation: fromTop 1.5s ease-in-out;
+		}
+		.horarios .RRSS p {
+			animation-delay: 4s;
+		}
+		.horarios .nombre span {
+			display: block;
+			animation: fromTop 1.5s ease-in-out .5s;
+		}
+	.horarios .RRSS {
+		float: right;
+		text-align: right;
+	}
+		.horarios .RRSS li {
+			display: inline-block;
+			margin-left: 25px;
+			margin-top: 30px;
+			font-size: 58px;
+			animation: scaleUp .4s cubic-bezier(.29,.67,.75,1.37);
+		}
+			.horarios .RRSS li:nth-child(5) {
+				animation-delay: 5s;
+			}
+			.horarios .RRSS li:nth-child(4) {
+				animation-delay: 5.2s;
+			}
+			.horarios .RRSS li:nth-child(3) {
+				animation-delay: 5.4s;
+			}
+			.horarios .RRSS li:nth-child(2) {
+				animation-delay: 5.6s;
+			}
+			.horarios .RRSS li:nth-child(1) {
+				animation-delay: 5.8s;
+			}
+
+	.horarios header,
+	.horarios__main,
+	.horarios .logo {
+		animation: fadeOut 1s ease-out 19s;
+	}
+	.horarios__main {
+		clear: both;
+		text-align: center;
+	}
+		.horarios__main h1 {
+			display: inline-block;
+			padding: 20px 45px;
+			margin-top: 15px;
+			margin-bottom: 80px;
+			border: 18px solid #fcfdfa;
+			border-radius: 15px;
+			font-family: 'Roboto Slab';
+			font-weight: normal;
+			font-size: 102px;
+			line-height: 1;
+			text-transform: uppercase;
+			animation-name: fadeIn, slowDown;
+			animation-duration: 1.5s, 1s;
+			animation-timing-function: ease-in-out;
+			animation-delay: 1.5s;
+		}
+		.horarios__main p {
+			font-family: 'Avenir';
+			font-size: 72px;
+			line-height: 1.33333;
+			animation-name: fadeIn, slowDown;
+			animation-duration: 1.5s, 1s;
+			animation-timing-function: ease-in-out;
+		}
+		.horarios__main p:nth-of-type(1) {
+			animation-delay: 2s;
+		}
+		.horarios__main p:nth-of-type(2) {
+			animation-delay: 2.75s;
+		}
+		.horarios__main p:nth-of-type(3) {
+			animation-delay: 3.5s;
+		}
+	.horarios .logo {
+		position: absolute;
+		bottom: 5vh;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 207px;
+		height: 90px;
+		background: url(../img/logo-CC-white-loop.gif);
+		-webkit-background-size: contain;
+		background-size: contain;
+	}
+
+/*
+	STYLES OFERTAS
+*/
+.oferta {
+	animation: fadeOut 1s ease-out 19s;
+}
+.oferta header,
+.evento header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	width: 546px;
+	height: 546px;
+	background: url(../img/esquina-naranja.png) no-repeat left top;
+	-webkit-background-size: contain;
+	background-size: contain;
+	color: #fcfdfa;
+	font-family: 'Roboto Slab';
+	font-size: 40px;
+	font-weight: bold;
+	animation: fromLeft 2s ease-in-out -.75s;
+}
+.evento header {
+	background-image: url(../img/esquina-verde.png);
+}
+	.oferta .nombre,
+	.evento .nombre {
+		padding-top: 40px;
+		padding-left: 50px;
+		max-width: 100%;
+	}
+		.oferta .nombre span:first-child,
+		.evento .nombre span:first-child {
+			display: block;
+			animation: fromTop 1s ease-in-out 1.5s;
+		}
+		.oferta .nombre span+span,
+		.evento .nombre span+span {
+			display: block;
+			animation: fromTop 1s ease-in-out 1.25s;
+		}
+		.oferta .nombre .icon,
+		.evento .nombre .icon {
+			width: 138px;
+			height: 138px;
+			margin-top: 23px;
+			animation: fromTop 1s ease-in-out 1s;
+		}
+
+.oferta__main {
+	width: 100%;
+	height: 100%;
+	padding-top: 192px;
+	padding-left: 328px;
+	color: #7a6563;
+}
+	.oferta__name {
+		margin-bottom: 72px;
+		font-family: 'Roboto Slab';
+		font-size: 52px;
+		font-weight: bold;
+		text-align: center;
+		animation-name: fadeIn, slowDown;
+		animation-duration: 1.5s, 1s;
+		animation-timing-function: ease-in-out;
+		animation-delay: .25s;
+	}
+	.oferta__img {
+		position: relative;
+		float: left;
+		width: 584px;
+		height: 584px;
+		margin-right: 82px;
+		border: 9px solid #7fd1b9;
+		border-radius: 9px;
+		-webkit-background-size: contain;
+		background-size: contain;
+		background-position: center center;
+		animation-name: fadeIn, moveImg;
+		animation-duration: 2s, 20s;
+		animation-timing-function: ease-in-out;
+		animation-delay: .75s;
+	}
+	.oferta__info {
+		float: left;
+		width: 780px;
+		font-size: 40px;
+		line-height: 1.2;
+	}
+		.oferta__info p {
+			margin-bottom: 32px;
+			animation-name: fadeIn, slowDown;
+			animation-duration: 1.5s, 1s;
+			animation-timing-function: ease-in-out;
+		}
+			.oferta__info p:last-child {
+				margin-bottom: 0;
+			}
+			.oferta__info p:nth-of-type(1) {
+				animation-delay: 1.25s;
+			}
+			.oferta__info p:nth-of-type(2) {
+				animation-delay: 1.75s;
+			}
+			.oferta__info p:nth-of-type(3) {
+				animation-delay: 2.25s;
+			}
+			.oferta__info p:nth-of-type(4) {
+				animation-delay: 2.75s;
+			}
+			.oferta__info p:nth-of-type(5) {
+				animation-delay: 3.25s;
+			}
+		.oferta__price {
+			width: 350px;
+			height: 350px;
+			line-height: 350px;
+			margin: auto;
+			margin-top: 68px;
+			border-radius: 50%;
+			background: #7a6563;
+			color: #fcfdfa;
+			font-family: 'Roboto Slab';
+			font-size: 92px;
+			font-weight: bold;
+			text-align: center;
+			animation: scaleUp .4s cubic-bezier(.29,.67,.75,1.37) 2.5s;
+		}
+		.oferta__price span {
+			display: block;
+			animation: moveStamp 5s ease 7s infinite;
+		}
+
+.oferta .logo,
+.evento .logo {
+	position: absolute;
+	right: 57px;
+	bottom: 30px;
+	width: 278px;
+	height: 120px;
+	background: url(../img/logo-CC-green-loop.gif) right bottom no-repeat;
+	-webkit-background-size: contain;
+	background-size: contain;
+}
+
+/*
+	VARIACIONES OFERTAS
+*/
+
+.oferta_con_claim .oferta__img {
+	width: 530px;
+	height: 530px;
+	margin-bottom: 50px;
+}
+.oferta_con_claim .oferta__info {
+	position: relative;
+	height: 530px;
+	width: 840px;
+}
+.oferta_con_claim .oferta__info p {
+	width: 420px;
+}
+.oferta_con_claim .oferta__price {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.oferta__claim {
+	clear: left;
+	margin-right: 335px;
+	font-family: 'Roboto Slab';
+	font-weight: bold;
+	font-size: 80px;
+	text-align: center;
+	animation-name: fadeIn, slowDown;
+	animation-duration: 1.5s, 1s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 3s;
+}
+
+.oferta_con_bg {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.oferta_con_bg .oferta__main {
+	padding-top: 10vh;
+	padding-left: 60px;
+}
+.oferta_con_bg .oferta__details {
+	width: 730px;
+	max-height: 640px;
+	padding: 40px;
+	margin: 0 auto;
+	overflow: hidden;
+	background: rgba(255,255,255,.75);
+	animation: fadeIn 1s ease-in-out;
+}
+.oferta_con_bg .oferta__name {
+	margin-bottom: 1em;
+}
+.oferta_con_bg .oferta__info,
+.oferta_con_bg .oferta__info p{
+	float: none;
+	width: auto;
+	height: auto;
+}
+.oferta_con_bg .oferta__price {
+	bottom: 165px;
+	right: 255px;
+}
+.oferta_con_bg .oferta__claim {
+	position: absolute;
+	left: 10vw;
+	bottom: 10vh;
+	display: inline-block;
+	height: 148px;
+	line-height: 148px;
+	padding: 0 80px;
+	background: #de6e4b;
+	border-radius: 74px;
+	color: #fcfdfa;
+	font-size: 64px;
+}
+
+
+/*
+	STYLES EVENTOS
+*/
+.evento .oferta__name {
+	font-size: 64px;
+	color: #de6e4b;
+}
+.evento .oferta__details {
+	width: 1050px;
+}
+.evento .evento__claim {
+	position: relative;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 1em auto 0;
+	animation-name: fadeIn;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 2s;
+}
+
+
+
+
+
+
+/*
+	ANIMATIONS
+*/
+@keyframes fromLeft {
+    from {
+    	transform: translateX(-50vw);
+    }
+    to {
+    	transform: translateX(0);
+    }
+}
+@keyframes fromRight {
+    from {
+    	transform: translateX(50vw);
+    }
+    to {
+    	transform: translateX(0);
+    }
+}
+@keyframes fromTop {
+    from {
+    	transform: translateY(-30vh);
+    }
+    to {
+    	transform: translateY(0);
+    }
+}
+@keyframes slowDown {
+    from {
+    	transform: translateY(-30px);
+    }
+    to {
+    	transform: translateY(0);
+    }
+}
+@keyframes fromBottom {
+    from {
+    	transform: translateY(-50vh);
+    }
+    to {
+    	transform: translateY(0);
+    }
+}
+@keyframes scaleUp {
+    from {
+    	transform: scale(0);
+    }
+    to {
+    	transform: scale(1);
+    }
+}
+@keyframes moveStamp {
+	0% {
+		transform: rotate(0deg);
+	}
+	2% {
+		transform: rotate(10deg);
+	}
+	6% {
+		transform: rotate(-10deg);
+	}
+	10% {
+		transform: rotate(10deg);
+	}
+	14% {
+		transform: rotate(-10deg);
+	}
+	18% {
+		transform: rotate(10deg);
+	}
+	20% {
+		transform: rotate(0deg);
+	}
+}
+@keyframes fadeIn {
+    from {
+    	opacity: 0;
+    }
+    to {
+    	opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from {
+    	opacity: 1;
+    }
+    to {
+    	opacity: 0;
+    }
+}
+@keyframes moveImg {
+    0% {
+    	transform: scale(1);
+    }
+    50% {
+    	transform: scale(1.1);
+    }
+    100% {
+    	transform: scale(1);
+    }
+}
+
+
+

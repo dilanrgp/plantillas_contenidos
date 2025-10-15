@@ -1,0 +1,660 @@
+/*
+	COLORS
+*/
+:root {
+	--red: #D52B1E;
+	--grey: #D2D0CD;
+	--dark-grey: #6C6F70;
+  }
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+main {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-family: 'Tahoma', sans-serif;
+	color: #fff;
+}
+body {
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+}
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 0;
+	max-width: 1920px;
+	padding-top: 56.25%;
+	overflow: hidden;
+	background-size: cover;
+	z-index: 1;
+	outline: 1px solid #000;
+	border: 5px solid var(--red);
+}
+	.wrapper.preview {
+		transform: translate(-50%, -50%) scale(.6);
+	}
+
+#BUTTONS {
+	/*  dice Thomas que se quite display: none; */
+	z-index: 1000;
+	text-align: center;
+}
+#BUTTONS .btns {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 1em 0;
+	background: rgba(255, 255, 255, 0.75);
+}
+
+.contenedor {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: var(--red) 0.78125vw solid;
+	background: var(--grey);
+	color: #fff;
+}
+
+
+/*
+	STYLES OFERTAS
+.oferta {
+	animation: fadeOut 1s ease-out 19s;
+}
+*/
+.icon {
+	position: absolute;
+	top: 4.63%;
+	left: 2.6%;
+	z-index: 99999;
+	width: 10.42%; /* 200 */
+	height: 18.52%; /* 200 */
+	animation: fromLeft 2s ease-in-out -.75s;
+}
+
+
+#TITLE {
+	position: absolute;
+	top: 24.1%;
+	left: 49.6%;
+	width: 46%;
+	height: 3.2em;
+	font-size: 3.646vw; /* 70 */
+	line-height: 1.43;
+	animation-name: fadeIn, slowDown;
+	animation-duration: 1s, .75s;
+	animation-timing-function: ease-in-out;
+}
+#CONTENT {
+	position: absolute;
+	top: 45%;
+	left: 49.6%;
+	width: 46%;
+	height: 6em;
+	font-size: 2.8125vw; /* 54 */
+	line-height: 1.43;
+	animation-name: fadeIn, slowDown;
+	animation-duration: 1.5s, 1s;
+	animation-timing-function: ease-in-out;
+	animation-delay: .35s;
+}
+#PRICE {
+	position: absolute;
+	top: 68.3%;
+	left: 28.9%;
+	z-index: 150;
+	width: 17.5%;
+	background: var(--red);
+	color: #fff;
+	font-weight: bold;
+	font-size: 3.854vw; /* 74 */
+	line-height: 1.5;
+	text-align: center;
+	animation: scaleUp 1s cubic-bezier(.29,.67,.75,1.37) 1.75s;
+}
+#CLAIM {
+	position: absolute;
+	bottom: -1px;
+	left: 16.1%;
+	width: 67.8%;
+	background: var(--red);
+	font-size: 3.646vw; /* 70 */
+	line-height: 1.75;
+	font-weight: bold;
+	text-align: center;
+	transform-origin: 50% 100%;
+	animation-name: fadeIn, scaleUp;
+	animation-duration: 1.5s, 1.5s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 2.5s;
+}
+.oferta__img {
+	position: absolute;
+	top: 23.33%;
+	left: 11.46%;
+	width: 33.75%;
+	height: 53.89%;
+	border: 6px solid var(--red);
+	background-color: #888;
+	animation: fadeIn 2s ease-in-out;
+}
+	.oferta__img .img {
+		width: 100%;
+		height: 100%;
+		background-size: contain;
+		animation: moveImg 20s ease-in-out;
+	}
+
+.RRSS {
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	text-align: right;
+}
+	.RRSS li {
+		display: inline-block;
+		margin-left: .431034483em; /* 25 */
+		margin-top: .517241379em; /* 30 */
+		font-size: 3.020833333vw; /* 58 */
+		animation: scaleUp .4s cubic-bezier(.29,.67,.75,1.37);
+	}
+		.RRSS li:nth-child(6) {
+			animation-delay: 3.8s;
+		}
+		.RRSS li:nth-child(5) {
+			animation-delay: 4s;
+		}
+		.RRSS li:nth-child(4) {
+			animation-delay: 4.2s;
+		}
+		.RRSS li:nth-child(3) {
+			animation-delay: 4.4s;
+		}
+		.RRSS li:nth-child(2) {
+			animation-delay: 4.6s;
+		}
+		.RRSS li:nth-child(1) {
+			animation-delay: 4.8s;
+		}
+
+
+/*
+	VARIACIONES
+*/
+.oferta_S #TITLE {
+	color: #000;
+}
+.oferta_S #CONTENT {
+	color: var(--dark-grey);
+}
+.oferta_L .contenedor {
+	background: url(templates/bg-alt.jpg) center center no-repeat;
+}
+.oferta_L .icon {
+	animation-delay: .25s;
+}
+.oferta_L #FARMA {
+	left: auto;
+	right: 2%;
+	top: 90%;
+	font-size: 2.6vw; /* 50 */
+	text-align: right;
+	animation-name: fromRight;
+	animation-delay: .5s;
+	animation-duration: 2s;
+}
+.oferta_L #NOMBRE_FARMACIA {
+	left: auto;
+	right: 2%;
+	top: 95%;
+	font-size: 2.6vw; /* 50 */
+	line-height: 1;
+	text-align: right;
+	animation-name: fromRight;
+	animation-delay: .75s;
+	animation-duration: 2s;
+}
+
+.oferta_L .oferta__details {
+	position: absolute;
+	top: -1px;
+	left: 64.6%;
+	z-index: 150;
+	width: 29.6%;
+	height: 43.5%;
+	background: var(--red);
+	animation: fadeIn 1s linear;
+}
+
+.oferta_L #TITLE {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: auto;
+	margin-top: 0.75em;
+	margin-bottom: 0.25em;
+	font-size: 2.083vw; /* 40 */
+	line-height: 1.2;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+}
+.oferta_L #CONTENT {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: auto;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	font-size: 1.5625vw; /* 30 */
+	line-height: 1.2;
+	text-align: center;
+}
+.oferta_L #PRICE {
+	left: 59.2%;
+	top: 69.6%;
+	bottom: auto;
+	width: 20.792%;
+	font-size: 5vw; /* 96 */
+	line-height: 1.1;
+	animation-delay: 2.5s;
+}
+.oferta_L #CLAIM {
+	top: 61%;
+	bottom: auto;
+	left: 71%;
+	width: auto;
+	color: #000;
+	font-size: 4.166vw; /* 80 */
+	font-weight: bold;
+	line-height: 1;
+	text-align: left;
+	background: none;
+	animation-delay: 1.75s;
+	animation-duration: 1s;
+}
+.oferta_L .oferta__img {
+	top: 0;
+	left: 0;
+	width: 69.8%;
+	height: 90%;
+	border: none;
+}
+	.oferta_L .img {
+		background-size: cover;
+	}
+.oferta_L .RRSS {
+	top: auto;
+	right: auto;
+	bottom: 2%;
+	left: 1%;
+}
+
+/*
+	STYLES EVENTOS
+*/
+.evento .oferta__extras {
+	position: absolute;
+	left: 59.22%;
+	top: 69.54%;
+	padding: 0.5vw 3vw;
+	background: var(--red);
+	animation-name: fadeIn, scaleUp;
+	animation-duration: 1.25s;
+	animation-timing-function: ease-in-out;
+	animation-delay: .75s;
+}
+.evento #CLAIM,
+.evento #PRICE {
+	position: static;
+	width: auto;
+	background: none;
+	text-align: center;
+}
+.evento #CLAIM {
+	font-size: 1.5625vw;
+	color: #fff;
+	text-transform: uppercase;
+	animation-delay: 1.35s;
+}
+.evento #PRICE {
+	font-size: 2.86vw;
+	animation-delay: 2s;
+}
+
+
+
+
+/*
+	ANIMATIONS
+*/
+@keyframes fromLeft {
+    from {
+    	transform: translateX(-50vw);
+    }
+    to {
+    	transform: translateX(0);
+    }
+}
+@keyframes fromRight {
+    from {
+    	transform: translateX(50vw);
+    }
+    to {
+    	transform: translateX(0);
+    }
+}
+@keyframes fromTop {
+    from {
+    	transform: translateY(-30vh);
+    }
+    to {
+    	transform: translateY(0);
+    }
+}
+@keyframes slowDown {
+    from {
+    	transform: translateY(-30px);
+    }
+    to {
+    	transform: translateY(0);
+    }
+}
+@keyframes fromBottom {
+    from {
+    	transform: translateY(-50vh);
+    }
+    to {
+    	transform: translateY(0);
+    }
+}
+@keyframes scaleUp {
+    from {
+    	transform: scale(0);
+    }
+    to {
+    	transform: scale(1);
+    }
+}
+@keyframes moveStamp {
+	0% {
+		transform: rotate(0deg);
+	}
+	2% {
+		transform: rotate(10deg);
+	}
+	6% {
+		transform: rotate(-10deg);
+	}
+	10% {
+		transform: rotate(10deg);
+	}
+	14% {
+		transform: rotate(-10deg);
+	}
+	18% {
+		transform: rotate(10deg);
+	}
+	20% {
+		transform: rotate(0deg);
+	}
+}
+@keyframes fadeIn {
+    from {
+    	opacity: 0;
+    }
+    to {
+    	opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from {
+    	opacity: 1;
+    }
+    to {
+    	opacity: 0;
+    }
+}
+@keyframes moveImg {
+    0% {
+    	transform: scale(1);
+    }
+    50% {
+    	transform: scale(1.1);
+    }
+    100% {
+    	transform: scale(1);
+    }
+}
+
+
+
+
+/*
+	RESPONSIVE
+*/
+
+@media all and (orientation: portrait)  {
+  
+	.wrapper {
+		
+		height: 100%;
+	}
+
+    .icon{
+        position: absolute;
+        top: 4.63%;
+        left: 2.6%;
+        z-index: 99999;
+        height: 201px;
+        width: 201px;
+        
+    }
+
+    #FARMA {
+        top: 6.5%;
+        left: 19%;
+        font-size: 4vw;
+    }
+
+    #NOMBRE_FARMACIA {
+        top: 13%;
+        left: 25.5%;
+        font-size: 3vw;
+    }
+
+    .oferta__img {
+        top: 30.33%;
+        left: 14.46%;
+        width: 40%;
+        height: 40%;
+    }
+
+    #PRICE {
+        top: 63.3%;
+        left: 28.9%;
+        z-index: 150;
+        width: 28.5%;
+        font-size: 7vw;
+    }
+
+    #CLAIM {
+        left: 16.1%;
+        width: 67.8%;
+        font-size: 7vw;
+    }
+
+    #TITLE {
+        top: 30.1%;
+        left: 58.6%;
+        width: 46%;
+        height: 3.2em;
+    }
+
+    #CONTENT {
+        top: 45%;
+        left: 58.6%;
+        width: 58%;
+        height: 5em;
+        font-size: 4.5vw;
+    }
+
+    .contenedor {
+        background-size: cover;
+    } 
+}
+
+@media (min-aspect-ratio:16/9) {
+	.wrapper {
+		width: 0;
+		height: 100%;
+		max-width: none;
+		max-height: 1080px;
+		padding-left: 177.777778vh;
+		padding-top: 0;
+	}
+}
+@media (min-width: 1920px) and (min-height: 1080px) {
+	.wrapper {
+		width: 1920px;
+		height: 1080px;
+		padding: 0;
+	}
+	#FARMA,
+	#NOMBRE_FARMACIA {
+		font-size: 40px;
+	}
+	#TITLE {
+		font-size: 70px;
+	}
+	#CONTENT {
+		font-size: 54px;
+	}
+	#PRICE {
+		font-size: 74px;
+	}
+	#CLAIM {
+		font-size: 70px;
+	}
+	.RRSS li {
+		font-size: 58px;
+	}
+
+	
+	.oferta_L #NOMBRE_FARMACIA,
+	.oferta_L #FARMA {
+		font-size: 50px;
+	}
+	.oferta_L #TITLE {
+		font-size: 40px;
+	}
+	.oferta_L #CONTENT {
+		font-size: 30px;
+	}
+	.oferta_L #PRICE {
+		font-size: 96px;
+	}
+	.oferta_L #CLAIM {
+		font-size: 80px;
+	}
+
+
+	.evento #CLAIM {
+		font-size: 30px;
+	}
+	.evento #PRICE {
+		font-size: 54px;
+	}
+	.evento .oferta__extras {
+		padding: 10px 58px;
+	}
+
+
+	.horarios__main {
+		margin-top: 268px;
+	}
+		.horarios__main h1 {
+			margin-bottom: 80px;
+			font-size: 98px
+		}
+		.horarios__main p {
+			font-size: 62px;
+		}
+		.horarios .tel {
+			padding: 36px 82px;
+			margin-top: 76px;
+		}
+}

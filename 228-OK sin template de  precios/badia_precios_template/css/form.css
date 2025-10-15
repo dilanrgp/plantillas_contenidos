@@ -1,0 +1,113 @@
+/*
+	COLORS & FONTS
+*/
+:root {
+	--c-blue: #001c71;
+}
+@font-face {
+	font-family: "Univers";
+	font-weight: normal;
+	src: url("../fonts/UniversLTStd.otf");
+}
+@font-face {
+	font-family: "Univers";
+	font-weight: bold;
+	src: url("../fonts/UniversLTStd-Bold.otf");
+}
+@font-face {
+	font-family: "Univers";
+	font-style: 100;
+	src: url("../fonts/UniversLTStd-Light.otf");
+}
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-family: 'Univers', sans-serif;
+	font-weight: normal;
+	line-height: 1.2;
+}
+img {
+	max-width: 100%;
+}
+h3 {
+	font-size: 2rem;
+	font-weight: bold;
+}
+h4 em {
+	font-size: 0.75em;
+}
+p {
+	font-size: 1.5rem;
+}
+fieldset {
+	border: 1px solid #ccc;
+}
+	fieldset h3 {
+		margin-top: 15px;
+		margin-bottom: 30px;
+	}
+.table {
+	display: table;
+}
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+	.cell + .cell {
+		padding-left: 5%;
+	}
+
+#TEMPLATE_FORM {
+	margin-top: 20px;
+}
+
+.template-selection {
+	display: table;
+}
+	.template-selection img {
+		border: 1px solid #000;
+	}
+
+.config-container {
+	position: relative;
+	width: 384px;
+	height: 288px;
+	margin: auto;
+	margin-bottom: 32px;
+	background: url(../img/bg_price.png) no-repeat center center;
+}
+
+	.template-config input[type=text] {
+		background: rgba(255,255,255,0.25);
+		border: 1px solid rgba(0,0,0,0.75);
+		color: #000;
+		text-align: center;
+		transition: all .2s ease-in-out;
+	}
+
+	.template-config input[type=text]:focus {
+		background: none;
+		border-color: #fff !important;
+		outline: none;
+	}
+
+.price {
+	width: 348px;
+	height: 126px;
+	margin-top: 2px;
+	line-height: 126px;
+	font-size: 136px;
+	font-weight: bold;
+	color:#212529;
+}

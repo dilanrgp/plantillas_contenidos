@@ -1,0 +1,862 @@
+/*
+	COLORS
+		"white": 	#fcfdfa;
+		orange:		#de6e4b;
+		green:		#7fd1b9;
+		brown:		#7a6563;
+*/
+
+/*
+	FONTS
+*/
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts//RobotoSlab-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts//RobotoSlab-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir';
+  src: url('../fonts//AvenirNextLTPro-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+/*
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+main {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*/
+
+img {
+	max-width: 100%;
+}
+fieldset {
+	border: 1px solid #ccc;
+}
+fieldset h3 {
+		margin-top: 15px;
+		margin-bottom: 30px;
+		font:bold 20px "Trebuchet MS"; 
+	}
+textarea {
+	resize: none;
+}
+
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+	.cell + .cell {
+		padding-left: 5%;
+	}
+
+
+#TEMPLATE_FORM {
+	margin-top: 20px;
+}
+
+.template-selection {
+	display: table;
+}
+
+#CONFIG {
+	display: none;
+}
+
+.config-container {
+	max-width: 960px;
+	margin: auto;
+}
+.template-config {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: 56.25%;
+	outline: 1px solid #000;
+	background-size: contain;
+    background-repeat: no-repeat;
+}
+	.template-config input[type=text],
+	.template-config textarea {
+		position: absolute;
+		padding: .1em .2em;
+		background: rgba(255,255,255,0.5);
+		border: 1px solid #7a6563;
+		font-family: 'Roboto Slab';
+		font-weight: bold;
+		transition: all .2s ease-in-out;
+	}
+	.template-config input[type=text]:focus,
+	.template-config textarea:focus {
+		background: none;
+		border-color: transparent;
+		border-bottom-color: #de6e4b;
+		outline: none;
+	}
+
+    .horarios {
+        height:608px;
+        background-size: cover;
+}
+
+#NOMBRE_FARMACIA {
+	left: 2%;
+	top: 6%;
+	width: 24%;
+	font-size: 20px;
+	color: #fff;
+}
+
+#TITLE {
+    top: 18.5%;
+    left: 54.1%;
+    width: 41%;
+    height: 3em;
+    color: #333;
+    font-size: 32px;
+    line-height: 1.2;
+    text-align: right;
+}
+
+
+#CONTENT {
+    top: 38.2%;
+    left: 51.166%;
+    width: 44%;
+    height: 3.2em;
+    color: #333;
+    font-family: 'Avenir';
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+
+#PRICE {
+    height: 180px;
+    top: 52.5%;
+    left: 57.5%;
+    width: 29.8%;
+    color: black;
+    font-size: 180px;
+    line-height: 1;
+    text-align: right;
+}
+
+	#NOMBRE_FARMACIA:focus,
+	#PRICE:focus {
+		border-bottom-color: #fff;
+	}
+#PRICE-CENTS
+{
+    top: 54.8%;
+    left: 81.5%;
+    width: 9.8%;
+    color: black;
+    font-size: 58px;
+    line-height: 1;
+    text-align: start;
+}	
+
+
+#UNIT
+{
+    height: 45px;
+    top: 74%;
+    left: 88%;
+    width: 8%;
+    color: black;
+    font-size: 35px;
+    line-height: 1;
+}
+
+#TITLE-SUPERLOTES{
+    display: none;
+}
+
+#TITLE-SUPERDESCUENTO-UNO{
+    display: none;
+}
+
+#TITLE-SUPERDESCUENTO-DOS{
+    display: none;
+}
+
+#UNIT:focus {
+    border-bottom-color: #fff;
+}
+
+#OLDPRICE
+{
+	display: none;
+}
+
+#OLDPRICE-CENTS
+{
+	display: none;
+}
+
+#UNIT-OLDPRICE{
+    display: none;
+}
+
+#DISCOUNT
+{
+	display: none;
+}
+
+#DETAIL
+{
+	display: none;
+}
+.oferta_con_claim #DETAIL 
+{
+	display: block;
+}
+
+.oferta_con_claim #DISCOUNT
+{
+	display: block;
+}
+
+.oferta_nueva #DETAIL
+{
+	display: block;
+}
+
+.superdescuento #TITLE-SUPERDESCUENTO-UNO{
+    display: block;
+    top: 5%;
+    left: 75.5%;
+    width: 20%;
+    color: white;
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+.superdescuento #TITLE-SUPERDESCUENTO-DOS{
+    display: block;
+    top: 45%;
+    left: 72%;
+    width: 26%;
+    color: white;
+    font-size: 38px;
+    line-height: 1.2;
+}
+
+.oferta_nueva #TITLE-SUPERLOTES{
+    display: block;
+    top: 1%;
+    left: 59.1%;
+    width: 35%;
+    height: 2.7em;
+    color: white;
+    font-size: 50px;
+    line-height: 1.2;
+    text-align: right;
+}
+
+.oferta_nueva #TITLE-SUPERLOTES :placeholder{
+    color: white;
+}
+
+
+#CLAIM {
+	top: 81%;
+	left: 17.08%;
+	width: 57.5%;
+	color: #fff;
+	font-size: 36px;
+	text-align: center;
+	text-transform: uppercase;
+}
+	.oferta_con_bg #CLAIM {
+		color: #fff;
+	}
+.img-preview {
+    position: absolute;
+    top: 34.3%;
+    left: 5.125%;
+    width: 42.416667%;
+    height: 56.592592%;
+    background: url(templates/select-file.gif) no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+}
+.bg-image {
+	display: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: url(templates/bg-oferta.jpg) no-repeat center center;
+	background-size: cover;
+	z-index: -1;
+}
+.evento .bg-image {
+	background-image: url(templates/bg-evento.jpg);
+}
+
+.oferta_con_claim #CONTENT {
+	left: 36%;
+    width: 34%;
+    height: 14%;
+    top: 42%;
+    font-family: 'Avenir';
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 1.2
+}
+.oferta_con_claim #PRICE {
+	left: 71.2%;
+    top: 51.5%;
+    width: 16.8%;
+    color: white;
+    font-size: 139px;
+    line-height: 1;
+    text-align: center;
+    padding: 0;
+    height: 119px;
+}
+
+.oferta_con_claim #PRICE-CENTS {
+	top: 52.8%;
+    left: 87.5%;
+    width: 5.8%;
+    color: white;
+    font-size: 46px;
+    line-height: 1;
+    text-align: start;
+    padding: 0;
+}
+
+.oferta_con_claim #DISCOUNT {
+	left: 74.2%;
+    top: 10%;
+    width: 18.8%;
+    color: white;
+    font-size: 84px;
+    line-height: 1;
+    text-align: start;
+    padding: 0;
+    height: 95px;
+}
+
+.oferta_con_claim #DETAIL {
+	left: 73.2%;
+    top: 87.5%;
+    width: 18.8%;
+    color: #5a5a5a;
+    font-size: 13px;
+    line-height: 1;
+    text-align: right;
+    padding: 0;
+    height: 38px;
+}
+
+.oferta_con_claim .img-preview {
+	width: 33.42%;
+    height: 61.407407%;
+    left: 3.5%;
+    top: 29%;
+}
+
+.oferta_con_claim #TITLE {
+	top: 26.5%;
+    left: 37.1%;
+    width: 32%;
+    height: 2.6em;
+    color: #333;
+    font-size: 32px;
+    line-height: 1.2;
+    text-align: right;
+}
+
+.oferta_con_bg #TITLE {
+	top: 14%;
+    left: 54.55%;
+    width: 40%;
+    height: 15%;
+    font-size: 33px;
+    line-height: 1.1;
+    text-align: right;
+}
+.oferta_con_bg #CONTENT {
+	top: 28.7%;
+    left: 46.55%;
+    width: 48%;
+    height: 12.5%;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-family: 'Avenir';
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 1.2;
+    text-align: right;
+}
+.oferta_con_bg #PRICE {
+	height: 180px;
+    top: 40.5%;
+    left: 54.5%;
+    width: 29.8%;
+    color: black;
+    font-size: 180px;
+    line-height: 1;
+    text-align: center;
+}
+
+.oferta_con_bg #PRICE-CENTS {
+	top: 41.8%;
+    left: 81%;
+    width: 9.8%;
+    color: black;
+    font-size: 58px;
+    line-height: 1;
+    text-align: start;
+}
+
+
+.oferta_con_bg #OLDPRICE{
+	position: absolute;
+    top: 76.8%;
+    left: 81%;
+    width: 9.8%;
+    color: black;
+    font-size: 58px;
+    line-height: 1;
+	text-align: start;
+	display: block;
+	
+}
+
+
+.oferta_con_bg #OLDPRICE-CENTS {
+	position: absolute;
+    top: 80.8%;
+    left: 90%;
+    width: 2.8%;
+    color: black;
+    font-size: 16px;
+    line-height: 1;
+	text-align: start;
+	
+	display: block;
+
+}
+
+.oferta_con_bg #UNIT
+{
+    height: 45px;
+    top: 64%;
+    left: 88%;
+    width: 8%;
+    color: black;
+    font-size: 35px;
+    line-height: 1;
+    display: block;
+}
+
+.oferta_con_bg #UNIT-OLDPRICE
+{
+    height: 20px;
+    top: 87%;
+    left: 92%;
+    width: 8%;
+    color: black;
+    font-size: 13px;
+    line-height: 1;
+    display: block;
+}
+
+.oferta_con_bg #DETAIL
+{
+	display: none;
+}
+
+.oferta_con_bg #DISCOUNT
+{
+	display: none;
+}
+
+
+
+.oferta_con_bg #CLAIM {
+	width: 43%;
+	left: 12%;
+	top: 78.5%;
+	font-size: 28px;
+}
+.oferta_con_bg .img-preview {
+	display: block;
+	width: 45.42%;
+    height: 56.407407%;
+    left: 5.08%;
+}
+.oferta_con_bg .bg-image {
+	display: block;
+}
+
+
+.oferta_nueva 
+{
+
+
+}
+
+.oferta_nueva #TITLE
+{
+	top: 24.5%;
+    left: 59.1%;
+    width: 35%;
+    height: 2.7em;
+    color: white;
+    font-size: 34px;
+    line-height: 1.2;
+    text-align: right;
+
+}
+
+.oferta_nueva #CONTENT
+{
+	top: 40.2%;
+    left: 59.166%;
+    width: 34%;
+    height: 3.2em;
+    color: #333;
+    font-family: 'Avenir';
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 1.2;
+    text-align: right;
+    color: white;
+
+}
+
+.oferta_nueva #PRICE
+{
+    height: 180px;
+    top: 52.5%;
+    left: 59.5%;
+    width: 22.8%;
+    color: black;
+    font-size: 180px;
+    line-height: 1;
+    text-align: center;
+    padding: 0;;
+
+}
+
+.oferta_nueva #PRICE-CENTS
+{
+    top: 54.8%;
+    left: 77%;
+    width: 7.8%;
+    color: black;
+    font-size: 58px;
+    line-height: 1;
+    text-align: start;
+    padding: 0;
+
+}
+
+.oferta_nueva #DETAIL
+{
+	top: 86.5%;
+    left: 59.1%;
+    width: 35%;
+    height: 4%;
+    color: #bdbdbd;
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: right;
+
+}
+
+.oferta_nueva #DISCOUNT
+{
+   display: none;
+
+}
+
+.oferta_nueva #OLDPRICE
+{
+   display: none;
+
+}
+
+.oferta_nueva #OLDPRICE-CENTS
+{
+	display: none;
+
+
+}
+
+.oferta_nueva #UNIT-OLDPRICE{
+    display: none;
+}
+
+
+.oferta_nueva  .img-preview
+{
+	display: block;
+    width: 46.42%;
+    height: 68%;
+	left: 5.125%;
+	
+	top: 25.3%;
+
+}
+
+
+.evento #TITLE {
+	height: 2.5em;
+    width: 37%;
+    font-size: 41px;
+    top: 20.8%;
+    left: 5.2%;
+    text-align: left;
+}
+.evento #CONTENT {
+	top: 22%;
+    left: 45.2%;
+    width: 50%;
+    height: 17%;
+    
+    font-family: 'Avenir';
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 1.4;
+    text-align: right;
+}
+
+
+.evento #PRICE {
+	display: block;
+    padding: 0;
+    height: 250px;
+    top: 42.5%;
+    left: 23.5%;
+    left: 47.5%;
+    width: 30.8%;
+    color: black;
+    font-size: 250px;
+    line-height: 1;
+    text-align: center;
+}
+
+.evento #PRICE-CENTS {
+	display: block;
+    top: 45.8%;
+    left: 79%;
+    padding: 0;
+    width: 9.8%;
+    color: black;
+    font-size: 75px;
+    line-height: 1;
+    text-align: start;
+}
+
+.evento #UNIT
+{
+    height: 45px;
+    top: 75%;
+    left: 86%;
+    width: 8%;
+    color: black;
+    font-size: 35px;
+    line-height: 1;
+}
+
+
+.evento #OLDPRICE{
+	display: none;
+}
+
+
+.evento #OLDPRICE-CENTS {
+	display: none;
+}
+
+.evento #UNIT-OLDPRICE{
+    display: none;
+}
+
+.evento #CLAIM {
+	display: none;
+	text-transform: none;
+	top: 67.5%;
+	left: 26.8%;
+	width: 57%;
+}
+
+.evento .img-preview {
+	display: block;
+    width: 37.42%;
+    height: 48.407407%;
+    left: 5.08%;
+    top: 40%;
+}
+
+
+
+.horarios #NOMBRE_FARMACIA {
+	left: 17.4%;
+	top: 7.4%;
+}
+
+.horarios input[type="text"] {
+    color: black;
+}
+.horarios input[type="text"]:focus {
+	border-bottom-color: #fff;
+}
+
+.fields-RRSS {
+	margin-top: 20px;
+}
+	.fields-RRSS input[type="text"] {
+		position: relative;
+	}
+
+#HORARIO_1,
+#HORARIO_2,
+#HORARIO_3,
+#HORARIO_4 {
+	left: 50%;
+    height: 55px;
+    transform: translateX(-50%);
+    width: 60%;
+    padding-bottom: 0;
+    font-family: 'Avenir';
+    font-size: 36px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#HORARIO_TITLE {
+    font-family: 'Avenir';
+    top: 15.5%;
+    left: 50%;
+    height: 55px;
+    transform: translateX(-50%);
+    width: 60%;
+    padding-bottom: 0;
+    font-family: 'Avenir';
+    font-size: 45px;
+    font-weight: 900;
+    text-align: center;
+    color: #76b92e;
+
+}
+
+#HORARIO_1 {
+    top: 25.5%;
+}
+
+
+#HORARIO_2 {
+    top: 36.5%;
+}
+
+#HORARIO_3 {
+    top: 47.5%;
+}
+
+#HORARIO_4 {
+    top: 58.5%;
+}
+
+#HORARIO_FOOTER{
+    font-family: 'Avenir';
+    top: 68.5%;
+    left: 50%;
+    height: 50px;
+    transform: translateX(-50%);
+    width: 60%;
+    font-size: 32px;
+    font-weight: 900;
+    text-align: center;
+    border: none;
+    color: white;
+}
+
+.validation {
+	min-height: 1px;
+	margin-top: 100px;
+	margin-bottom: 20px;
+}
+	.validation p {
+		margin-top: 20px;
+		margin-bottom: 0;
+		color: #d22;
+		font-size: 1.25em;
+		font-weight: bold;
+	}
+	.validation p + p {
+		margin-top: 5px;
+	}
+
+textarea {
+	overflow: hidden;
+}
+

@@ -1,0 +1,2771 @@
+html { font-size: 2vw; }
+
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;   
+
+   
+    
+}
+
+.container-general
+{
+    display: flex;
+    flex-direction: row;
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+
+}
+
+
+/****************************************************************PLANTILLA 1*******************************************************************************/
+
+
+.plantilla1_container-up
+{
+    display: flex;
+    justify-content: space-between;
+
+    height: 21.7%;
+    width: 100%;
+    
+    padding-right: 5.6%;
+    box-sizing: border-box;
+    
+    
+    
+
+}
+.plantilla1_up-left
+{
+    display: flex;
+    height: 100%;
+    width: 56.1%;
+    
+    box-sizing: border-box;
+
+
+    
+}
+
+.plantilla1_logo-container
+{
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 5.6%;
+    padding-right: 2%;
+    box-sizing: border-box;
+    background-color: #e50d28;
+
+
+}
+
+.plantilla1_name-product
+{
+    width: 100%;
+    height: 25%;
+
+    font-size: 1.665em;
+    line-height: 1.2em;
+    color: #000000;
+    font-weight: 700;
+    font-family: "Open Sans";
+    text-align: right;
+    
+    padding-top: 3.8%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    
+    letter-spacing: 0.002em;
+}
+
+.plantilla1_name-product .plantilla1_name-container
+{
+    width: 88%;
+}
+
+.plantilla1_logo-container .plantilla1_logo
+{
+    background-image: url("../media/LogoSuper.png");
+    height: 70.3%;
+    width: 73%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    
+
+}
+
+.plantilla1_title-up
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 100px;
+    line-height: 60px;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: "Helvetica";
+    text-align: right;
+
+   
+}
+
+
+
+.plantilla1_container-mid
+{
+    display: flex;
+    
+    height: 69.2%;
+    width: 100%;
+
+    justify-content:  center;
+    padding-left: 4.6%;
+    padding-right: 5.6%;
+    
+    box-sizing: border-box;
+
+
+}
+
+
+.plantilla1_container-mid .plantilla1_left
+{
+    
+    display: flex;
+    height: 100%;
+    width: 50%;   
+   
+    
+
+    box-sizing: border-box;
+    
+
+}
+
+
+
+
+
+
+
+
+
+.plantilla1_container-mid .plantilla1_left .plantilla1_left-image
+{
+    height: 100%;
+    width: 100%;
+
+   
+
+    
+    box-sizing: border-box;
+
+    padding-top: 20%;
+    
+
+}
+
+.plantilla1_container-mid .plantilla1_left .plantilla1_left-image .plantilla1_image
+{
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+ 
+    box-sizing: border-box;
+}
+
+.plantilla1_container-mid .plantilla1_right
+{
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;  
+ word-wrap: break-word;    /* JCAM 27/12/2020 */   
+    
+
+    box-sizing: border-box;
+    
+}
+
+.plantilla1_container-mid .plantilla1_right .plantilla1_description-product
+{
+    width: 100%;
+    height: 18%;
+
+
+    font-size: 1.05em;
+    line-height: 1.2em;
+    color: #000000;
+    font-weight: 300;
+    font-family: "Open Sans";
+    text-align: right;
+
+    
+    
+}
+.plantilla1_container-mid .plantilla1_right .plantilla1_old-price
+{
+    height: 24.3%;
+    
+    width: 29%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    
+  
+}
+
+.plantilla1_up-tag
+{
+    height: 49.3%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row-reverse;
+
+    align-items: center;
+    
+    
+  
+}
+
+.plantilla1_up-tag .plantilla1_details
+{
+    height: 100%;
+    width: 33%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    
+    color: #000000;
+    font-family: 'PT Sans';
+    text-align: right;
+
+    padding-right: 5%;
+    box-sizing: border-box;
+    
+
+}
+
+.plantilla1_up-tag .plantilla1_cents
+{  
+    
+    font-weight: 700;
+    padding-top: 15%;
+    font-size: 3em;
+    
+
+}
+
+.plantilla1_up-tag .plantilla1_units
+{  
+    font-style: italic;
+    font-size: 2.5em;
+
+    padding-bottom: 7%;
+    box-sizing: border-box;
+    
+
+}
+
+.plantilla1_up-tag .plantilla1_price
+{
+    height: 100%;
+    min-width: 34%;
+
+    display: flex;
+    justify-content: flex-end;    
+    align-items: center;
+    
+    letter-spacing: -0.04em;
+    font-size: 10em;
+    
+    color: #000000;
+    font-family: 'PT Sans';
+    font-weight: 700;
+
+    text-align: right;
+
+    padding-left: 6%;
+    box-sizing: border-box;
+    
+
+}
+
+.plantilla1_background-yellow
+{
+    background-color: yellow;
+
+
+}
+
+.plantilla1_container-bot
+{
+    height: 10%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 1.2%;
+    box-sizing: border-box;
+}
+
+.plantilla1_container-bot .plantilla1_logo
+{
+
+    height: 100%;
+    width: 15%;
+
+    background-image: url("../media/Logo\ Negro.png");
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.plantilla1_down-tag
+{
+    height: 70%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row-reverse;
+
+    align-items: center;
+}
+
+.plantilla1_down-tag .plantilla1_details
+{
+    height: 100%;
+    width: 33%;
+
+    display: flex;
+    flex-direction: column;
+    
+
+    
+    color: #000000;
+    font-family: 'PT Sans';
+    
+    text-align: right;
+
+    padding-right: 6%;
+    box-sizing: border-box;
+}
+
+.plantilla1_down-tag .plantilla1_details .plantilla1_cents
+{  
+    
+    font-weight: 700;
+    /* padding-top: 10%; */
+    font-size: 40px;
+    
+
+}
+
+.plantilla1_down-tag .details .plantilla1_units
+{  
+    font-style: italic;
+    font-size: 30px;
+
+    /* padding-bottom: 16%; */
+    box-sizing: border-box;
+    
+
+}
+
+.plantilla1_down-tag .plantilla1_price
+{
+    height: 100%;
+    min-width: 34%;
+
+    display: flex;
+    justify-content: flex-end;    
+    
+    
+    letter-spacing: -2px;
+
+    font-size: 132px;
+    
+    color: #000000;
+    font-family: 'PT Sans';
+    font-weight: 700;
+
+    text-align: right;
+
+    padding-left: 6%;
+    box-sizing: border-box;
+
+    line-height: 91px;
+    
+
+}
+
+.plantilla1_old-title
+{
+    font-size: 32px;
+    
+    color: #000000;
+    font-weight: 400;
+    font-family: "Open Sans";
+    text-align: right;
+    
+}
+
+
+
+/**ANIMACIONES*/
+.plantilla1_top-animation
+{
+    animation-name: plantilla1_top-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla1_top-animation
+{
+    0%{transform: translateY(-7em);}
+    12%{transform: translateY(0);}
+    
+    91.6%{transform: translateY(0);}
+    100%{transform: translateY(-7em);}
+
+    
+}
+
+.plantilla1_left-img-animation
+{
+    animation-name: plantilla1_left-img-animation;    
+    animation-duration: 12s;
+
+    animation-fill-mode: forwards;
+}
+@keyframes plantilla1_left-img-animation
+{
+    0%{transform:translateX(-25em);}
+    2.5%{transform:translateX(-25em);}
+    12.5%{transform:translateX(0);}
+
+    91.6%{transform:translateX(0);}
+    100%{transform:translateX(-25em);}
+    
+}
+
+
+
+
+
+
+.plantilla1_right-title-animation
+{
+    animation-name: plantilla1_right-title-animation;
+    
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+    
+}
+@keyframes plantilla1_right-title-animation
+{
+    
+    0%{transform:translateX(13em);}
+    3.33%{transform:translateX(13em);}
+    16.6%{transform:translateX(0);}
+    
+    91.6%{transform:translateX(0);}
+    100%{transform:translateX(13em);}
+    
+}
+
+.plantilla1_right-description-animation
+{
+    animation-name: plantilla1_right-description-animation;
+    
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+    
+}
+@keyframes plantilla1_right-description-animation
+{
+    
+    0%
+    {
+        transform:translateX(25em);
+        opacity:0;
+    }
+    12%
+    {
+        transform:translateX(25em);
+        opacity: 0;
+    }
+    24%
+    {
+        transform:translateX(0);
+        opacity: 100%;
+    }
+    
+    91.6%
+    {
+        transform:translateX(0);
+    }
+    100%
+    {
+        transform:translateX(25em);
+    }
+    
+}
+
+
+
+.plantilla1_new-price-animation
+{
+    
+    transition: transform 300ms;
+    animation-name: plantilla1_new-price-animation;
+    animation-duration: 12s;
+
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes plantilla1_new-price-animation
+{
+
+    0%{transform:scale(0.001);}
+    16%{transform:scale(0.001);}
+    27%{transform:scale(1);}
+    91.6%{transform:scale(1);}
+
+    100%{transform:scale(0);}
+
+    
+} 
+
+
+
+
+
+/*****************************************************************************PLANTILLA 2**********************************************************************************/
+
+
+
+.plantilla2_yellow-background
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: #ffff33;
+
+    z-index: -3;
+}
+
+
+/*************** LEFT ***************/
+
+.plantilla2_container-left
+{
+    width: 69.5%;
+    height: 100%;
+
+
+    display: flex;
+    flex-direction: column;
+}
+
+.plantilla2_container-left .plantilla2_container-up
+{
+    width: 100%;
+    height: 22%;
+}
+
+.plantilla2_container-left .plantilla2_container-up .plantilla2_title
+{
+    width: 100%;
+    height: 100%;
+    
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding-bottom: 1.5%;
+    padding-right: 3%;
+}
+
+.plantilla2_container-left .plantilla2_container-up .plantilla2_title .plantilla2_title-img
+{
+    height: 100%;
+    width: 84%;
+
+    background-image: url("../media/SuperDescuento.png");
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.plantilla2_container-left .plantilla2_container-mid
+{
+    width: 100%;
+    height: 78%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.plantilla2_container-left .plantilla2_container-mid .plantilla2_product
+{
+    width: 50%;
+    height: 100%;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding-top: 5.2%;
+    padding-left: 10%;
+    padding-right: 1.5%;
+    padding-bottom: 7%;
+}
+
+.plantilla2_container-left .plantilla2_container-mid .plantilla2_product .plantilla2_product-img
+{
+    width: 100%;
+    height: 100%;
+
+    background-image: url("../media/Sopinstant.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.plantilla2_container-left .plantilla2_container-mid .plantilla2_container-mid-left
+{
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.plantilla2_container-left .plantilla2_container-mid .plantilla2_container-mid-left .plantilla2_product-content
+{
+    width: 100%;
+    height: 87%;
+    
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    padding-right: 3%;
+    padding-left: 3%;
+}
+
+.plantilla2_container-left .plantilla2_container-mid .plantilla2_container-mid-left .plantilla2_product-content .plantilla2_product-name
+{
+    width: 100%;
+    height: 27.7%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    color: #000000;
+    font-weight: 700;
+    font-family: "Open Sans";
+    text-align: right;
+    font-size: 1.67em;
+    line-height: 1.08em;
+word-wrap: break-word;    /* JCAM 27/12/2020 */	
+}
+
+.plantilla2_container-left .plantilla2_container-mid .plantilla2_container-mid-left .plantilla2_product-content .plantilla2_product-description
+{
+    width: 100%;
+    height: 72.3%;
+
+    color: #000000;
+    font-weight: 300;
+    font-family: "Open Sans";
+    text-align: right;
+    font-size: 0.99em;
+    line-height: 1.28em;
+    
+	word-wrap: break-word;    /* JCAM 27/12/2020 */
+
+	
+	box-sizing: border-box;
+    padding-top: 1%;
+}
+
+.plantilla2_container-left .plantilla2_container-mid .plantilla2_container-mid-left .plantilla2_container-bot
+{
+    width: 100%;
+    height: 13%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding-right: 12.5%;
+}
+
+.plantilla2_container-left .plantilla2_container-mid .plantilla2_container-mid-left .plantilla2_container-bot .plantilla2_logo
+{
+    height: 100%;
+    width: 49%;
+
+    background-image: url("../media/Logo\ Negro.png");
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+
+
+/*************** RIGHT ***************/
+
+.plantilla2_container-right
+{
+    width: 30.5%;
+    height: 100%;
+}
+
+.plantilla2_container-right .plantilla2_discount-percent
+{
+    width: 96%;
+    height: 32.9%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("../media/RedCircle.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.plantilla2_container-right .plantilla2_discount-percent .plantilla2_title-percentage
+{
+    height: 26%;
+
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Open Sans";
+    text-align: right;
+    font-size: 1.25em;
+    
+    box-sizing: border-box;
+    padding-right: 1%;
+}
+
+.plantilla2_container-right .plantilla2_discount-percent .plantilla2_number-percentage
+{
+    height: 45%;
+
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'PT Sans';
+    text-align: center;
+    font-size: 4.1em;
+    line-height: 0.5em;
+
+    box-sizing: border-box;
+    padding-right: 4%;
+}
+
+.plantilla2_container-right .plantilla2_discount-price
+{
+    height: 51%;
+
+    background-image: url("../media/BlackCircle.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    box-sizing: border-box;
+    margin-top: 3%;
+    margin-right: 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.plantilla2_container-right .plantilla2_discount-price .plantilla2_title-price
+{
+    height: 40%;
+
+    color: #ffffff;
+    font-family: 'PT Sans';
+    text-align: right;
+    font-size: 2.05em;
+    line-height: 4.3em;
+    letter-spacing: 0.01em;
+
+    padding-right: 5.5%;
+}
+
+.plantilla2_container-right .plantilla2_discount-price .plantilla2_number-price
+{
+    height: 60%;
+    
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center; */
+
+    box-sizing: border-box;
+}
+
+.plantilla2_container-right .plantilla2_discount-price .plantilla2_number-price .plantilla2_price
+{
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'PT Sans';
+    text-align: right;
+    font-size: 6.5em;
+    line-height: 0.8em;
+}
+
+.plantilla2_container-right .plantilla2_discount-price .plantilla2_number-price .plantilla2_cents
+{
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'PT Sans';
+    font-size: 1.9em;
+}
+
+.plantilla2_container-right .plantilla2_units
+{
+    width: 73.3%;
+    height: 9%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    color: #000000;
+    font-weight: 300;
+    font-family: "Open Sans";
+    text-align: right;
+    font-size: 0.63em;
+    line-height: 1.35em;
+    letter-spacing: 0.005em;
+
+    padding-top: 2%;
+}
+
+
+/************************* ANIMATIONS *************************/
+
+.plantilla2_yellow-background-animation
+{
+    animation-name: plantilla2_yellow-background-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla2_yellow-background-animation
+{
+    0%{opacity:0;}
+    4.4%{opacity: 1;}
+
+    95.8%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+
+.plantilla2_container-up-animation
+{
+    animation-name: plantilla2_container-up-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla2_container-up-animation
+{
+    0%{transform: translateY(-7em);}
+    10%{transform: translateY(0);}
+
+    91.6%{transform: translateY(0);}
+    100%{transform: translateY(-7em);}
+}
+
+
+.plantilla2_product-img-animation
+{
+    animation-name: plantilla2_product-img-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla2_product-img-animation
+{
+    0%{transform: scale(0.00001);}
+    8.3%{transform: scale(1);}
+
+    91.6%{transform: translateX(0);}
+    100%{transform: translateX(-17em);}
+}
+
+
+.plantilla2_product-content-animation
+{
+    animation-name: plantilla2_product-content-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla2_product-content-animation
+{
+    0%{opacity:0;}
+    5.5%{opacity: 0;}
+    12.5%{opacity: 1;}
+
+    91.6%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+
+.plantilla2_discount-percent-animation
+{
+    animation-name: plantilla2_discount-percent-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla2_discount-percent-animation
+{
+    0%{transform: translateX(14em);}
+    1.9%{transform: translateX(14em);}
+    10.2%{transform: translateX(0);}
+
+    91.6%{transform: translateX(0);}
+    100%{transform: translateX(14em);}
+}
+
+
+.plantilla2_discount-price-animation
+{
+    animation-name: plantilla2_discount-price-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla2_discount-price-animation
+{
+    0%{transform: translateX(16em);}
+    5.5%{transform: translateX(16em);}
+    12.5%{transform: translateX(0);}
+
+    91.6%{transform: translateY(0);}
+    100%{transform: translateY(19em);}
+}
+
+
+.plantilla2_units-animation
+{
+    animation-name: plantilla2_units-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla2_units-animation
+{
+    0%{opacity:0;}
+    13.6%{opacity: 0;}
+    20%{opacity: 1;}
+
+    91.6%{transform: translateY(0);}
+    100%{transform: translateY(32em);}
+}
+
+
+
+
+
+
+/*****************************************************************************PLANTILLA 3**********************************************************************************/
+
+
+
+
+
+.plantilla3_yellow-background
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: #ffff33;
+
+    z-index: -3;
+}
+
+
+/*************** LEFT ***************/
+
+.plantilla3_container-left
+{
+    width: 53%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.plantilla3_container-up
+{
+    width: 100%;
+    height: 22.1%;
+}
+
+.plantilla3_title
+{
+    width: 100%;
+    height: 100%;
+    
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding-right: 2%;
+    padding-left: 1%;
+    padding-bottom: 2%;
+}
+
+.plantilla3_title .plantilla3_title-img
+{
+    height: 100%;
+    width: 80%;
+
+    background-image: url("../media/Title.png");
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.plantilla3_container-down
+{
+    width: 100%;
+    height: 77.9%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding-top: 4.7%;
+    padding-left: 10%;
+    padding-right: 3.5%;
+    padding-bottom: 7.5%;
+}
+
+.plantilla3_product-img
+{
+    width: 100%;
+    height: 100%;
+
+    background-image: url("../media/Sopinstant.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+
+/*************** RIGHT ***************/
+
+.plantilla3_container-right
+{
+    width: 47%;
+    height: 100%;
+
+    box-sizing: border-box;
+    padding-left: 5.6%;
+    padding-right: 5.3%;
+    padding-bottom: 5%;
+}
+
+.plantilla3_content-right
+{
+    width: 100%;
+    height: 100%;
+
+    background-color: black;
+}
+
+.plantilla3_title-offer
+{
+    width: 100%;
+    height: 27%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'PT Sans';
+    text-align: right;
+    font-size: 3em;
+    line-height: 0.9em;
+    letter-spacing: 0.01em;
+
+    box-sizing: border-box;
+    padding-bottom: 5%;
+    padding-right: 5.7%;
+}
+
+.plantilla3_product-content
+{
+    width: 100%;
+    height: 29%;
+    display: flex;
+    flex-direction: column;
+}
+
+.plantilla3_product-name
+{
+    width: 100%;
+    height: 60%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Open Sans";
+    text-align: right;
+    font-size: 1.6em;
+    line-height: 1.15em;
+    letter-spacing: 0.02em;
+
+    box-sizing: border-box;
+    padding-bottom: 1%;
+    padding-right: 5.7%;
+}
+
+.plantilla3_product-description
+{
+    width: 100%;
+    height: 40%;
+
+    color: #ffffff;
+    font-weight: 300;
+    font-family: "Open Sans";
+    text-align: right;
+    font-size: 1em;
+    line-height: 1.28em;
+    letter-spacing: 0.0001em;
+    
+    box-sizing: border-box;
+    padding-right: 5%;
+}
+
+.plantilla3_box-price
+{
+    width: 100%;
+    height: 38.8%;
+
+    box-sizing: border-box;
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-right: 2.4%;
+}
+
+.plantilla3_backgroundcolor-price
+{
+    width: 100%;
+    height: 100%;
+
+    background-color: #ffff33;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+}
+
+.plantilla3_price
+{
+    /* width: 63%; */
+    height: 100%;
+
+    color: #000000;
+    font-weight: bold;
+    font-family: 'PT Sans';
+    text-align: right;
+    font-size: 9.3em;
+    line-height: 1em;
+    letter-spacing: 0.03em;
+}
+
+.plantilla3_unit-cent
+{
+    width: 37%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.plantilla3_cents
+{
+    width: 100%;
+    height: 51.5%;
+
+    color: #000000;
+    font-weight: bold;
+    font-family: 'PT Sans';
+    font-size: 2.7em;
+    line-height: 2em;
+    text-align: center;
+
+    box-sizing: border-box;
+    padding-right: 7%;
+}
+
+.plantilla3_unit-price
+{
+    width: 100%;
+    /* height: 50%; */
+
+    color: #000000;
+    font-family: 'PT Sans';
+    text-align: right;
+    font-size: 1.3em;
+    line-height: 0em;
+    
+    box-sizing: border-box;
+    padding-right: 11%;
+}
+
+.plantilla3_units
+{
+    width: 100%;
+    height: 5.3%;
+
+    color: #ffffff;
+    font-weight: 300;
+    font-family: "Open Sans";
+    text-align: right;
+    font-size: 0.67em;
+    line-height: 1.7em;
+    letter-spacing: 0.004em;
+
+    box-sizing: border-box;
+    padding-right: 1.8%;
+}
+
+/*************** BOTTOM **************/
+
+.plantilla3_container-bot
+{
+    width: 100%;
+    height: 8.7%;
+    
+    position: fixed;
+    bottom: 0;
+}
+
+.plantilla3_container-bot .plantilla3_logo
+{
+    height: 80%;
+    width: 100%;
+
+    background-image: url(../media/Logo\ Negro.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+
+/************************* ANIMATIONS *************************/
+
+.plantilla3_yellow-background-animation
+{
+    animation-name: plantilla3_yellow-background-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla3_yellow-background-animation
+{
+    0%{opacity:0;}
+    4.4%{opacity: 1;}
+
+    95.8%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+
+
+.plantilla3_container-up-animation
+{
+    animation-name: plantilla3_container-up-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla3_container-up-animation
+{
+    0%{transform: translateY(-7em);}
+    10%{transform: translateY(0);}
+
+    91.6%{transform: translateY(0);}
+    100%{transform: translateY(-7em);}
+}
+
+
+
+.plantilla3_product-img-animation
+{
+    animation-name: plantilla3_product-img-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla3_product-img-animation
+{
+    0%{transform: translateX(-23em);}
+    12.5%{transform: translateX(0);}
+
+    91.6%{transform: translateX(0);}
+    100%{transform: translateX(-23em);}
+}
+
+
+
+.plantilla3_container-right-animation
+{
+    animation-name: plantilla3_container-right-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla3_container-right-animation
+{
+    0%{transform: translateY(-26em);}
+    12.5%{transform: translateY(0);}
+
+    91.6%{transform: translateX(0);}
+    100%{transform: translateX(21em);}
+}
+
+
+
+/*****************************************************************************PLANTILLA 4**********************************************************************************/
+
+
+
+
+.plantilla4_container-up
+{
+    display: flex;
+    height: 28.4%;
+    width: 100%;
+    
+    padding-right: 5.6%;
+    
+    box-sizing: border-box;
+    
+    justify-content: space-between;
+ 
+}
+.plantilla4_up-left
+{
+    display: flex;
+    height: 100%;
+    width: 56%;
+    
+    box-sizing: border-box;
+
+    
+
+
+    
+}
+
+.plantilla4_logo-container
+{
+    height: 78%;
+    width: 100%;
+
+    padding-left: 9.6%;
+    padding-right: 2%;
+    box-sizing: border-box;
+    background-color: #000000;
+    
+
+
+}
+
+.plantilla4_name-product
+{
+    font-size: 1.75em;
+    line-height: 1em;
+    letter-spacing: -0.025em;
+
+    color: #000000;
+    font-weight: 700;
+    font-family: "Open Sans";
+    text-align: right;
+   
+
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    width: 40.3%;
+}
+
+.plantilla4_logo-container .plantilla4_logo
+{
+    background-image: url("../media/LogoSuper.png");
+    height: 90%;
+    width: 96%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    
+
+}
+
+
+
+.plantilla4_container-mid
+{
+    display: flex;
+    
+    height: 62%;
+    width: 100%;
+
+    justify-content:  center;
+    padding-left: 4.6%;
+    padding-right: 5.6%;
+    
+    box-sizing: border-box;
+
+
+}
+
+
+.plantilla4_container-mid .plantilla4_left
+{
+    
+    display: flex;
+    height: 100%;
+    width: 50%;    
+   
+    
+
+    box-sizing: border-box;
+    
+
+}
+
+
+
+
+
+
+
+
+.plantilla4_container-mid .plantilla4_left .plantilla4_left-image
+{
+    height: 100%;
+    width: 100%;
+
+    /* JCAM 20122020   background-image: url("../media/item.png");  */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin-top: 4%;
+    box-sizing: border-box;
+
+   
+    
+
+}
+
+.plantilla4_container-mid .plantilla4_right
+{
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;    
+   
+    
+
+    box-sizing: border-box;
+    
+	
+	
+	
+}
+
+.plantilla4_container-mid .plantilla4_right .plantilla4_description-product
+{
+    width: 100%;
+    height: 19.4%;
+
+
+    font-size: 1.05em;
+    line-height: 1.2em;
+    letter-spacing: -0.002em;
+    padding-top: 0.5%;
+    padding-bottom: 2%;
+
+    color: #000000;
+    font-weight: 300;
+    font-family: "Open Sans";
+    text-align: right;
+
+    
+    
+}
+.plantilla4_container-mid .plantilla4_right .plantilla4_old-price
+{
+    height: 25.3%;    
+    width: 29%;
+
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+
+    padding-top: 3%;
+    padding-right: 0.5%;
+    box-sizing: border-box;
+
+    
+  
+}
+
+.plantilla4_up-tag
+{
+    height: 55.3%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row-reverse;
+
+    align-items: center;
+    
+    
+  
+}
+
+.plantilla4_up-tag .plantilla4_details
+{
+    height: 100%;
+    width: 33%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    
+    color: #000000;
+    font-family: 'PT Sans';
+    text-align: right;
+
+    padding-right: 5%;
+    box-sizing: border-box;
+    
+
+}
+
+.plantilla4_up-tag .plantilla4_cents
+{  
+    
+    font-weight: 700;
+    padding-top: 15%;
+    font-size: 3em;
+    
+
+}
+
+.plantilla4_up-tag .plantilla4_units
+{  
+    font-style: italic;
+    font-size: 2.5em;
+
+    padding-bottom: 7%;
+    box-sizing: border-box;
+    
+
+}
+
+.plantilla4_up-tag .plantilla4_price
+{
+    height: 100%;
+    min-width: 34%;
+
+    display: flex;
+    justify-content: flex-end;    
+    align-items: center;
+    
+    letter-spacing: -0.05em;
+
+    font-size: 10em;
+    
+    color: #000000;
+    font-family: 'PT Sans';
+    font-weight: 700;
+
+    text-align: right;
+
+    padding-left: 6%;
+    box-sizing: border-box;
+    
+
+}
+
+.plantilla4_background-yellow
+{
+    background-color: yellow;
+
+
+}
+
+.plantilla4_container-bot
+{
+    height: 9.6%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plantilla4_container-bot .plantilla4_logo
+{
+
+    
+    height: 100%;
+    width: 15%;
+
+    background-image: url("../media/Logo\ Negro.png");
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.plantilla4_down-tag
+{
+    position: relative;
+    height: 70%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row-reverse;
+
+    align-items: center;
+}
+
+.plantilla4_down-tag .plantilla4_details
+{
+    height: 100%;
+    width: 33%;
+
+    display: flex;
+    flex-direction: column;
+    
+
+    
+    color: #000000;
+    font-family: 'PT Sans';
+    line-height: 1.4em;
+    
+    text-align: right;
+
+    padding-right: 6%;
+    box-sizing: border-box;
+}
+
+.plantilla4_down-tag .plantilla4_details .plantilla4_cents
+{  
+    
+    font-weight: 700;
+    /* padding-top: 10%; */
+    
+    
+
+}
+
+.plantilla4_down-tag .plantilla4_details .plantilla4_units
+{  
+    font-style: italic;
+    
+
+    /* padding-bottom: 16%; */
+    box-sizing: border-box;
+    
+
+}
+
+.plantilla4_down-tag .plantilla4_price
+{
+    height: 100%;
+    min-width: 34%;
+
+    display: flex;
+    justify-content: flex-end;    
+    
+    
+    
+
+    font-size: 3.3em;
+    
+    color: #000000;
+    font-family: 'PT Sans';
+    font-weight: 700;
+
+    text-align: right;
+
+    padding-left: 6%;
+    box-sizing: border-box;
+
+    line-height: 0.8em;
+    
+
+}
+
+.plantilla4_old-title
+{
+    font-size: 0.87em;
+    
+    color: #000000;
+    font-weight: 400;
+    font-family: "Open Sans";
+    text-align: right;
+    
+}
+
+.plantilla4_down-tag .plantilla4_img-line {
+    width: 100%;
+
+    position: absolute;
+}
+
+
+
+
+
+.plantilla4_top-animation
+{
+    animation-name: plantilla4_top-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla4_top-animation
+{
+    0%{transform: translateY(-7em);}
+    12%{transform: translateY(0);}
+    
+    91.6%{transform: translateY(0);}
+    100%{transform: translateY(-7em);}
+
+    
+}
+
+
+
+
+
+
+
+
+.plantilla4_left-img-animation
+{
+    animation-name: plantilla4_left-img-animation;    
+    animation-duration: 12s;
+
+    animation-fill-mode: forwards;
+}
+@keyframes plantilla4_left-img-animation
+{
+    0%{transform:translateX(-25em);}
+    2.5%{transform:translateX(-25em);}
+    12.5%{transform:translateX(0);}
+
+    91.6%{transform:translateX(0);}
+    100%{transform:translateX(-25em);}
+    
+} 
+
+
+
+
+
+
+.plantilla4_right-title-animation
+{
+    animation-name: plantilla4_right-title-animation;
+    
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+    
+}
+@keyframes plantilla4_right-title-animation
+{
+    
+    0%{transform:translateX(12em);}
+    3.33%{transform:translateX(12em);}
+    16.6%{transform:translateX(0);}
+    
+    91.6%{transform:translateX(0);}
+    100%{transform:translateX(12em);}
+    
+}
+
+.plantilla4_right-description-animation
+{
+    animation-name: plantilla4_right-description-animation;
+    
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+    
+}
+@keyframes plantilla4_right-description-animation
+{
+    
+    0%
+    {
+        transform:translateX(25em);
+        opacity:0;
+    }
+    15%
+    {
+        transform:translateX(25em);
+        opacity: 0;
+    }
+    24%
+    {
+        transform:translateX(0);
+        opacity: 100%;
+    }
+    
+    91.6%
+    {
+        transform:translateX(0);
+    }
+    100%
+    {
+        transform:translateX(25em);
+    }
+    
+}
+
+
+
+.plantilla4_new-price-animation
+{
+    
+    transition: transform 300ms;
+    animation-name: plantilla4_price-animation;
+    animation-duration: 12s;
+
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes plantilla4_price-animation
+{
+
+    0%{transform:scale(0.001);}
+    19.5%{transform:scale(0.001);}
+    29%{transform:scale(1);}
+    91.6%{transform:scale(1);}
+
+    100%{transform:scale(0);}
+
+    
+} 
+
+
+.plantilla4_new-price-animation
+{
+    
+    transition: transform 300ms;
+    animation-name: plantilla4_new-price-animation;
+    animation-duration: 12s;
+
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes plantilla4_new-price-animation
+{
+
+    0%{transform:scale(0.001);}
+    19.5%{transform:scale(0.001);}
+    29%{transform:scale(1);}
+    91.6%{transform:scale(1);}
+
+    100%{transform:scale(0);}
+
+    
+} 
+
+
+.plantilla4_old-price-animation
+{
+    
+    transition: transform 300ms;
+    animation-name: plantilla4_old-price-animation;
+    animation-duration: 12s;
+
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes plantilla4_old-price-animation
+{
+
+    0%{opacity: 0;}
+    24.3%{opacity: 0;}
+    31%{opacity: 100%;}
+    91.6%{opacity: 100%;}
+
+    100%{opacity: 0;}
+
+    
+} 
+
+
+
+/****************************************************************PLANTILLA 5*******************************************************************************/
+
+
+
+
+
+
+
+@font-face 
+{
+    font-family: 'Sweet Pea';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Sweet Pea'), url('../fonts/Sweet\ Pea.woff') format('woff');
+}
+
+
+
+
+.plantilla5_container-up
+{
+    display: flex;
+    height: 19.4%;
+    width: 100%;
+    background-color: #109a43;
+    padding-left: 5.8%;
+    padding-right: 5.2%;
+    
+    box-sizing: border-box;
+    justify-content: space-between;
+    
+    
+
+}
+
+
+.plantilla5_logo-container
+{
+    background-image: url("../media/logo\ blanco.png");
+    height: 100%;
+    width: 36.7%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.plantilla5_title-up
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1%;
+    width: 44%;
+
+    font-size: 2.6em;
+    line-height: 0.7em;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: "Helvetica";
+    text-align: right;
+   
+
+   
+}
+
+.plantilla5_title-up span
+{    
+    font-size: 1.2em;
+    line-height: 0.7em;
+    color: #ffffff;
+    font-family: 'Sweet Pea';
+    font-weight: 400;
+    text-align: center;
+    padding-top: 2%;
+    padding-right: 3%;
+   
+}
+
+.plantilla5_container-mid
+{
+    display: flex;
+    flex-direction: column;
+    height: 71%;
+    width: 100%;
+
+    align-items: center;
+    padding-left: 5.6%;
+    padding-right: 5.6%;
+    
+    box-sizing: border-box;
+
+
+}
+
+
+.plantilla5_container-mid .plantilla5_up
+{
+    
+    display: flex;
+    justify-content: space-between;
+    height: 30%;
+    width: 100%;    
+ word-wrap: break-word;    /* JCAM 27/12/2020 */
+    padding-top: 2%;
+
+    box-sizing: border-box;
+    
+
+}
+
+
+.plantilla5_name-product
+{
+    width: 42%;
+    height: 100%;
+
+
+    font-size: 2.3em;
+    line-height: 0.9em;
+    letter-spacing: -0.02em;;
+
+    color: #129945;
+    font-weight: 700;
+    font-family: "Open Sans";
+
+
+    
+    
+}
+
+
+
+.plantilla5_description-product
+{
+    width: 52%;
+    height: 100%;
+    
+
+    font-size: 1.05em;
+    line-height: 1.25em;
+    color: #000000;
+    font-weight: 300;
+    font-family: "Open Sans";
+    text-align: right;
+
+    
+    
+}
+
+
+.plantilla5_container-mid .plantilla5_down
+{
+    
+    display: flex;
+    height: 70%;
+    width: 100%;    
+   
+    
+    box-sizing: border-box;
+    justify-content: space-between;
+    
+}
+
+.plantilla5_container-mid .plantilla5_down .plantilla5_left
+{
+    height: 100%;
+    width: 41.5%;
+
+   /* JCAM 20122020   background-image: url("../media/item.png");  */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border: #76b82f solid 0.4em;
+    box-sizing: border-box;
+
+   
+    
+
+}
+
+.plantilla5_container-bot
+{
+    height: 9.6%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plantilla5_container-bot .plantilla5_logo
+{
+
+    
+    height: 100%;
+    width: 15%;
+
+    background-image: url("../media/Logo\ Negro.png");
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+
+.plantilla5_container-mid .plantilla5_down .plantilla5_right
+{
+    height: 100%;
+    width: 55%;
+
+    display: flex;
+    flex-direction: row-reverse;
+
+    align-items: center;
+    
+    
+  
+}
+
+.plantilla5_container-mid .plantilla5_down .plantilla5_right .plantilla5_details
+{
+    height: 100%;
+    width: 33%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    
+    color: #000000;
+    font-family: 'PT Sans';
+    text-align: right;
+    background-color: yellow;
+
+    padding-right: 6%;
+    box-sizing: border-box;
+    
+
+}
+
+.plantilla5_container-mid .plantilla5_down .plantilla5_right .plantilla5_cents
+{  
+    
+    font-weight: 700;
+    padding-top: 25%;
+    font-size: 4em;
+    
+
+}
+
+.plantilla5_container-mid .plantilla5_down .plantilla5_right .plantilla5_units
+{  
+    font-style: italic;
+    
+    font-size: 3em;
+    padding-bottom: 25%;
+
+    box-sizing: border-box;
+    
+
+}
+
+.plantilla5_container-mid .plantilla5_down .plantilla5_right .plantilla5_price
+{
+    height: 100%;
+    min-width: 47%;
+
+    display: flex;
+    justify-content: flex-end;    
+    align-items: center;
+    
+    
+    font-size: 13.4em;
+    
+    color: #000000;
+    font-family: 'PT Sans';
+    font-weight: 700;
+
+    text-align: right;
+    background-color: yellow;
+
+    padding-left: 6%;
+    box-sizing: border-box;
+    
+
+}
+
+
+
+.plantilla5_top-animation
+{
+    animation-name: plantilla5_top-animation;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla5_top-animation
+{
+    0%{transform: translateY(-6em);}
+    12%{transform: translateY(0);}
+    
+    91.6%{transform: translateY(0);}
+    100%{transform: translateY(-6em);}
+
+    
+}
+
+.plantilla5_title-fade-in
+{
+    opacity: 0;
+
+    animation-name: plantilla5_title-fade-in;
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes plantilla5_title-fade-in
+{
+
+    from{opacity: 0;}
+    to{opacity: 100%;}
+}
+
+
+
+
+
+.plantilla5_left-title-animation
+{
+    animation-name: plantilla5_left-title-animation;
+    
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+
+}
+@keyframes plantilla5_left-title-animation
+{
+
+   
+
+    0%{transform: translateX(-23em);}
+    12%{transform: translateX(0);}
+    
+    91.6%{opacity: 100%;}
+    100%{opacity: 0;}
+
+}
+
+
+
+
+
+.plantilla5_left-img-animation
+{
+    animation-name: plantilla5_left-img-animation;    
+    animation-duration: 12s;
+
+    animation-fill-mode: forwards;
+}
+@keyframes plantilla5_left-img-animation
+{
+    0%{transform:translateX(-23em);}
+    2.5%{transform:translateX(-23em);}
+    12.5%{transform:translateX(0);}
+
+    91.6%{transform:translateX(0);}
+    100%{transform:translateX(-23em);}
+    
+}
+
+
+
+
+
+.plantilla5_right-description-animation
+{
+    animation-name: plantilla5_right-description-animation;
+    
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+
+}
+@keyframes plantilla5_right-description-animation
+{
+
+    0%{transform:translateX(1000px);}
+    3.33%{transform:translateX(1000px);}
+    16.6%{transform:translateX(0);}
+
+    91.6%{opacity: 100%;}
+    100%{opacity: 0;}
+
+}
+
+
+.plantilla5_price-enter
+{
+    animation-name: plantilla5_price-enter;
+    
+    animation-duration: 2s;
+}
+@keyframes plantilla5_price-enter
+{
+
+    0%{transform:scale(0);}
+    30%{transform:scale(0);}
+    100%{transform:scale(100%);}
+}
+
+
+.plantilla5_price-animation
+{
+    transition: transform 1s;
+    animation-name: plantilla5_price-animation;
+    animation-duration: 12s;
+
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes plantilla5_price-animation
+{
+
+    0%{transform:scale(0.001);}
+    3%{transform:scale(0.001);}
+    16%{transform:scale(1);}
+    91.6%{transform:scale(1);}
+
+    100%{transform:scale(0.001);}
+
+    
+}
+
+
+
+/**************************************************************************************************PLANTILLA 6**********************************************************************/
+.plantilla6_container-up
+{
+    display: flex;
+    height: 17.4%;
+    width: 100%;
+    padding-right: 3%;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+    /* opacity: 20%; */
+    
+    
+
+}
+.plantilla6_up-left
+{
+    display: flex;
+    height: 100%;
+    width: 54%;
+    padding-top: 1%;
+    box-sizing: border-box;
+
+    
+
+
+    
+}
+
+.plantilla6_logo-container
+{
+    height: 100%;
+    width: 47%;
+    padding-left: 8.6%;
+    /* padding-right: 2%; */
+    box-sizing: border-box;
+    
+    
+
+
+}
+
+.plantilla6_logo-container .plantilla6_logo
+{
+    background-image: url(../media/Logo\ variacion\ precio.png);
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    
+
+}
+
+
+.plantilla6_social-network-conatainer
+{
+    height: 100%;
+    width: 23%;
+    display: flex;
+    padding-top: 0.4%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.plantilla6_social-network-logo
+{
+    height: 100%;
+    width: 20%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    margin-left: 1.5%;
+
+}
+
+
+
+
+
+.plantilla6_container-mid
+{
+    display: flex;
+    flex-direction: column;
+    height: 65%;
+    width: 100%;
+    /* justify-content: space-between; */
+    align-items: center;
+    
+    z-index: -5;
+
+}
+
+.plantilla6_container-mid .plantilla6_title
+{
+    font-family: "Open Sans";
+    font-weight: 700;
+    color: #109a44;
+    
+    font-size: 2.3em;
+    line-height: 0.7em;
+    height: 14%;
+}
+
+.plantilla6_container-mid .plantilla6_item
+{
+    height: 14.5%;
+    font-size: 1.67em;
+    line-height: 1.73em;
+    color: #000000;
+    font-weight: 600;
+    font-family: "Open Sans";
+    text-align: center;
+}
+
+.plantilla6_button
+{
+    height: 20%;
+    background-color: #76b830;
+    color: white;
+    width: 37%;
+    text-align: center;
+    
+    margin-top: 2.85%;
+    font-weight: 600;
+    font-family: "Open Sans";
+    font-size: 1.65em;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.plantilla6_container-bot
+{
+    height: 17.6%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    
+    padding-top: 0.2%;
+    box-sizing: border-box;
+    
+}
+.plantilla6_bot-background
+{
+    background-color: #000000;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+
+}
+
+.plantilla6_mail
+{
+    width: 100%;
+    height: 41%;
+    
+    font-size: 1.35em;
+    color: white;
+    font-weight: 600;
+    font-family: "Open Sans";
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding-top: 1%;
+
+    z-index: 5;
+}
+.plantilla6_number-container
+{
+    width: 48%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+
+    padding-bottom: 5%;
+    z-index: 5;
+}
+.plantilla6_number-container .plantilla6_logo
+{
+
+    
+    height: 100%;
+    width: 10%;
+    background-image: url(../media/WHBot.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.plantilla6_number-container .plantilla6_number-text
+{
+    font-size: 1.35em;
+    line-height: 1.8em;
+    color: white;
+    font-weight: 400;
+    font-family: "Open Sans";
+    text-align: center;
+}
+
+.plantilla6_top-left-animation
+{
+    animation-name: plantilla6_top-left-animation;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla6_top-left-animation
+{
+    0%{transform: translateX(-50em);}
+    5%{transform: translateX(0);}
+    
+    95.3%{transform: translateX(0);}
+    100%{transform: translateX(50em);}
+
+    
+}
+
+.plantilla6_top-right-animation
+{
+    animation-name: plantilla6_top-right-animation;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla6_top-right-animation
+{
+    0%{transform: translateX(50em);}
+    5%{transform: translateX(0);}
+    
+    95.3%{transform: translateX(0);}
+    100%{transform: translateX(50em);}
+
+    
+}
+
+
+.plantilla6_info-animation
+{
+    animation-name: plantilla6_info-animation;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla6_info-animation
+{
+    0%{opacity:0;}
+    5%{opacity: 0;}
+    10%{opacity: 1;}
+
+    92.5%{opacity: 1;}
+    100%{opacity: 0;}
+
+}
+
+.plantilla6_button-animation
+{
+    animation-name: plantilla6_button-animation;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla6_button-animation
+{
+    0%{transform: translateY(10em);}
+    2.6%{transform: translateY(10em);}
+    6.6%{transform: translateY(0);}
+    
+    92.5%{transform: translateX(0);}
+    100%{transform: translateX(21em);}
+
+    
+}
+
+
+
+.plantilla6_bot-animation
+{
+    animation-name: plantilla6_bot-animation;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla6_bot-animation
+{
+    0%{transform: translateX(-50em);}
+    2.8%{transform: translateX(0);}
+    
+    97%{transform: translateX(0);}
+    100%{transform: translateX(50em);}
+
+    
+}
+
+
+.plantilla6_bot-mail-animation
+{
+    animation-name: plantilla6_bot-mail-animation;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla6_bot-mail-animation
+{
+    0%{transform: translateY(4em);}
+    2.8%{transform: translateY(4em);}
+    8.3%{transform: translateY(0);}
+    
+    94.16%{transform: translateY(0);}
+    100%{transform: translateY(4em);}
+
+    
+}
+
+.plantilla6_bot-number-animation
+{
+    animation-name: plantilla6_bot-number-animation;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes plantilla6_bot-number-animation
+{
+    0%{transform: translateY(3em);}
+    8.6%{transform: translateY(3em);}
+    11.6%{transform: translateY(0);}
+    
+    94.16%{transform: translateY(0);}
+    100%{transform: translateY(6em);}
+
+    
+}
+
+
+
+

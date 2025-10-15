@@ -1,0 +1,393 @@
+/*
+	VARIABLES
+*/
+:root {
+	--c-white: 		#fff;
+	--c-light:		#f1f2f2;
+	--c-green:		#80bc00;
+	--c-blue:		#243746;
+	--c-dark:		#131e29;
+	--c-error:		#db1818;
+}
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: normal;
+	line-height: 1.2;
+}
+img {
+	max-width: 100%;
+}
+h3 {
+	font-size: 2rem;
+	font-weight: bold;
+}
+blockquote {
+	margin: 1em 0 1em 2em;
+	padding: 1em;
+	border-left: 6px solid #dedede;
+}
+fieldset {
+	border: 1px solid #ccc;
+}
+	fieldset h3 {
+		margin-top: 15px;
+		margin-bottom: 30px;
+	}
+.table {
+	display: table;
+}
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+	.cell + .cell {
+		padding-left: 5%;
+	}
+/* 
+	ELEMENTOS COMUNES
+*/
+	/* checkbox switch */
+	.switch-container {
+		width: 48px;
+		padding-left: 10px;
+	}
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 38px;
+		height: 20px;
+		margin-bottom: 0;
+	}
+		.switch input {
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: 10px;
+		background-color: #ccc;
+		transition: .4s;
+	}
+		.slider:before {
+			position: absolute;
+			content: "";
+			height: 16px;
+			width: 16px;
+			left: 2px;
+			bottom: 2px;
+			background-color: white;
+			border-radius: 50%;
+			transition: .4s;
+		}	
+		input:focus + .slider {
+			box-shadow: 0 0 0 1px #2196F3;
+		}
+		input:checked + .slider:before {
+			transform: translateX(18px);
+		}
+  
+/* TEMPLATE SELECTOR */
+#TEMPLATE_FORM {
+	margin-top: 20px;
+}
+
+.template-selection {
+	display: table;
+}
+	.template-selection img {
+		border: 1px solid #000;
+	}
+
+#CONFIG {
+	display: none;
+}
+
+.config-container {
+	max-width: 960px;
+	margin: auto;
+}
+
+.config-info {
+	max-width: 960px;
+	margin: 0 auto 20px;
+}
+.config-info p {
+	margin-bottom: 0;
+}
+.template-config {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: 56.25%;
+	overflow: hidden;
+	outline: 1px solid #000;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+	.template-config input[type=text],
+	.template-config textarea {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: .1em;
+		background: rgba(255,255,255,0.25);
+		border: 1px solid #7a6563;
+		color: var(--c-light);
+		transition: all .2s ease-in-out;
+	}
+	.template-config input[type=text]:focus,
+	.template-config textarea:focus {
+		background: none;
+		border-color: #fff !important;
+		outline: none;
+	}
+	.required {
+		border: 2px solid var(--c-error);
+	}
+
+.validation {
+	min-height: 1px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+	.validation p {
+		margin-top: 20px;
+		margin-bottom: 0;
+		color: var(--c-error);
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+	.validation p + p {
+		margin-top: 5px;
+	}
+.btn-success {
+	background-color: var(--c-green);
+	border-color: var(--c-green);
+}
+	.btn-success:hover {
+		background-color: var(--c-dark);
+		border-color: var(--c-dark);
+	}
+
+
+.extra-fields {
+	overflow: hidden;
+}
+.fields-img {
+	display: none;
+}
+.img-preview {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	border: 1px solid #000;
+	background: #fff url(../img/select-file.gif) no-repeat center center;
+	background-size: contain;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+/*
+	VERTICAL PREVIEW
+*/
+.config-container.vertical {
+	max-width: 540px;
+}
+.vertical .template-config {
+	padding-top: 177.777%;
+}
+
+
+/*
+	TEMPLATE SPECIFIC STYLES
+*/
+.config-container textarea,
+.config-container input {
+	font-weight: bold;
+}
+.info,
+.field-price {
+	position: absolute;
+}
+#DESCRIPCION {
+	margin-bottom: 5px;
+	font-size: 45px;
+}
+#SUBDESCRIPCION {
+	font-size: 21px;
+	font-weight: normal;
+}
+#PRICE {
+	height: 1em;
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: 125px;
+}
+#SUBPRICE {
+	font-size: 45px;
+	color: var(--c-dark);
+}
+.details {
+	position: absolute;
+	top: 18px;
+	right: 48px;
+	width: 275px;
+	line-height: 1.075;
+}
+.img-preview {
+	left: 280px;
+	top: 280px;
+	width: 466px;
+	height: 466px;
+}
+#DETAILS {
+	text-align: right;
+}
+.title {
+	display: none;
+}
+#PRETITLE {
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+#TITLE {
+	height: .9em;
+	padding: 0;
+	color: var(--c-blue);
+	font-size: 90px;
+	text-transform: uppercase;
+}
+
+/* OFFER 1 */
+.offer_1 textarea,
+.offer_1 input {
+		text-align: right;
+}
+.offer_1 .info {
+	top: 66px;
+	right: 48px;
+	width: 310px;
+}
+.offer_1 .field-price {
+	top: 312px;
+	right: 48px;
+	width: 380px;
+}
+.offer_1 #SUBDESCRIPCION,
+.offer_1 .details {
+	display: none;
+}
+
+/* OFFER 2 */
+.offer_2 input[type=text] {
+	padding: 0;
+	text-align: right;
+}
+.offer_2 .img-preview {
+	left: 380px;
+	top: 220px;
+	width: 510px;
+	height: 375px;
+}
+.offer_2 .info {
+	left: 126px;
+	top: 430px;
+	width: 510px;
+}
+.offer_2 #DESCRIPCION,
+.offer_2 #SUBDESCRIPCION {
+	height: 1.5em;
+}
+.offer_2 .field-price {
+	top: 190px;
+	right: 48px;
+	width: 275px;
+}
+.offer_2 #PRICE {
+	font-size: 100px;
+}
+.offer_2 #SUBPRICE {
+	color: var(--c-green);
+	font-size: 34px;
+}
+.offer_2 #DETAILS {
+	color: var(--c-green);
+	font-size: 40px;
+}
+
+/* OFFER 3 */
+.offer_3 .img-preview {
+	left: 292px;
+	top: 305px;
+	width: 335px;
+	height: 244px;
+}
+.offer_3 .info {
+	width: 90%;
+	left: 5%;
+	bottom: 25px;
+}
+.offer_3 #DESCRIPCION,
+.offer_3 #SUBDESCRIPCION {
+	height: 1.2em;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	line-height: 1;
+}
+.offer_3 #DESCRIPCION {
+	color: var(--c-green);
+	font-size: 45px;
+}
+.offer_3 #SUBDESCRIPCION {
+	font-size: 21px;
+	font-weight: bold;
+}
+.offer_3 .field-price {
+	left: 530px;
+	top: 250px;
+	width: 360px;
+}
+.offer_3 #PRICE {
+	font-size: 100px;
+}
+.offer_3 #SUBPRICE {
+	display: none;
+}
+.offer_3 .details {
+	right: 35px;
+}
+.offer_3 #DETAILS {
+	height: 1.2em;
+	padding: 0;
+	font-size: 45px;
+}
+.offer_3 .title {
+	position: absolute;
+	display: block;
+	top: 60px;
+	left: 37px;
+	width: 500px;
+	transform: rotate(-7.64deg);
+	transform-origin: 0	0;
+}

@@ -1,0 +1,1 @@
+[{"msg":"          <mat-option *ngIf=\"t.idtype !== 4 || t.idtype === 4\" [value]=\"t.idtype\" (click)=\"changeType(t.idtype)\">{{t.name}}</mat-option>\r\n","template":"1"}]

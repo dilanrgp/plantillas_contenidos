@@ -1,0 +1,9 @@
+
+
+.form-check {
+	border: 1px solid;
+	border-radius: 20px;
+	padding: 10px;
+	margin: 10px;
+	border-color: rgba(180, 178, 178, 0.52);
+}

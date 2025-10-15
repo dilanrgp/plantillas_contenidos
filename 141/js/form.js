@@ -1,0 +1,188 @@
+(function($) {
+	var templates 		= $('input[name="TEMPLATE"]'),
+		bgs				= {
+							'TEMPLATE-1' : 'img/templates/config-producto_SQ.jpg',
+							'TEMPLATE-2' : 'img/templates/config-producto_H.jpg',
+							'TEMPLATE-3' : 'img/templates/config-producto_V.jpg',
+							'TEMPLATE-4' : 'img/templates/config-horarios.jpg',
+							'TEMPLATE-5' : 'img/templates/config-mensaje.jpg',
+							},
+		templateConfig	= $('.template-config'),
+		fieldsHorarios 	= $('.fields-horarios'),
+		fieldsOfertas 	= $('.fields-ofertas'),
+		fieldsImg		= $('.fields-img'),
+		imgCon			= $('.img_changer'),
+		imgSelector		= $('#IMG, .img-preview'),
+		submitBtn		= $('#SUBMIT'),
+		activeTemplate	= templates.filter('[checked]').val();
+
+	changeForm( activeTemplate );
+
+	templates.on('change', function(e) {
+		activeTemplate = $(this).val();
+
+		clearValidation();
+		changeForm( activeTemplate );
+	});
+
+	$('.img-preview').on('click', function(e) {
+		$('#IMG').trigger('click');
+	});
+
+	$('#IMG').on('change', function(e) {
+		readURL(this, $('.bg-image, .img-preview'));
+	});
+
+	$('#CAMBIO_IMG').on('change', function(e){
+		if ($(this).is(":checked")) {
+			templateConfig.removeClass('no_img');
+			imgSelector.show();
+		} else {
+			templateConfig.addClass('no_img');
+			imgSelector.hide();
+		}
+	});
+
+	submitBtn.on('click', function(e) {
+		e.preventDefault();
+		clearValidation();
+
+		var msg = validateForm( activeTemplate );
+
+		if( msg.length )
+			$('.validation').html( msg );
+		else
+			$('#TEMPLATE_FORM').submit();
+	});
+
+	function changeForm ( template ) {
+		var newBG = bgs[template],
+			templateNumber	= !(template === undefined) ? parseInt( template.charAt(template.length-1), 10) : 0;
+
+		templateConfig.removeClass('oferta oferta_S oferta_L oferta_V mensaje horarios no_img');
+
+		fieldsOfertas.show();
+		fieldsHorarios.hide();
+		fieldsImg.show();
+		imgSelector.show();
+		imgCon.hide();
+
+		switch( templateNumber ) {
+			// Oferta sin claim
+			case 1:
+				templateConfig.addClass('oferta oferta_S');
+				break;
+
+			// Oferta con claim
+			case 2:
+				templateConfig.addClass('oferta oferta_L');
+				break;
+
+			// Evento
+			case 3:
+				templateConfig.addClass('oferta oferta_V');
+				break;
+
+			// Horarios
+			case 4:
+				fieldsHorarios.show();
+				fieldsOfertas.hide();
+				fieldsImg.hide();
+				templateConfig.addClass('horarios');
+				break;
+
+			// Mensaje
+			case 5:
+				imgCon.show();
+				if ($('#CAMBIO_IMG').is(":checked")) {
+					imgSelector.show();
+				} else {
+					templateConfig.addClass('no_img');
+					imgSelector.hide();
+				}
+				templateConfig.addClass('mensaje');
+				break;
+
+			default:
+				$('#CONFIG').slideUp();
+		}
+
+		if(!(template === undefined)) $('#CONFIG').slideDown();
+
+		templateConfig.css('background-image', 'url(' + newBG + ')');
+	}
+
+	function validateForm ( template ) {
+		var fields = {
+				'name'		: $('#TITLE').val().trim(),
+				'desc'		: $('#CONTENT').val().trim(),
+				'price'		: $('#PRICE').val().trim(),
+				'claim'		: $('#CLAIM').val().trim(),
+				'img'		: $('#IMG').val(),
+				'horario_1'	: $('#HORARIO_1').val().trim(),
+				'horario_2'	: $('#HORARIO_2').val().trim(),
+				'horario_3'	: $('#HORARIO_3').val().trim(),
+				'tel'		: $('#TEL').val().trim()
+			},
+			templateNumber	= parseInt( template.charAt(template.length-1), 10),
+			validationMsg = '';
+
+		switch( templateNumber ) {
+			// Oferta img S
+			case 1:
+				validationMsg += addMsg( fields['name'], 'el nombre del producto' );
+				validationMsg += addMsg( fields['img'], 'la imagen' );
+				validationMsg += addMsg( fields['price'], 'el precio u oferta' );
+				break;
+
+			// Oferta img L
+			case 2:
+				validationMsg += addMsg( fields['name'], 'el nombre del producto' );
+				validationMsg += addMsg( fields['img'], 'la imagen' );
+				validationMsg += addMsg( fields['price'], 'el precio u oferta' );
+				break;
+
+			// Oferta img V
+			case 3:
+				validationMsg += addMsg( fields['name'], 'el nombre del producto' );
+				validationMsg += addMsg( fields['img'], 'la imagen' );
+				break;
+
+			// Horarios
+			case 4:
+				if( !fields['horario_1'] && !fields['horario_2'] && !fields['horario_3'] )
+					validationMsg += '<p>Tienes que rellenar al menos una línea de horarios.</p>';
+				break;
+
+			// Mensaje
+			case 5:
+				validationMsg += addMsg( fields['desc'], 'el mensaje' );
+				break;
+
+			default:
+				validationMsg = '<p>Si ves esto es que has hecho trampa!!!</p>';
+		}
+
+		return validationMsg;
+	}
+
+	function clearValidation () {
+		$('.validation').html('');
+	}
+
+	function readURL(input, container) {
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+
+	        reader.onload = function (e) {
+	            container.css('background-image', 'url(' + e.target.result + ')');
+	        }
+
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+
+	function addMsg ( myVal, text ) {
+		return !myVal ? '<p>Has olvidado definir ' + text + '.</p>' : '';
+	}
+})(jQuery);

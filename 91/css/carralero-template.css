@@ -1,0 +1,377 @@
+/*
+	COLORS
+		"white": 	#fcfdfa;
+		orange:		#de6e4b;
+		green:		#7fd1b9;
+		brown:		#7a6563;
+*/
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+/*
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+main {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*/
+
+img {
+	max-width: 100%;
+}
+fieldset {
+	border: 1px solid #ccc;
+}
+	fieldset h3 {
+		margin-top: 15px;
+		margin-bottom: 30px;
+	}
+/* textarea {
+	resize: none;
+}
+ */
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+	.cell + .cell {
+		padding-left: 5%;
+	}
+
+
+#TEMPLATE_FORM {
+	margin-top: 20px;
+}
+
+.template-selection {
+	display: table;
+}
+
+#CONFIG {
+	display: none;
+}
+
+.config-container {
+	max-width: 960px;
+	margin: auto;
+}
+.extra-fields {
+	overflow: hidden;
+}
+.fields-img {
+	float: left;
+	margin-left: 120px;
+}
+.fields-desc_config {
+	float: right;
+	margin-right: 120px;
+}
+.template-config {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: 56.25%;
+	margin-bottom: 2em;
+	outline: 1px solid #000;
+	background-size: contain;
+	background-repeat: no-repeat;
+	font-family: 'Asap', sans-serif;
+	color: #fff;
+}
+	.template-config input[type=text],
+	.template-config textarea {
+		position: absolute;
+		padding: .1em .2em;
+		background: rgba(255,255,255,0.25);
+		border: 1px solid #7a6563;
+		color: #fff;
+		transition: all .2s ease-in-out;
+	}
+	.template-config input[type=text]:focus,
+	.template-config textarea:focus {
+		background: none;
+		border-color: #fff !important;
+		outline: none;
+	}
+
+	.required {
+		border: 2px solid #F4436C;
+	}
+
+#TITLE {
+	position: absolute;
+	top: 10.74%;
+	left: 70.3%;
+	transform: translate(-50%, -50%);
+	width: 44%;
+	font-weight: bold;
+	font-size: 40px;
+	text-align: center;
+	line-height: 1;
+}
+.info {
+	position: absolute;
+	left: 55.2%;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 36.46%;
+}
+#DESCRIPCION,
+#SUBDESCRIPCION {
+	position: relative;
+	display: block;
+	width: 100%;
+	resize: vertical;
+}
+#DESCRIPCION {
+	min-height: 4.5em;
+	margin-bottom: 30px;
+	font-size: 18px;
+	line-height: 0.8333;
+}
+#SUBDESCRIPCION {
+	font-size: 12px;
+}
+.field-price {
+	position: absolute;
+	top: 89.44%;
+	left: 70.3%;
+	transform: translate(-50%, -50%);
+	width: 44%;
+	background: #F22771;
+	border-radius: 10px;
+	transition: all .2s ease-in-out;
+}
+	.field-price input[type=text] {
+		position: relative;
+		display: block;
+		width: 100%;
+		text-align: center;
+		line-height: 1;
+	}
+#PRICE {
+	font-size: 30px;
+	font-weight: bold;
+}
+#SUBPRICE {
+	font-size: 18px;
+	font-weight: 500;
+}
+#LEGAL {
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.img-preview {
+	position: absolute;
+	top: 50%;
+	left: 28.9%;
+	transform: translate(-50%, -50%);
+	width: 46.5625%;
+	height: 55.4%;
+	background: #fff url(../carralero-templates/select-file.gif) no-repeat center center;
+	background-size: contain;
+	cursor: pointer;
+}
+	.img-border {
+		display: none;
+		cursor: pointer;
+	}
+
+.offer_2 {
+	overflow: hidden;
+}
+.offer_2 #TITLE {
+	left: 22.1875%;
+	top: 31.85%;
+	width: 36.45%;
+	color: #61B0BC;
+}
+.offer_2 .info {
+	left: 3.96%;
+	top: 55.55%;
+}
+.offer_2 #DESCRIPCION {
+	margin-bottom: 0;
+	color: #244B5A;
+	font-size: 24px;
+	text-align: center;
+}
+.offer_2 #SUBDESCRIPCION {
+	display: none;
+}
+.offer_2 .field-price {
+	left: 22.1875%;
+	width: 36.45%;
+}
+.offer_2 .img-preview {
+	top: 0;
+	left: 46.04%;
+	height: 100%;
+	width: 53.96%;
+	transform: none;
+	clip-path: circle(200% at 205% 50%)
+}
+	.offer_2 .img-border {
+		position: absolute;
+		top: 50%;
+		left: 46.04%;
+		display: block;
+		width: 400%;
+		height: 0;
+		padding-top: 400%;
+		border: 30px solid #244b5A;
+		border-radius: 50%;
+		transform-origin: 0 50%;
+		transform: translate(0, -50%);
+	}
+	
+.description #TITLE {
+	top: 13.148%;
+	right: 0;
+	left: auto;
+	z-index: 999;
+	transform: translate(0, -50%);
+	width: 40%;
+	background: #244B5A;
+	border-radius: 15px 0 0 15px;
+	font-size: 36px;
+	text-align: right;
+	resize: horizontal;
+}
+.description .img-preview {
+	left: 50%;
+	width: 100%;
+	height: 100%;
+}
+.fields-dientes {
+	position: absolute;
+	left: 50%;
+	top: 61.111%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 68.5185%;
+}
+.description .column {
+	width: 22.6563%;
+}
+	.fields-dientes .column + .column {
+		margin-left: 1%;
+	}
+.fields-dientes textarea {
+	position: relative;
+	width: 100%;
+	height: 48.65%;
+	background: rgba(255, 255, 255, .85);
+	border-radius: 0 0 27.586% 27.586%;
+	color: #101820;
+	font-size: 18px;
+	text-align: center;
+	font-weight: 500;
+}
+	.fields-dientes textarea:focus {
+		background: rgba(255, 255, 255, .85);
+	}
+	.fields-dientes textarea + textarea {
+		border-radius: 27.586% 27.586% 0 0;
+	}
+	
+
+.message #TITLE {
+	left: 25%;
+	top: 55.55%;
+	z-index: 100;
+	width: 50%;
+	height: 4.5em;
+	color: #101820;
+}
+.message.no_img #TITLE {
+	left: 50%;
+	width: 80%;
+}
+.message .img-preview {
+	height: 100%;
+	width: 53.125%;
+	left: 73.4375%;
+}
+	.message .img-preview:before {
+		content: '';
+		display: block;
+		position: absolute;
+		left: -1px;
+		top: 0;
+		height: 100%;
+		width: 11.765%;
+		background: rgb(244,245,245);
+		background: linear-gradient(90deg, rgba(244,245,245,1) 0, rgba(244,245,245,0) 100%);
+	}
+
+
+
+.validation {
+	min-height: 1px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+	.validation p {
+		margin-top: 20px;
+		margin-bottom: 0;
+		color: #F22771;
+		font-size: 1.25em;
+		font-weight: 500;
+	}
+	.validation p + p {
+		margin-top: 5px;
+	}
+
+

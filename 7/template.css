@@ -1,0 +1,361 @@
+/*
+	COLORS
+		"white": 	#fcfdfa;
+		orange:		#de6e4b;
+		green:		#7fd1b9;
+		brown:		#7a6563;
+*/
+
+/*
+	FONTS
+*/
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts//RobotoSlab-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts//RobotoSlab-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir';
+  src: url('../fonts//AvenirNextLTPro-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+/*
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+main {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*/
+
+img {
+	max-width: 100%;
+}
+fieldset {
+	border: 1px solid #ccc;
+}
+fieldset h3 {
+		margin-top: 15px;
+		margin-bottom: 30px;
+		font:bold 20px "Trebuchet MS"; 
+	}
+textarea {
+	resize: none;
+}
+
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+	.cell + .cell {
+		padding-left: 5%;
+	}
+
+
+#TEMPLATE_FORM {
+	margin-top: 20px;
+}
+
+.template-selection {
+	display: table;
+}
+
+#CONFIG {
+	display: none;
+}
+
+.config-container {
+	max-width: 960px;
+	margin: auto;
+}
+.template-config {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: 56.25%;
+	outline: 1px solid #000;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+	.template-config input[type=text],
+	.template-config textarea {
+		position: absolute;
+		padding: .1em .2em;
+		background: rgba(255,255,255,0.5);
+		border: 1px solid #7a6563;
+		font-family: 'Roboto Slab';
+		font-weight: bold;
+		transition: all .2s ease-in-out;
+	}
+	.template-config input[type=text]:focus,
+	.template-config textarea:focus {
+		background: none;
+		border-color: transparent;
+		border-bottom-color: #de6e4b;
+		outline: none;
+	}
+
+#NOMBRE_FARMACIA {
+	left: 2%;
+	top: 6%;
+	width: 24%;
+	font-size: 20px;
+	color: #fff;
+}
+#TITLE {
+	top: 16.5%;
+	left: 28%;
+	width: 62%;
+	height: 1.8em;
+	color: #333;
+	font-size: 26px;
+	line-height: 1.2;
+	text-align: center;
+}
+#CONTENT {
+	top: 29.2%;
+	left: 54.166%;
+	width: 41%;
+	height: 5.2em;
+	color: #333;
+	font-family: 'Avenir';
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 1.2;
+}
+#PRICE {
+	top: 62.5%;
+	left: 65.5%;
+	width: 16.8%;
+	color: #fff;
+	font-size: 46px;
+	line-height: 1;
+	text-align: center;
+}
+
+	#NOMBRE_FARMACIA:focus,
+	#PRICE:focus {
+		border-bottom-color: #fff;
+	}
+#CLAIM {
+	top: 81%;
+	left: 17.08%;
+	width: 57.5%;
+	color: #333;
+	font-size: 36px;
+	text-align: center;
+	text-transform: uppercase;
+}
+	.oferta_con_bg #CLAIM {
+		color: #fff;
+	}
+.img-preview {
+	position: absolute;
+	top: 30.3%;
+	left: 18.125%;
+	width: 30.41666667%;
+	height: 52.592592%;
+	background: url(templates/select-file.gif) no-repeat center center;
+	background-size: contain;
+	cursor: pointer;
+}
+.bg-image {
+	display: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: url(templates/bg-oferta.jpg) no-repeat center center;
+	background-size: cover;
+	z-index: -1;
+}
+.evento .bg-image {
+	background-image: url(templates/bg-evento.jpg);
+}
+
+.oferta_con_claim #CONTENT {
+	left: 48.8%;
+	width: 22%;
+	height: 48%;
+}
+.oferta_con_claim #PRICE {
+	left: 75.4%;
+	top: 55.5%;
+}
+.oferta_con_claim .img-preview {
+	width: 27.42%;
+	height: 47.407407%;
+	left: 17.08%;
+}
+
+.oferta_con_bg #TITLE {
+	top: 12%;
+	left: 32.55%;
+	width: 38%;
+	height: 13%;
+}
+.oferta_con_bg #CONTENT {
+	top: 25.7%;
+	left: 32.55%;
+	width: 38%;
+	height: 39.5%;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.oferta_con_bg #PRICE {
+	left: 69.1%;
+	top: 62%;
+	width: 16.8%;
+}
+.oferta_con_bg #CLAIM {
+	width: 43%;
+	left: 12%;
+	top: 78.5%;
+	font-size: 28px;
+}
+.oferta_con_bg .img-preview {
+	display: none;
+}
+.oferta_con_bg .bg-image {
+	display: block;
+}
+
+.evento #TITLE {
+	height: 1.8em;
+	width: 54%;
+	font-size: 32px;
+	top: 11.2%;
+	left: 28.2%;
+}
+.evento #CONTENT {
+	top: 22%;
+	left: 28.2%;
+	width: 54%;
+	height: 35%;
+}
+.evento #CLAIM {
+	text-transform: none;
+	top: 67.5%;
+	left: 26.8%;
+	width: 57%;
+}
+
+.horarios #NOMBRE_FARMACIA {
+	left: 17.4%;
+	top: 7.4%;
+}
+.horarios input[type="text"] {
+	color: #fff;
+}
+.horarios input[type="text"]:focus {
+	border-bottom-color: #fff;
+}
+
+.fields-RRSS {
+	margin-top: 20px;
+}
+	.fields-RRSS input[type="text"] {
+		position: relative;
+	}
+
+#HORARIO_1,
+#HORARIO_2,
+#HORARIO_3 {
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60%;
+	padding-bottom: 0;
+	font-family: 'Avenir';
+	font-size: 36px;
+	font-weight: normal;
+	text-align: center;
+}
+#HORARIO_1 {
+	top: 58.5%;
+}
+#HORARIO_2 {
+	top: 67.5%;
+}
+#HORARIO_3 {
+	top: 76.5%;
+}
+
+.validation {
+	min-height: 1px;
+	margin-top: 100px;
+	margin-bottom: 20px;
+}
+	.validation p {
+		margin-top: 20px;
+		margin-bottom: 0;
+		color: #d22;
+		font-size: 1.25em;
+		font-weight: bold;
+	}
+	.validation p + p {
+		margin-top: 5px;
+	}
+
+textarea {
+	overflow: hidden;
+}
+

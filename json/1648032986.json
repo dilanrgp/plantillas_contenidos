@@ -1,0 +1,1 @@
+[{"msg":"Activate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';\r\nimport { Injectable } from '@angular/core';\r\nimport { LoginService } from './login-service';\r\n\r\n@Injectable()\r\nexport class LoginRouteGuard implements CanActivate {\r\n\r\n  constructor(private loginService: LoginService) {}\r\n\r\n  canActivate(route: Activated","template":"4"}]

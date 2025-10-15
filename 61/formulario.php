@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario de creacion de promocion para cofares</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="template.css?tmp=<?=time()?>">
+
+</head>
+<?php   
+
+////////// JCAM
+
+// Conexión a la B.D.
+include("../accesomysql.php");
+$idcustomer = 61;  
+$directoriocliente = $directoriobase."/".$idcustomer."/";
+
+$conexionbd  = mysqli_connect($sql_host,$sql_login,$sql_pass,$sql_base) or die("Error en la conexión a la Base de Datos...:".mysqli_connect_error());
+mysqli_select_db($conexionbd,$sql_base) OR  die ('Error en la selección de la Base de Datos...' . mysqli_error());
+
+// Se recoge el Idcontenido que se pasa como argumento al pulsar el botón "Plantillas" en la opción CONTENIDOS cuando el tipo
+// de contenido es "Plantilla HTML"
+$template="TEMPLATE-1";
+$idcontent = 0;
+$idcampaign = 0;
+$idcontenttemplate = 0;
+$atributos = "";
+
+
+
+
+// Inicializar todos los valores posibles que se pasan como atributos
+$title = "";		
+$img= "";
+$content= "";
+$price= "";
+$price_cents= "";
+$unit="";
+
+$horario_title="";
+$horario_1="";		
+$horario_2="";		
+$horario_3="";
+$horario_4		= "";
+$horario_footer	= "";
+
+$discount="";
+$detail="";
+$oldprice="";
+$oldprice_cents="";
+$oldprice_unit	= "";
+$title_superlotes = "";
+$title_superdescuento_uno = ""; 
+$title_superdescuento_dos = ""; 
+
+
+if(!is_null($atributos))
+{
+	$arrayatributos = json_decode($atributos, true);   // el true es para obtener un array asociativo, no un stdclass
+	//var_dump($arrayatributos);   //mostrar estructura	
+	if (is_array($arrayatributos))
+	{
+		$title      	= $arrayatributos[0]["title"];		
+		$img        	= $arrayatributos[0]["img"];
+		$content    	= $arrayatributos[0]["content"];
+		$price      	= $arrayatributos[0]["price"];
+		$price_cents	= $arrayatributos[0]["price_cents"];	
+		$unit			= !empty($arrayatributos[0]["unit"])?$arrayatributos[0]["unit"]:"";	
+		$horario_title	= !empty($arrayatributos[0]["horario_title"])?$arrayatributos[0]["horario_title"]:"";	
+		$horario_1		= $arrayatributos[0]["horario_1"];		
+		$horario_2		= $arrayatributos[0]["horario_2"];		
+		$horario_3		= $arrayatributos[0]["horario_3"];
+		$horario_4		= !empty($arrayatributos[0]["horario_4"])?$arrayatributos[0]["horario_4"]:"";
+		$horario_footer	= !empty($arrayatributos[0]["horario_footer"])?$arrayatributos[0]["horario_footer"]:"";
+		$discount      	= $arrayatributos[0]["discount"];
+		$detail        	= $arrayatributos[0]["detail"];
+		$oldprice      	= $arrayatributos[0]["oldprice"];
+		$oldprice_cents	= $arrayatributos[0]["oldprice_cents"];	
+		$oldprice_unit	= !empty($arrayatributos[0]["oldprice_unit"])?$arrayatributos[0]["oldprice_unit"]:"";	
+		$title_superlotes = !empty($arrayatributos[0]["title_superlotes"])?$arrayatributos[0]["title_superlotes"]:"";
+		$title_superdescuento_uno = !empty($arrayatributos[0]["title_superdescuento_uno"])?$arrayatributos[0]["title_superdescuento_uno"]:""; 
+		$title_superdescuento_dos = !empty($arrayatributos[0]["title_superdescuento_dos"])?$arrayatributos[0]["title_superdescuento_dos"]:""; 
+	}
+}
+
+////////// ENDJCAM
+
+
+if(isset($img) && !empty($img)){
+	error_reporting(0); 
+	$tamanio = getImageSize($img);
+		$ancho =$tamanio[0];
+		$alto =$tamanio[1];
+
+		if($ancho > $alto){
+		?>
+			<style>
+				.backsize {
+					background-image: url('<?php echo $img; ?>')	!important;	
+					background-repeat: no-repeat!important;
+					background-size:cover!important;
+					background-position:center center!important
+				}
+			</style>
+		<?php
+		}
+		else{
+		?>
+		<style>
+			.backsize {
+				background-image: url('<?php echo $img; ?>')	!important;	
+				background-repeat: no-repeat!important;
+				background-size:contain!important;
+				background-position:center center!important
+			}
+		
+		</style>
+	<?php  }
+}
+
+?>
+<body>
+
+<div class="container body" role="main">
+<div class="row">
+
+		<!---////////// JCAM 
+		Cuando hay una imagen hay que declarar en el FORM ...  enctype="multipart/form-data"
+		-->	
+	<form action="preview.php" method="post" id="TEMPLATE_FORM" enctype="multipart/form-data" >
+		
+		<!---////////// JCAM 	
+		<!-Pasar parametros al Preview. Solo hay que pasar el idcontent y el idcontenttemplate ya que los atributos se pasaran
+		campo a campo -->
+	
+		<input type="hidden" name="idcontent" id="idcontent" value="<?php echo $idcontent?>">
+		<input type="hidden" name="imagenamostrar" id="imagenamostrar" value="<?php echo $img?>">	
+		<input type="hidden" name="idcampaign" id="idcampaign" value="<?=$idcampaign?>">
+		
+		<!---<input type="hidden" name="atributos" id="atributos" value="<?php echo $atributos?>">	-->	
+	
+		<!-- ////////// ENDJCAM	-->
+		
+		<fieldset class="col-md-12 form-group" id="TEMPLATE">
+			<h3>Elije tu diseño</h3>
+			<div class="row align-items-center">
+				<div class="form-check col col-md-4 col-sm-6">
+					<label for="TEMPLATE-1" class="template-selection">
+						<div class="cell">
+							<!--- JCAM -->
+							<input type="radio" name="TEMPLATE" id="TEMPLATE-1"  <?php if ($template == "TEMPLATE-1") echo "checked";?>   value="TEMPLATE-1">
+							<!--- ENDJCAM -->
+						</div>
+						<div class="cell">
+							<p>TUSUPERPRECIO</p>
+							<img src="templates/templates/oferta_A.jpg">
+						</div>
+					</label>
+				</div>
+				<div class="form-check col col-md-4 col-sm-6">
+					<label for="TEMPLATE-2" class="template-selection">
+						<div class="cell">
+						<!--- JCAM -->						
+							<input type="radio" name="TEMPLATE" id="TEMPLATE-2" <?php if ($template == "TEMPLATE-2") echo "checked";?> value="TEMPLATE-2">
+						<!--- ENDJCAM -->						
+						</div>
+						<div class="cell">
+							<p>SUPERDESCUENTO</p>
+							<img src="templates/templates/oferta_B.jpg"> 
+						</div>
+					</label>
+				</div>
+				<div class="form-check col col-md-4 col-sm-6">
+					<label for="TEMPLATE-3" class="template-selection">
+						<div class="cell">
+						<!--- JCAM -->
+							<input type="radio" name="TEMPLATE" id="TEMPLATE-3" <?php if ($template == "TEMPLATE-3") echo "checked";?> value="TEMPLATE-3">
+						<!--- ENDJCAM -->							
+						</div>
+						<div class="cell">
+							<p>SUPERDESCUENTO 3x2</p>
+							<img src="templates/templates/oferta_C.jpg">
+						</div>
+					</label>
+				</div>
+				<div class="form-check col col-md-4 col-sm-6">
+					<label for="TEMPLATE-4" class="template-selection">
+						<div class="cell">
+						<!--- JCAM -->						
+							<input type="radio" name="TEMPLATE" id="TEMPLATE-4" <?php if ($template == "TEMPLATE-4") echo "checked";?> value="TEMPLATE-4">
+						<!--- ENDJCAM -->							
+						</div>
+						<div class="cell">
+							<p>SUPEROFERTA</p>
+							<img src="templates/templates/oferta_D.jpg">
+						</div>
+					</label>
+				</div>
+				<div class="form-check col col-md-4 col-sm-6">
+					<label for="TEMPLATE-5" class="template-selection">
+						<div class="cell">
+						<!--- JCAM -->						
+							<input type="radio" name="TEMPLATE" id="TEMPLATE-5" <?php if ($template == "TEMPLATE-5") echo "checked";?> value="TEMPLATE-5">
+						<!--- ENDJCAM -->							
+						</div>
+						<div class="cell">
+							<p>SUPEROFERTA HOY</p>
+							<img src="templates/templates/evento.jpg">
+						</div>
+					</label>
+				</div>
+				<div class="form-check col col-md-4 col-sm-6">
+					<label for="TEMPLATE-6" class="template-selection">
+						<div class="cell">
+						<!--- JCAM -->						
+							<input type="radio" name="TEMPLATE" id="TEMPLATE-6" <?php if ($template == "TEMPLATE-6") echo "checked";?> value="TEMPLATE-6">
+						<!--- ENDJCAM -->							
+						</div>
+						<div class="cell">
+							<p>HORARIOS</p>
+							<img src="templates/templates/horarios.jpg">
+						</div>
+					</label>
+				</div>
+			</div>
+		</fieldset>
+
+
+		
+		<fieldset class="col-md-12 form-group" id="CONFIG">
+			<h3>Configura tu plantilla</h3>
+			<div class="config-container">
+				<div class="template-config">
+					<div class="superlotes">					
+						<textarea name="TITLE-SUPERLOTES" id="TITLE-SUPERLOTES" rows="2" placeholder="LLeve 3 y pague 2"><?php echo $title_superlotes ?></textarea>																	
+					</div>
+					<div>					
+						<textarea name="TITLE-SUPERDESCUENTO-UNO" id="TITLE-SUPERDESCUENTO-UNO" rows="2" placeholder="La 2º unidad"><?php echo $title_superdescuento_uno ?></textarea>	
+						<textarea name="TITLE-SUPERDESCUENTO-DOS" id="TITLE-SUPERDESCUENTO-DOS" rows="2" placeholder="La 2º unidad"><?php echo $title_superdescuento_dos ?></textarea>																
+					</div>
+	 				<div class="fields-ofertas">
+	 					<div class="info">					
+							<textarea name="TITLE" id="TITLE" rows="2" placeholder="Nombre del producto"><?php echo $title ?></textarea>
+							<textarea name="CONTENT" id="CONTENT" rows="2" placeholder="Descripción del producto"><?php echo $content ?> </textarea>			
+					</div>
+					<div class="field-price">					
+							<p><input type="text" name="PRICE" id="PRICE" value="<?php echo $price ?>" placeholder="99"></p>
+					</div>
+					<div class="field-price-cents">					
+							<p><input type="text" name="PRICE-CENTS" id="PRICE-CENTS" value="<?php echo $price_cents ?>" placeholder="99"></p>
+					</div>	
+					<div class="field-unit">					
+							<p><input type="text" name="UNIT" id="UNIT" value="<?php echo $unit ?>" placeholder="Kg"></p>
+					</div>
+
+					<div class="field-oldprice">					
+							<p><input type="text" name="OLDPRICE" id="OLDPRICE" value="<?php echo $oldprice ?>" placeholder="99"></p>
+					</div>
+					<div class="field-oldprice-cents">					
+							<p><input type="text" name="OLDPRICE-CENTS" id="OLDPRICE-CENTS" value="<?php echo $oldprice_cents ?>" placeholder="99"></p>
+					</div>
+					<div class="field-unit">					
+							<p><input type="text" name="UNIT-OLDPRICE" id="UNIT-OLDPRICE" value="<?php echo $oldprice_unit ?>" placeholder="Kg"></p>
+					</div>					
+				
+					<div class="img-preview" style="background: url(<?php echo $img ?>) no-repeat center center; background-size: contain; "><img src="<?php //echo $img?>"></div>
+					
+					<div class="field-img">
+						<h5>Imagen</h5>						
+						<input type="file" name="IMG" id="IMG" value="<?php echo $img?>" style="color: transparent;"><?php echo $img ?>						
+					</div>
+				</div>
+				<div class="fields-horarios">	
+						<input type="text" name="HORARIO_TITLE" id="HORARIO_TITLE" value="<?php echo $horario_title ?>" placeholder="HORARIO">			
+						<input type="text" name="HORARIO_1" id="HORARIO_1" value="<?php echo $horario_1 ?>" placeholder="Horario 1">
+						<input type="text" name="HORARIO_2" id="HORARIO_2" value="<?php echo $horario_2 ?>" placeholder="Horario 2">
+						<input type="text" name="HORARIO_3" id="HORARIO_3" value="<?php echo $horario_3 ?>" placeholder="Horario 3">
+						<input type="text" name="HORARIO_4" id="HORARIO_4" value="<?php echo $horario_4 ?>" placeholder="Horario 4">
+						<input type="text" name="HORARIO_FOOTER" id="HORARIO_FOOTER" value="<?php echo $horario_footer ?>" placeholder="Servicio a domicilio">
+
+				</div>
+				
+				
+				<div class="field-detail">					
+						<p><textarea id="DETAIL" name="DETAIL" rows="2" placeholder="Detalle"></textarea></p>						
+								
+				</div>						
+				<div class="field-discount">					
+						<p><input type="text" name="DISCOUNT" id="DISCOUNT" value="<?php echo $discount ?>" placeholder="Descuento"></p>						
+				</div>		
+				
+				<div class="bg-image backsize" >				
+				</div>										
+			</div>
+
+			<div class="validation"></div>
+			<div class="form-group text-center">
+				<input type="submit" name="SUBMIT" id="SUBMIT" value="Previsualizar" class="btn btn-success">
+				<input type="button" class="btn btn-success" name="volver" value="Volver" onclick="window.close();	window.history.back();">
+			</div>
+			
+
+		</fieldset>
+	</form>
+</div>
+</div>
+
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="script.js?tmp=<?=time()?>"></script>
+
+</body>
+</html>

@@ -1,0 +1,814 @@
+/*
+	COLORS
+
+	Carmín: #970522;
+*/
+/*
+	FONTS
+*/
+@font-face {
+  font-family: 'Futura';
+  src: url('../fonts/FtraMd.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Futura';
+  src: url('../fonts/FtraBd.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Kraft Nine';
+  src: url('../fonts/KraftNine.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'School Book';
+  src: url('../fonts/SchoolBookNew.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Bradley Hand';
+  src: url('../fonts/bradley-hand-itc-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+main {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+html {
+	overflow: hidden;
+	font-family: 'Futura';
+	background: #000;
+	width: 100%;
+	height: 100%;
+}
+body {
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+}
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 0;
+	max-width: 1920px;
+	padding-top: 56.25%;
+	overflow: hidden;
+	z-index: 1;
+}
+	.wrapper.preview {
+		transform: translate(-50%, -50%) scale(.6);
+	}
+
+#BUTTONS {
+	z-index: 1000;
+	text-align: center;
+}
+	#BUTTONS .btns {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 1em 0;
+		background: rgba(255, 255, 255, 0.75);
+	}
+
+.contenedor {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+.btn_validate {
+	position: fixed;
+	top: 30px;
+	left: 0;
+	width: 100%;
+	z-index: 99999;
+}
+
+.vignette {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background: radial-gradient(ellipse at center, rgba(255,255,255,0) 0%,rgba(0,0,0,0.28) 100%);
+}
+
+.logo {
+	position: absolute;
+	left: 5%;
+	bottom: 9.26%;
+	width: 47.8645%;
+	height: 16.111111%;
+	background: url(templates/logo_colegiala.gif) no-repeat left bottom;
+	background-size: contain;
+	transform: scale(0.6);
+	transform-origin: 0 100%;
+}
+	.logo--white {
+		background-image: url(templates/logo_colegiala_white.gif);
+	}
+	.plantilla-menu .logo {
+		left: 50%;
+		bottom: 5%;
+		transform: scale(0.58) translateX(-50%);
+	}
+	.plantilla-oferta .logo {
+		left: 4.16666667%;
+		bottom: 4.62963%;
+	}
+
+.product {
+	width: 100%;
+	height: 100%;
+}
+
+.product__info {
+	position: absolute;
+	top: 9.2593%;
+	left: 5%;
+	width: 32%;
+	z-index: 10;
+}
+
+.product__name {
+	color: #970522;
+	font-size: 5.46875vw;
+	line-height: 1;
+	font-weight: bold;
+	animation: fadeIn 2s ease .5s;
+}
+
+.product__desc {
+	margin-top: 2.22222222em;
+	font-size: 2.34375vw;
+	line-height: 1.2;
+	animation: fadeIn 2s ease 1s;
+}
+
+.product__price {
+	position: absolute;
+	top: 5.0926%;
+	left: 34.375%;
+	width: 18.4375%;
+	height: 32.77777778%;
+	color: #fff;
+	font-family: 'Futura';
+	font-weight: bold;
+	z-index: 1000;
+	box-shadow: rgba(0, 0, 0, 0.4) 5px 5px 20px,
+				inset rgba(0, 0, 0, 0.4) 0 0 20px 5px;
+	border-radius: 50%;
+	animation: scaleUpStamp .75s ease 1.75s;
+}
+	.product__price_bg {
+		position: relative;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background: url(templates/bg-precio.png);
+		background-size: contain;
+		animation: spinIt 10s linear infinite;
+	}
+	.product__price .euros {
+		position: absolute;
+		left: 11.3%;
+		top: 19.77%;
+		font-size: 10.41666667vw;
+	}
+	.product__price .cents {
+		position: absolute;
+		top: 25.4237%;
+		right: 11.3%;
+		font-size: 4.16666667vw;
+	}
+	.product__price .simbolo {
+		position: absolute;
+		top: 28.25%;
+		right: 14.1243%;
+		font-size: 8.33333333vw;
+	}
+	.product__price .simbolo--small {
+		position: absolute;
+		top: 49.435%;
+		right: 25.42%;
+		font-size: 4.16666667vw;
+	}
+		.product__price--big .euros {
+			top: 27.5%;
+			left: 5%;
+			font-size: 8.33333333vw;
+			letter-spacing: -.075em;
+		}
+		.product__price--big .cents {
+			font-size: 3vw;
+			letter-spacing: -.075em;
+			right: 10%;
+			top: 32.5%;
+		}
+		.product__price--big .simbolo {
+			right: 7%;
+		}
+		.product__price--big .simbolo--small {
+			right: 17%;
+			top: 48%;
+		}
+
+.product__img_move {
+	position: absolute;
+	left: 43.75%;
+	top: 31.48%;
+	width: 100%;
+	height: 100%;
+	animation: moveProduct 10s linear;
+}
+	.product__img {
+		transform: scale(1.87);
+	}
+
+.menu {
+	position: absolute;
+	top: 18.52%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+}
+	.menu-bg {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		animation: moveBg 3s ease;
+	}
+		.menu-bg img {
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	.menu__pan {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		z-index: 1000;
+		width: 28.6068%;
+		height: 16.25%;
+		animation: fadeIn 3s ease 2s;
+	}
+	.menu__header {
+		width: 100%;
+	}
+	.menu__title-semanal {
+		display: block;
+		width: 73.6%;
+		margin: auto;
+		animation: fadeIn 1.2s ease .75s;
+	}
+	.menu__name {
+		font-family: 'School Book';
+		font-size: 5.1042vw;
+		text-transform: uppercase;
+		animation: fadeIn 1.2s ease .75s;
+	}
+	.menu__date {
+		position: relative;
+		display: inline-block;
+		padding: 20px 5px;
+		margin-top: 1.5em;
+		margin-bottom: 1.5em;
+		color: #FF5B5B;
+		font-family: 'School Book';
+		font-size: 2.1875vw;
+		line-height: 1;
+	}
+		.menu__date:before,
+		.menu__date:after {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			height: 7px;
+			background: #FF5B5B;
+		}
+		.menu__date:before {
+			top: 0;
+			animation: enterFromLeft 1s ease 1s;
+		}
+		.menu__date:after {
+			bottom: 0;
+			animation: enterFromLeft 1s ease 1.2s;
+		}
+		.menu__date span {
+			animation: fadeIn 1s ease 1s;
+		}
+		.menu__name + .menu__date {
+			padding: 25px 10%;
+			margin-top: .25em;
+			margin-bottom: .64em;
+			font-size: 4.0625vw;
+		}
+	.menu__fila {
+		display: table-row;
+	}
+	.menu__dia {
+		display: table-cell;
+		width: 33.33333333%;
+		padding-left: 5%;
+		padding-bottom: 4.05%;
+		text-align: left;
+		line-height: 1.2;
+	}
+		.menu__nombre-dia {
+			font-family: 'Kraft Nine';
+			font-size: 2.1875vw;
+			animation: fadeIn 1.5s ease 1.5s;
+		}
+		.menu__plato,
+		.separator {
+			font-family: 'School Book';
+			font-size: 1.45833333vw;
+			animation: fadeIn 1.5s ease 2s;
+		}
+		.menu__plato + .menu__plato,
+		.menu--individual .separator {
+			animation-delay: 2.5s;
+		}
+		.menu--individual .separator + .menu__plato {
+			animation-delay: 3s;
+		}
+
+.menu--semanal {
+	display: table;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.menu--individual {
+	width: 50%;
+	left: 25%;
+	padding-top: 40px;
+}
+	.menu--individual p {
+		font-size: 2.91666667vw;
+	}
+
+.oferta {
+	width: 100%;
+	height: 100%;
+	background: url(templates/bg-oferta.jpg) no-repeat left bottom;
+	background-size: contain;
+}
+	.oferta__mesa {
+		position: absolute;
+		bottom: 2px;
+		right: 6.48148%;
+		width: 61.77%;
+		height: 7.5%;
+		background: url(templates/oferta-tabla.png);
+		background-size: contain;
+	}
+	.oferta__productos {
+		position: absolute;
+		bottom: 2.3148148%;
+		right: 9.89583333%;
+		width: 49.74%;
+		height: 22.13%;
+		background: url(templates/oferta-productos.png);
+		background-size: contain;
+	}
+	.oferta__pizarra {
+		position: absolute;
+		top: 0;
+		right: 2.08333333%;
+		width: 80%;
+		height: 91.76%;
+		background: url(templates/oferta-pizarra.png);
+		background-size: contain;
+		animation: entradaPizarra 1.75s ease;
+	}
+	.oferta__wrapper {
+		position: absolute;
+		width: 83%;
+		top: 50%;
+		left: 49%;
+		transform: translate(-50%, -50%);
+		color: #fff;
+		text-align: center;
+		overflow: hidden;
+	}
+		.oferta__title {
+			position: relative;
+			display: inline-block;
+			padding: .363636em 0 0.11em;
+			font-family: 'Kraft Nine';
+			font-size: 5.72916667vw;
+			line-height: 0.7;
+			animation: openText 1.5s ease 1s;
+		}
+			.oferta__title:before,
+			.oferta__title:after {
+				content: '';
+				display: block;
+				position: absolute;
+				left: 0;
+				right: 0;
+				height: 7px;
+				background: #fff;
+			}
+			.oferta__title:before {
+				top: 0;
+			}
+			.oferta__title:after {
+				bottom: 0;
+			}
+		.oferta__product {
+			margin-top: 80px;
+			font-family: 'School Book';
+			font-size: 5.98956667vw;
+			text-transform: uppercase;
+			line-height: .94;
+			animation: fadeIn 1.25s ease 2.25s;
+		}
+		.oferta__descuento {
+			margin-top: 10px;
+			margin-bottom: 40px;
+			font-family: 'Bradley Hand';
+			font-weight: bold;
+			font-size: 7.1875vw;
+			animation: fadeIn 1.5s ease 3.25s;
+		}
+		.oferta__mesa,
+		.oferta__productos {
+			animation: entradaMesa 1.75s ease;
+		}
+
+
+
+/*
+	ANIMATIONS
+*/
+@keyframes fromLeft {
+    from {
+    	transform: translateX(-50vw);
+    }
+    to {
+    	transform: translateX(0);
+    }
+}
+@keyframes fromRight {
+    from {
+    	transform: translateX(50vw);
+    }
+    to {
+    	transform: translateX(0);
+    }
+}
+@keyframes fromTop {
+    from {
+    	transform: translateY(-30vh);
+    }
+    to {
+    	transform: translateY(0);
+    }
+}
+@keyframes slowDown {
+    from {
+    	transform: translateY(-3%);
+    }
+    to {
+    	transform: translateY(0);
+    }
+}
+@keyframes fromBottom {
+    from {
+    	transform: translateY(-50vh);
+    }
+    to {
+    	transform: translateY(0);
+    }
+}
+@keyframes scaleUpStamp {
+    0% {
+    	transform: scale(0) rotate(0deg);
+    }
+    85% {
+    	transform: scale(.65) rotate(10deg);
+    }
+    100% {
+    	transform: scale(.6) rotate(0deg);
+    }
+}
+@keyframes moveStamp {
+	0% {
+		transform: rotate(0deg);
+	}
+	2% {
+		transform: rotate(10deg);
+	}
+	6% {
+		transform: rotate(-10deg);
+	}
+	10% {
+		transform: rotate(10deg);
+	}
+	14% {
+		transform: rotate(-10deg);
+	}
+	18% {
+		transform: rotate(10deg);
+	}
+	20% {
+		transform: rotate(0deg);
+	}
+}
+@keyframes fadeIn {
+    from {
+    	opacity: 0;
+    }
+    to {
+    	opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from {
+    	opacity: 1;
+    }
+    to {
+    	opacity: 0;
+    }
+}
+@keyframes spinIt {
+    from {
+    	transform: rotate(0deg);
+    }
+    to {
+    	transform: rotate(360deg);
+    }
+}
+@keyframes moveProduct {
+    0% {
+    	transform: translate(0, 0);
+    }
+    100% {
+    	transform: translate(-13.02%, -5.55555555%);
+    }
+}
+@keyframes entradaMesa {
+    0% {
+    	transform: translateX(19.8%);
+    }
+    100% {
+    	transform: translateX(0);
+    }
+}
+@keyframes entradaPizarra {
+    0% {
+    	transform: translateX(60%);
+    }
+    100% {
+    	transform: translateX(0);
+    }
+}
+@keyframes openText {
+    0% {
+    	transform: translateX(120%);
+    	opacity: 0;
+    }
+    100% {
+    	transform: translate(0);
+    	opacity: 1;
+    }
+}
+@keyframes moveBg {
+    0% {
+    	transform: translate(0, 0);
+    }
+    100% {
+    	transform: translate(0, -18.52%);
+    }
+}
+@keyframes enterFromLeft {
+    0% {
+    	right: 100%;
+    }
+    100% {
+    	right: 0;
+    }
+}
+@keyframes enterFromRight {
+    0% {
+    	left: 100%;
+    }
+    100% {
+    	left: 0;
+    }
+}
+
+
+
+/*
+	RESPONSIVE
+*/
+@media (min-aspect-ratio:16/9) {
+	.wrapper {
+		width: 0;
+		height: 100%;
+		max-width: none;
+		max-height: 1080px;
+		padding-left: 177.777778vh;
+		padding-top: 0;
+	}
+	.product__name {
+		font-size: 9.7222vh;
+	}
+	.product__desc {
+		font-size: 4.16666667vh;
+	}
+	.product__price .euros {
+		font-size: 18.52vh;
+	}
+	.product__price .cents {
+		font-size: 7.41vh;
+	}
+	.product__price .simbolo {
+		font-size: 14.815vh;
+	}
+	.product__price .simbolo--small {
+		font-size: 7.41vh;
+	}
+	.product__price--big .euros {
+		font-size: 14.814814vh;
+	}
+	.product__price--big .cents {
+		font-size: 5.3333333vh;
+	}
+	.menu__name {
+		font-size: 9.074vh;
+	}
+	.menu__date {
+		font-size: 3.88888888vh;
+	}
+	.menu__name + .menu__date {
+		font-size: 7.22222222vh;
+	}
+	.menu__nombre-dia {
+		font-size: 3.88888888vh;
+	}
+	.menu__plato,
+	.separator {
+		font-size: 2.59vh;
+	}
+	.menu--individual p {
+		font-size: 5.1852vh;
+	}
+	.oferta__title {
+		font-size: 10.1852vh;
+	}
+	.oferta__product {
+		font-size: 10.648vh;
+	}
+	.oferta__descuento {
+		font-size: 12.77777778vh;
+	}
+
+}
+
+@media (min-width: 1920px) and (min-height: 1080px) {
+	.wrapper {
+		width: 1920px;
+		height: 1080px;
+		padding: 0;
+	}
+	.product__name {
+		font-size: 105px;
+	}
+	.product__desc {
+		font-size: 45px;
+	}
+	.product__price .euros {
+		font-size: 200px;
+	}
+	.product__price .cents {
+		font-size: 80px;
+	}
+	.product__price .simbolo {
+		font-size: 153px;
+	}
+	.product__price .simbolo--small {
+		font-size: 80px;
+	}
+	.product__price--big .euros {
+		font-size: 160px;
+	}
+	.product__price--big .cents {
+		font-size: 58px;
+	}
+	.menu__name {
+		font-size: 98px;
+	}
+	.menu__date {
+		font-size: 42px;
+	}
+	.menu__name + .menu__date {
+		font-size: 78px;
+	}
+	.menu__nombre-dia {
+		font-size: 42px;
+	}
+	.menu__plato,
+	.separator {
+		font-size: 28px;
+	}
+	.menu--individual p {
+		font-size: 56px;
+	}
+	.oferta__title {
+		font-size: 110px;
+	}
+	.oferta__product {
+		font-size: 115px;
+	}
+	.oferta__descuento {
+		font-size: 138px;
+	}
+}

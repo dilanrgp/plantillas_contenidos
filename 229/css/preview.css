@@ -1,0 +1,739 @@
+/*
+	COLORS
+		"white": 	#fcfdfa;
+		orange:		#de6e4b;
+		green:		#7fd1b9;
+		brown:		#333;
+*/
+:root {
+	--c-blue: #204190;
+	--c-yellow: #ffba1e;
+	--c-red: #c00c00;
+	--c-red_dark: #730700;
+}
+
+
+@font-face {
+	font-family: "FS Albert";
+	font-weight: normal;
+	src: url("../fonts/FS_Albert/FSAlbert Regular.otf");
+}
+@font-face {
+	font-family: "FS Albert";
+	font-weight: bold;
+	src: url("../fonts/FS_Albert/FSAlbert-ExtraBold.otf");
+}
+@font-face {
+	font-family: "FS Albert";
+	font-weight: 300;
+	src: url("../fonts/FS_Albert/FSAlbert Light.otf");
+}
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+main {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-family: 'FS Albert', sans-serif;
+	color: #fff;
+}
+body {
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 0;
+	padding-top: 56.25%;
+	overflow: hidden;
+	background-size: cover;
+	z-index: 1;
+	outline: 1px solid #000;
+}
+	.wrapper.preview {
+		transform: translate(-50%, -50%) scale(.6);
+	}
+
+#BUTTONS {
+	top: 50%;
+	height: auto;
+	padding-top: 0;
+	margin-top: 28.125%;
+	transform: translate(-50%, -100%);
+	z-index: 1000;
+	text-align: center;
+}
+	#BUTTONS .btns {
+		width: 100%;
+		padding: 1em 0;
+		background: rgba(255, 255, 255, 0.75);
+	}
+
+.contenedor {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+}
+
+.logo {
+	position: absolute;
+	bottom: 5.55%;
+	right: 2.71%;
+	z-index: 9999;
+	width: 13.8%;
+}
+
+/*
+	Oferta 1
+*/
+.img-container {
+	width: 45.5%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 3.125%;
+}
+.img-move,
+.img {
+	width: 100%;
+	height: 100%;
+}
+.img {
+	background: no-repeat center center;
+	background-size: contain;
+}
+
+.data-ofertas {
+	width: 54.5%;
+	height: 100%;
+	position: absolute;
+	left: 45.5%;
+	padding-left: 7.34375%;
+	padding-right: 7.34375%;
+	padding-top: 7.03125%;
+	color: #fff;
+	background: var(--c-blue);
+}
+	.data-ofertas.product__2 {
+		padding-top: 6%;
+		padding-left: 6%;
+		padding-right: 3%;
+	}
+.info_content + .info_content {
+	margin-top: 3em;
+}
+
+.description {
+	font-size: 6.7708vw;
+	line-height: 1.2;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+	.product__2 .description {
+		font-size: 4.5833vw;
+	}
+.subdescription {
+	font-size: 4.1667vw;
+	font-weight: 300;
+	margin-top: 0.2em;
+}
+.product__2 .subdescription {
+	font-size: 3.3333vw;
+	margin-top: 0;
+}
+
+.price {
+	position: absolute;
+	left: -11.5%;
+	bottom: 24%;
+	width: 110%;
+	padding-left: 8%;
+	padding-top: 5%;
+	padding-bottom: 3.5%;
+	background: rgb(255,186,30);
+	background: linear-gradient(90deg, rgba(255,186,30,1) 50%, rgba(255,186,30,0) 100%);
+}
+	.price:before {
+		content: '';
+		width: 0;
+		height: 0;
+		position: absolute;
+		bottom: -0.8vw;
+		left: -0.8vw;
+		border: 0.8vw solid transparent;
+		border-right-color: var(--c-red);
+		border-top-width: 0;
+	}
+	.price:after {
+		content: '';
+		width: 100%;
+		height: 0.8vw;
+		position: absolute;
+		bottom: -0.8vw;
+		left: 0.8vw;
+		background: rgb(192,12,0);
+		background: linear-gradient(90deg, rgba(192,12,0,1) 50%, rgba(192,12,0,0) 100%);
+	}
+
+#PRICE {
+	color: var(--c-blue);
+	font-weight: bold;
+	font-size: 7.8125vw;
+}
+
+#LEGAL {
+	position: absolute;
+	bottom: 8.5%;
+	transform: translate(0, 50%);
+	width: 50%;
+	font-size: 1.14583vw;
+}
+
+
+
+/*
+	Oferta 2
+ */
+ .offer_2 .img-container {
+	width: 51.5625%;
+}
+
+.offer_2 .data-ofertas {
+	width: 48.4375%;
+	left: 51.5625%;
+	padding: 3.125%;
+	background: none;
+}
+.offer_2 .info {
+	height: 63%;
+	padding: 10%;
+	border-radius: 1.5625vw;
+	background: var(--c-blue);
+}
+	.offer_2 .product__2 .info {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+
+.offer_2 .price {
+	width: 72.5%;
+	left: -7%;
+	padding-top: 4%;
+	padding-bottom: 6%;
+	padding-left: 9%;
+	border-radius: 1.5625vw;
+	background: var(--c-yellow);
+	overflow: hidden;
+}
+	.offer_2 .price:before {
+		display: none;
+	}
+	.offer_2 .price:after {
+		left: 0;
+		bottom: 0;
+		background: linear-gradient(90deg, var(--c-red) 30%, var(--c-red_dark) 100%);
+	}
+.offer_2 .price-mirror {
+	position: absolute;
+	width: 72.5%;
+	height: 10%;
+	left: -7%;
+	bottom: 24%;
+	overflow: hidden;
+	transform-origin: 50% 100%;
+	transform: scaleY(-1);
+	border-radius: 1.5625vw;
+	background: rgb(255,186,30);
+	background: linear-gradient(0deg, rgba(255,186,30,1) 0%, rgba(255,186,30,0) 100%);
+	opacity: 0.35;
+}
+	.offer_2 .price-mirror:after {
+		content: '';
+		width: 100%;
+		height: 0.8vw;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		background: rgb(192,12,0);
+		background: linear-gradient(90deg, var(--c-red) 30%, var(--c-red_dark) 100%);
+	}
+
+
+.offer_2 .description {
+	font-size: 5.2083vw;
+}
+	.offer_2 .product__2 .description {
+		font-size: 3.95833vw;
+	}
+.offer_2 .subdescription {
+	font-size: 2.6042vw;
+}
+	.offer_2 .product__2 .subdescription {
+		font-size: 2.6042vw;
+	}
+.offer_2 #PRICE {
+	font-size: 8.3333vw;
+}
+
+.offer_2 #LEGAL {
+	width: 57%;
+	color: var(--c-blue);
+}
+
+
+/*
+	Mensaje
+ */
+ .message .contenedor {
+	background: url(../img/BG-info-H-2x.png) no-repeat center center;
+	background-size: cover;
+ }
+.message .data-ofertas {
+	width: 48.5%;
+	left: 41.5%;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 12%;
+	background: none;
+	color: var(--c-blue);
+}
+.message .description {
+	margin-bottom: 0.35em;
+	text-transform: none;
+	font-size: 8.8541667vw;
+	line-height: 0.8;
+}
+.message .subdescription {
+	font-size: 3.125vw;
+	line-height: 1.2;
+	font-weight: normal;
+}
+
+
+/*
+	VERTICAL
+*/
+.vertical .wrapper {
+	width: 0;
+	height: 100%;
+	padding-left: 56.25vh;
+}
+.vertical #BUTTONS {
+	width: 56.25vh;
+	padding-left: 0;
+	top: 100%;
+	margin-top: 0;
+}
+.vertical .logo {
+	width: 24.54%;
+	bottom: 3.3854%;
+	right: 6.2963%;
+}
+.vertical #LEGAL {
+	left: 5%;
+	font-size: 1.1458vh;
+}
+
+.vertical .img-container {
+	width: 100%;
+	height: 50%;
+	padding: 10%;
+}
+.vertical .data-ofertas {
+	width: 100%;
+	height: 50%;
+	left: 0;
+	top: 50%;
+	padding: 10%;
+}
+	.vertical .data-ofertas.product__2 {
+		padding: 5% 7.5%;
+	}
+.vertical .info_content + .info_content {
+	margin-top: 1.5em;
+}
+
+/* OFERTA 1 VERTICAL */
+.vertical.offer_1 .description {
+	font-size: 6.25vh;
+}
+.vertical.offer_1 .subdescription {
+	font-size: 3.6458vh;
+}
+	.vertical.offer_1 .product__2 .description {
+		font-size: 5vh;
+	}
+	.vertical.offer_1 .product__2 .subdescription {
+		font-size: 2.9166vh;
+	}
+.vertical.offer_1 .price {
+	width: 65%;
+	bottom: 25%;
+	left: 25%;
+}
+.vertical.offer_1 .price:before {
+    bottom: -0.8vh;
+    left: -0.8vh;
+    border-width: 0.8vh;
+    border-top-width: 0;
+}
+.vertical.offer_1 .price:after {
+    height: 0.8vh;
+    bottom: -0.8vh;
+    left: 0.75vh;
+}
+.vertical.offer_1 #PRICE {
+	font-size: 6.8229vh;
+}
+
+
+/* OFERTA 2 VERTICAL */
+.vertical.offer_2 .img-container {
+	height: 47.1354%;
+}
+.vertical.offer_2 .data-ofertas {
+	height: 52.8646%;
+	top: 47.1354%;
+}
+.vertical.offer_2 .info {
+	margin-left: 12.75%;
+}
+.vertical.offer_2 .description {
+	font-size: 4.6875vh;
+}
+	.vertical.offer_2 .product__2 .description {
+		font-size: 3.6458vh;
+	}
+.vertical.offer_2 .subdescription {
+	font-size: 2.3438vh;
+}
+.vertical.offer_2 .price,
+.vertical.offer_2 .price-mirror {
+	left: 10%;
+	width: 57.5%;
+}
+.vertical.offer_2 #PRICE {
+	font-size: 7.5448vh;
+}
+
+
+
+/* MESSAGE VERTICAL */
+.vertical.message .contenedor {
+	background-image: url(../img/BG-info-V-2x.png);
+}
+.vertical.message .data-ofertas {
+	height: 100%;
+	top: 0;
+	padding: 34.4444% 17.5926%;
+}
+.vertical.message .description {
+	font-size: 8.8542vh;
+}
+.vertical.message .subdescription {
+	font-size: 3.125vh;
+}
+
+
+/*
+	ANIMATIONS
+*/
+.img-container {
+	animation: fadeIn 2s linear 2s;
+}
+.img {
+	animation: zoomIn 10s linear 2s;
+}
+
+.logo {
+	animation: fadeIn 2s linear 2.5s;
+}
+#LEGAL {
+	animation: fadeIn 2s linear 4.5s;
+}
+
+.description p,
+.subdescription p {
+		animation: fadeFromRight .666s ease;
+}
+	.description p:nth-of-type(1) {
+		animation-delay: 2.5s;
+	}
+	.description p:nth-of-type(2) {
+		animation-delay: 2.83s;
+	}
+	.description p:nth-of-type(3) {
+		animation-delay: 3.16s;
+	}
+	.subdescription p:nth-of-type(1) {
+		animation-delay: 2.75s;
+	}
+	.subdescription p:nth-of-type(2) {
+		animation-delay: 3.08s;
+	}
+	.subdescription p:nth-of-type(3) {
+		animation-delay: 3.33s;
+	}
+/*
+.price__label {
+	animation: scaleUp 1s ease 3.5s,
+				fadeIn 1s linear 3.5s;
+	transform-origin: 0% 100%;
+}
+.price__move {
+	transform-origin: 0% 100%;
+}
+*/
+/* OFFER 1 */
+.offer_1 .price {
+	animation: fadeFromRight 1s ease 3.25s;
+}
+
+
+/* OFFER 2 */
+.offer_2 .price,
+.offer_2 .price-mirror {
+	animation: scaleUp 1s ease 2.25s;
+}
+.offer_2 .price {
+	transform-origin: 50% 100%;
+}
+.offer_2 .info {
+	animation: scaleUp 1s ease 2.5s;
+	transform-origin: 50% 100%;
+}
+.offer_2 .description p,
+.offer_2 .subdescription p {
+	animation: none;
+}
+
+
+
+/* MESSAGE */
+.message .description {
+	animation: fadeFromRight 2s ease 2.25s;
+}
+.message .subdescription p {
+	animation: fadeFromLeft 2s ease;
+}
+	.message .subdescription p:nth-of-type(1) {
+		animation-delay: 2.5s;
+	}
+	.message .subdescription p:nth-of-type(2) {
+		animation-delay: 2.75s;
+	}
+	.message .subdescription p:nth-of-type(3) {
+		animation-delay: 3s;
+	}
+
+
+
+/* VERTICAL */
+
+
+
+@keyframes fadeIn {
+    from {
+    	opacity: 0;
+    }
+    to {
+    	opacity: 1;
+    }
+}
+@keyframes scaleUp {
+    from {
+    	transform: scale(0);
+    }
+}
+@keyframes fadeFromRight {
+    from {
+		opacity: 0;
+    	transform: translateX(35%);
+    }
+}
+@keyframes fadeFromLeft {
+    from {
+		opacity: 0;
+    	transform: translateX(-35%);
+    }
+}
+
+@keyframes zoomIn {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.15);
+	}
+}
+
+
+
+/*
+	RESPONSIVE
+*/
+
+@media (min-aspect-ratio:16/9) {
+	.wrapper {
+		width: 0;
+		height: 100%;
+		padding-left: 177.777778vh;
+		padding-top: 0;
+	}
+	#BUTTONS {
+		width: 100%;
+		padding-left: 0;
+		top: auto !important;
+		bottom: 0;
+		margin-top: 0;
+		transform: translate(-50%, 0);
+	}
+
+
+	.description {
+		font-size: 12.037vh;
+	}
+	.subdescription {
+		font-size: 7.4074vh;
+	}
+	#PRICE {
+		font-size: 13.8888vh;
+	}
+	#LEGAL {
+		font-size: 2.037vh;
+	}
+
+	.offer_2 .info,
+	.offer_2 .price,
+	.offer_2 .price-mirror {
+		border-radius: 2.7777vh;
+	}
+	.offer_2 .description {
+		font-size: 9.2592vh;
+	}
+	.offer_2 .subdescription {
+		font-size: 4.6296vh;
+	}
+	.offer_2 #PRICE {
+		font-size: 14.8148vh;
+	}
+
+	.message .description {
+		font-size: 15.74074vh;
+	}
+	.message .subdescription {
+		font-size: 5.5555vh;
+	}
+}
+
+@media (max-aspect-ratio:9/16) {
+	.vertical .wrapper {
+		width: 100%;
+		height: 0;
+		padding-left: 0;
+		padding-top: 177.7777vw;
+	}
+
+	.vertical #LEGAL {
+		font-size: 2.037vw;
+	}
+
+	.vertical.offer_1 .description {
+		font-size: 11.1111vw;
+	}
+	.vertical.offer_1 .subdescription {
+		font-size: 6.4814vw;
+	}
+	.vertical.offer_1 #PRICE {
+		font-size: 12.1407vw;
+	}
+
+	.vertical.offer_2 .description {
+		font-size: 8.38333vw;
+	}
+	.vertical.offer_2 .subdescription {
+		font-size: 4.191666vw;
+	}
+	.vertical.offer_2 #PRICE {
+		font-size: 13.413vw;
+	}
+
+	.vertical.message .description {
+		font-size: 15.7407vw;
+	}
+	.vertical.message .subdescription {
+		font-size: 5.5555vw;
+	}
+}

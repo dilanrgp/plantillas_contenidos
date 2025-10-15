@@ -1,0 +1,188 @@
+<?php
+	function nl2p($string)
+	{
+		$paragraphs = '';
+	
+		foreach (explode("\n", $string) as $line) {
+			if (trim($line)) {
+				$paragraphs .= '<p>' . $line . '</p>';
+			}
+		}
+	
+		return $paragraphs;
+	}
+?>
+
+<?php
+	$template			= $_POST["TEMPLATE"];
+	$template_number	= substr($template, -1);
+
+	$dev = ($_SERVER['HTTP_HOST'] === 'localhost');
+
+	$data = [
+		'pretitle'	=> $_POST["PRETITLE"],
+		'title'		=> $_POST["TITLE"],
+		'desc'		=> $_POST["DESCRIPCION"],
+		'subdesc'	=> $_POST["SUBDESCRIPCION"],
+		'price'		=> $_POST["PRICE"],
+		'subprice'	=> $_POST["SUBPRICE"],
+		'details' 	=> $_POST["DETAILS"],
+		'img'	 	=> $_POST["IMG"]
+	];
+
+	if( !strlen($data['desc']) && !strlen($data['subdesc']) ) {
+		$t2_class = "img_bigger";
+	} else if ( !strlen($data['desc']) || !strlen($data['subdesc']) ) {
+		$t2_class = "img_big";
+	} else {
+		$t2_class = "";
+	}
+
+	/* <!---////////// JCAM ---> */
+
+	$template_dir       = '/plantillascontenidov4/128';
+	$image_url			= '';
+
+	if($_FILES['IMG']['name']!=""){
+        $filename_path = time() . ".".pathinfo($_FILES['IMG']['name'], PATHINFO_EXTENSION);
+        $image_path = getcwd() .'/images/'. $filename_path;
+        move_uploaded_file($_FILES['IMG']['tmp_name'], $image_path);
+        $image_url = $template_dir .'/images/'. $filename_path;
+    }
+    /* <!---////////// ENDJCAM ---> */
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Plantillas EXOIL</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/template.css">
+	<!---////////// JCAM --->	
+	<script language="JavaScript">
+			function grabarplantilla()
+			{
+                var template_dir = '/plantillascontenidov4/128';
+				var atributos = null;
+				var plantilla = null;
+				var contenido = null;
+
+				var contenedor =
+								 "<html lang='es'><head><meta http-equiv='Content-type' content='text/html; charset=utf-8'>"+
+								 "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'>"+	
+                                 "<link rel='stylesheet' href='<?php echo $template_dir ?>/css/template.css'>"+	
+								 "</head><body class='<?php echo 'offer_' . $template_number; ?>' >"+
+								 "<div class='wrapper' id='TEMPLATE_CONTENT' >"+ document.getElementById("TEMPLATE_CONTENT").innerHTML +"</div>"+
+                                 "</body></html>";
+ 
+                $.post("../grabaplantilla.php", {html: contenedor, atributos: atributos, plantilla: plantilla, contenido:contenido}, function(response) {
+                	if(response) {
+                		var result = JSON.parse(response);
+                		if(result.success) {
+                    		console.log(result.data);
+					    	parent.postMessage({domain:'ladorian.ids.template', 'key': 'template-url', 'value': result.data}, '*');
+						}
+                	}
+					window.close();
+                });
+			}
+	</script>
+    <!---////////// ENDJCAM --->
+</head>
+
+<body class="<?php echo 'offer_' . $template_number; ?>">
+	<div class="wrapper" id="TEMPLATE_CONTENT">
+		<div class="contenedor">
+			<div class="logo-container">
+				<img src="<?= $template_dir ?>/img/logo-dark.png" class="logo logo_1">
+				<img src="<?= $template_dir ?>/img/logo-green.png" class="logo logo_2">
+				<div class="logo-bg"></div>
+			</div>
+			<div class="data-ofertas">
+				<div class="title">
+				<?php if ( strlen($data['pretitle']) ) : ?>
+						<p id="PRETITLE"><?php echo $data['pretitle']; ?></p>
+						<p id="TITLE"><?php echo $data['title']; ?></p>
+					<?php else : ?>
+						<p id="TITLE" class="no-pretitle"><?php echo $data['title']; ?></p>
+					<?php endif; ?>
+				</div>
+				<div class="title-bg-rotator">
+					<div class="title-bg"></div>
+				</div>
+
+				<div class="info">
+					<div id="DESCRIPCION" <?php if(!strlen($data['subdesc'])) echo 'class="big"'; ?>><?php echo nl2p($data['desc']); ?></div>
+					<div id="SUBDESCRIPCION"><?php echo nl2p($data['subdesc']); ?></div>
+				</div>
+
+				<div class="price">
+					<p id="PRICE"><?php echo $data['price']; ?></p>
+					<p id="SUBPRICE"><?php echo $data['subprice']; ?></p>
+				</div>
+				<?php if ( strlen($data['price']) || strlen($data['subprice']) ) : ?>
+					<div class="bg-price">
+						<div class="bg-price-color"></div>
+					</div>
+				<?php endif; ?>
+			</div>
+			<div class="img-container <?php echo $t2_class; ?>">
+				<?php if ($dev) : ?>
+					<img src="<?php echo 'img_test/' . $data['img']; ?>" class="img" />
+				<?php else :?>
+						<img src="<?php echo $image_url; ?>" class="img" />
+				<?php endif; ?>
+			</div>
+			<?php if ( $template_number == "1" ) : ?>
+				<div class="img-bg-rotator">
+					<div class="img-bg"></div>
+				</div>
+			<?php endif; ?>
+			<div id="DETAILS">
+				<?php echo nl2p($data['details']); ?>
+				<div class="details-bg"></div>
+			</div>
+			<div class="rayo-bg"></div>
+		</div>
+		<script src="<?= $template_dir ?>/js/jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+		<script src="<?= $template_dir ?>/js/CustomEase.min.js"></script>
+		<script src="<?= $template_dir ?>/js/front-end.js?v=001"></script>
+	</div>
+
+	<div class="wrapper" id="BUTTONS">
+		<div class="btns">
+			<input type="button" class="btn btn-success" name="guardar" value="Grabar Plantilla" onclick="grabarplantilla();">
+			<input type="button" class="btn btn-primary" name="volver" value="Volver" onclick="window.close(); window.history.back();">
+		</div>
+	</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

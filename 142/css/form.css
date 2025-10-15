@@ -1,0 +1,433 @@
+/*
+	COLORS
+*/
+:root {
+	--light: #dae3f2;
+	--med: #c3cae3;
+	--dark: #6178b0;
+}
+
+/*
+	RESET
+*/
+*, *:before, *:after {
+	box-sizing: inherit;
+	animation-fill-mode: both !important;
+}
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+/*
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+main {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*/
+
+img {
+	max-width: 100%;
+}
+fieldset {
+	border: 1px solid #ccc;
+}
+	fieldset h3 {
+		margin-top: 15px;
+		margin-bottom: 30px;
+	}
+/* textarea {
+	resize: none;
+}
+ */
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+	.cell + .cell {
+		padding-left: 5%;
+	}
+
+
+#TEMPLATE_FORM {
+	margin-top: 20px;
+}
+
+.template-selection {
+	display: table;
+}
+
+#CONFIG {
+	display: none;
+}
+
+.config-container {
+	max-width: 960px;
+	margin: auto;
+}
+.template-config {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: 56.25%;
+	margin-bottom: 2em;
+	outline: 1px solid #000;
+	background-size: contain;
+	background-repeat: no-repeat;
+	font-family: Arial, sans-serif;
+	color: var(--dark);
+}
+	.template-config input[type=text],
+	.template-config textarea {
+		position: absolute;
+		padding: .1em .2em;
+		background: rgba(255,255,255,0.25);
+		border: 1px solid #7a6563;
+		color: var(--dark);
+		transition: all .2s ease-in-out;
+	}
+	.template-config input[type=text]:focus,
+	.template-config textarea:focus {
+		background: none;
+		border-color: #fff !important;
+		outline: none;
+	}
+	#TITLE,
+	#PRICE {
+		border: 2px solid #fff;
+	}
+
+#TITLE {
+	top: 21%;
+	left: 49.6%;
+	width: 46%;
+	height: 3.2em;
+	font-size: 35px;
+	line-height: 1.43;
+	font-weight: bold;
+}
+#CONTENT {
+	top: 43%;
+	left: 49.6%;
+	width: 46%;
+	height: 6em;
+	font-size: 27px;
+	line-height: 1.43;
+}
+#PRICE {
+	top: 65%;
+	left: 28.9%;
+	z-index: 150;
+	width: 17.5%;
+	background: var(--med);
+	font-family: 'Arial Black';
+	font-size: 37px;
+	line-height: 1.5;
+	text-align: center;
+}
+#CLAIM {
+	top: 85.7%;
+	left: 15%;
+	width: 70%;
+	background: var(--med);
+	font-family: 'Arial Black';
+	font-size: 35px;
+	line-height: 1.75;
+	text-align: center;
+}
+.img-preview {
+	position: absolute;
+	top: 21.7%;
+	left: 11.6%;
+	width: 33.6%;
+	height: 53%;
+	background: #fff url(../img/select-file.gif) no-repeat center center;
+	background-size: contain;
+	cursor: pointer;
+}
+#SUBPRICE,
+#LEGAL {
+	display: none;
+}
+
+/*
+	OFERTA 2
+*/
+.oferta_L #NOMBRE_FARMACIA {
+	left: auto;
+	right: 2%;
+	top: 90.5%;
+	font-size: 25px;
+	line-height: 1;
+	text-align: right;
+}
+
+.oferta_L .info {
+	position: absolute;
+	top: 1.3%;
+	left: 64.6%;
+	z-index: 150;
+	width: 29.6%;
+	height: 42.3%;
+	background: var(--med);
+}
+
+.oferta_L #TITLE {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 3em;
+	font-family: 'Arial Black';
+	font-size: 24px;
+	line-height: 1.2;
+	text-align: center;
+	text-transform: uppercase;
+}
+.oferta_L #CONTENT {
+	position: relative;
+	left: 0;
+	top: 0.5em;
+	width: 100%;
+	height: 7em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	font-size: 18px;
+	line-height: 1.2;
+	text-align: center;
+}
+.oferta_L #PRICE {
+	left: 59.2%;
+	top: 69.6%;
+	width: 20.8%;
+	font-size: 48px;
+	line-height: 1.1;
+}
+.oferta_L #CLAIM {
+	width: 28.8%;
+	left: 70.6%;
+	top: 57%;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 1;
+	text-align: left;
+	background: rgba(255,255,255,0.25);
+}
+.oferta_L .img-preview {
+	/* display: none; */
+	top: 1.4%;
+	left: 0.8%;
+	width: 69.8%;
+	height: 83%;
+	background-size: cover;
+}
+
+/*
+	OFERTA 3
+*/
+.oferta_V #TITLE {
+	left: 25%;
+	top: 31.85%;
+	width: 40%;
+	height: 2.4em;
+	transform: translate(-50%, -50%);
+	font-family: 'Arial Black';
+	font-size: 40px;
+	line-height: 1;
+	text-align: center;
+}
+.oferta_V #CONTENT {
+	left: 25%;
+	top: 54%;
+	width: 40%;
+	height: 3.5em;
+	margin-bottom: 0;
+	font-size: 24px;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+.oferta_V .field-claim {
+	display: none;
+}
+.oferta_V .field-price {
+	position: absolute;
+	left: 25%;
+	top: 82%;
+	width: 36.45%;
+	transform: translate(-50%, -50%);
+	background: var(--med);
+	border-radius: 10px;
+}
+	.oferta_V .field-price p {
+		margin-bottom: 0;
+	}
+	.oferta_V #PRICE {
+		width: 100%;
+		position: static;
+		background: none;
+		font-size: 30px;
+		border: 1px solid #7a6563;
+	}
+	.oferta_V #SUBPRICE, .oferta_V #LEGAL {
+		display: block;
+		position: static;
+		width: 100%;
+		background: none;
+		text-align: center;
+	}
+	.oferta_V #SUBPRICE {
+		font-size: 18px;
+	}
+	.oferta_V #LEGAL {
+		font-size: 12px;
+	}
+.oferta_V .img-preview {
+	top: 0;
+	left: 50%;
+	height: 100%;
+	width: 50%;
+	transform: none;
+	background-size: cover;
+}
+	.oferta_V .img-border {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: block;
+		height: 100%;
+		border: 10px solid var(--dark);
+		transform-origin: 0 50%;
+		transform: translate(-10px, -50%);
+	}
+
+
+#HORARIO_1,
+#HORARIO_2,
+#HORARIO_3 {
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60%;
+	padding-bottom: 0;
+	font-size: 31px;
+	text-align: center;
+}
+#HORARIO_1 {
+	top: 40%;
+}
+#HORARIO_2 {
+	top: 50%;
+}
+#HORARIO_3 {
+	top: 60%;
+}
+.tel {
+	position: absolute;
+	left: 50%;
+	top: 72.5%;
+	transform: translateX(-50%);
+	width: 60%;
+	font-size: 30px;
+	text-align: center;
+}
+#TEL {
+	position: relative;
+	width: 35%;
+	font-weight: 500;
+}
+/*
+	STYLES MENSAJE
+*/
+.mensaje #TITLE,
+.mensaje .field-price,
+.mensaje .field-claim {
+	display: none;
+}
+.mensaje #CONTENT {
+	left: 0%;
+	top: 35%;
+	z-index: 100;
+	width: 49%;
+	height: 7.5em;
+	font-size: 36px;
+	font-weight: bold;
+	text-align: center;
+}
+.mensaje.no_img #CONTENT {
+	left: 10%;
+	width: 80%;
+}
+.mensaje .img-preview {
+	height: 100%;
+	width: 50%;
+	top: 0;
+	left: 50%;
+	background-size: cover;
+}
+	.mensaje .img-preview:before {
+		content: '';
+		display: block;
+		position: absolute;
+		left: -10px;
+		top: 0;
+		height: 100%;
+		width: 20px;
+		background: var(--dark);
+	}
+
+
+.validation {
+	min-height: 1px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+	.validation p {
+		margin-top: 20px;
+		margin-bottom: 0;
+		color: #d22;
+		font-size: 1.25em;
+		font-weight: 500;
+	}
+	.validation p + p {
+		margin-top: 5px;
+	}
+
+
