@@ -14,7 +14,7 @@
 
 	$template			= $_POST["TEMPLATE"];
 	$template_number	= substr($template, -1);
-	$template_dir       = '/plantillascontenidov4/136';
+	$template_dir       = BASE_PATH . '/136';
 
 	$data = [
 		'title'		=> $_POST["TITLE"],				//
@@ -56,7 +56,7 @@
 	include("../accesomysql.php");
 	$directoriocliente = $directoriobase."/".$idcustomer."/";
 	$dirbase = "ids.ladorianids.es";
-	$plantillascontenido = "/plantillascontenidov4/".$idcustomer."/";
+	$plantillascontenido = BASE_PATH . '/' . $idcustomer . '/';
 	
 	$conexionbd  = mysqli_connect($sql_host,$sql_login,$sql_pass,$sql_base) or die("Error en la conexión a la Base de Datos...:".mysqli_connect_error());
 	mysqli_select_db($conexionbd,$sql_base) OR  die ('Error en la selección de la Base de Datos...' . mysqli_error());
@@ -177,7 +177,7 @@
 	<script language="JavaScript">
 			function grabarplantilla()
 			{
-                var template_dir = '/plantillascontenidov4/136';
+                var template_dir = '<?php echo $template_dir; ?>';
 				var atributos = null;
 				var plantilla = null;
 				var contenido = null;

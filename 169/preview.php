@@ -78,7 +78,7 @@
 	include("../accesomysql.php");
 	$directoriocliente = $directoriobase."/".$idcustomer."/";
 	$dirbase = "ids.ladorianids.es";
-	$plantillascontenido = "/plantillascontenidov4/".$idcustomer."/";
+	$plantillascontenido = BASE_PATH . '/' . $idcustomer . '/';
 
 	$conexionbd  = mysqli_connect($sql_host,$sql_login,$sql_pass,$sql_base) or die("Error en la conexión a la Base de Datos...:".mysqli_connect_error());
 	mysqli_select_db($conexionbd,$sql_base) OR  die ('Error en la selección de la Base de Datos...' . mysqli_error());
@@ -178,6 +178,7 @@
 <input type="hidden" name="oldimage" id="oldimage" value="<?=$old_image?>">
 <input type="hidden" name="destinationPath" id="destinationPath" value="<?=$destination_path?>">
 <input type="hidden" name="idcampaign" id="idcampaign" value="<?=$idcampaign?>">
+<input type="hidden" name="idcustomer" id="idcustomer" value="<?= $idcustomer ?>">
 
 <!DOCTYPE html>
 <html lang="en">
@@ -209,8 +210,10 @@
 				var oldimage = document.getElementById("oldimage").value;
 				var destinationPath = document.getElementById("destinationPath").value;
 
-				var contenedor =
-								 "<html lang='es'><head><meta http-equiv='Content-type' content='text/html; charset=utf-8'>"+
+                                var idcustomer = document.getElementById("idcustomer").value;
+
+                                var contenedor =
+                                                                 "<html lang='es'><head><meta http-equiv='Content-type' content='text/html; charset=utf-8'>"+
 								"<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'>"+
 								"<link rel='stylesheet' href='<?php echo $directoriobase?>/fonts/font-awesome.min.css'>"+
 								"<link rel='stylesheet' href='<?php echo $directoriocliente?>"+"css/glem.css'>"+							 
@@ -221,29 +224,46 @@
 
 	//			$('.loading').css('display','block');
 
-				$.ajax({
-				  url: "../grabaplantilla.php",
-				  method: "POST",
-				  data: { 
-					html : contenedor,
-				  	atributos: atributos,
-				  	plantilla: plantilla,
-				  	contenido: contenido,
-				  	idcampaign: idcampaign,
-				  	imagen: $('#saveplantilla').data('imagen'),
-				  	oldimage: oldimage,
-				  	destinationPath: destinationPath
-				  	 },
-				  dataType: "json"
-				})
-				.done(function(result) {
-					if(result.success) {
-						parent.postMessage({domain:'ladorian.ids.template', 'key': 'template-url', 'value': result.data}, '*');
-					}
-				}).fail(function(){
-				}).always(function(){
-					window.close();
-				});				
+                                var $saveButton = $('#saveplantilla');
+
+                                function enableSaveButton() {
+                                        $saveButton.removeClass('disabled');
+                                        $saveButton.off('click').on('click', grabarplantilla);
+                                }
+
+                                $.ajax({
+                                  url: "../grabaplantilla.php",
+                                  method: "POST",
+                                  data: {
+                                        html : contenedor,
+                                        atributos: atributos,
+                                        plantilla: plantilla,
+                                        contenido: contenido,
+                                        idcampaign: idcampaign,
+                                        idcustomer: idcustomer,
+                                        imagen: $('#saveplantilla').data('imagen'),
+                                        oldimage: oldimage,
+                                        destinationPath: destinationPath
+                                         },
+                                  dataType: "json"
+                                })
+                                .done(function(result) {
+                                        if(result && result.success) {
+                                                parent.postMessage({domain:'ladorian.ids.template', 'key': 'template-url', 'value': result.data}, '*');
+                                                window.close();
+                                        } else {
+                                                var message = (result && result.error) ? result.error : 'Se ha producido un error al guardar la plantilla.';
+                                                alert(message);
+                                                enableSaveButton();
+                                        }
+                                }).fail(function(jqXHR){
+                                        var message = 'Se ha producido un error al guardar la plantilla.';
+                                        if (jqXHR.responseJSON && jqXHR.responseJSON.error) {
+                                                message = jqXHR.responseJSON.error;
+                                        }
+                                        alert(message);
+                                        enableSaveButton();
+                                });
 				
 
 			}

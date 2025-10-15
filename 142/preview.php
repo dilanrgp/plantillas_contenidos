@@ -13,6 +13,8 @@
 	}
 ?>
 <?php
+        require_once __DIR__ . '/../accesomysql.php';
+
 	$template			= $_POST["TEMPLATE"];
 	$template_number	= substr($template, -1);
 
@@ -65,7 +67,7 @@
 		$bg_clases .= ' no_img';
 	}
 
-    $template_dir = '/plantillascontenidov4/142';
+    $template_dir = BASE_PATH . '/142';
     $path_upload = $template_dir ."/uploads";
     $destination_path = getcwd().DIRECTORY_SEPARATOR . "uploads/";
     if($_FILES['IMG']['name']!=""){

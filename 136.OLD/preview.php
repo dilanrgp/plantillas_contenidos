@@ -45,7 +45,7 @@
 	include("../accesomysql.php");
 	$directoriocliente = $directoriobase."/".$idcustomer."/";
 	$dirbase = "ids.ladorianids.es";
-	$plantillascontenido = "/plantillascontenidov4/".$idcustomer."/";
+	$plantillascontenido = BASE_PATH . '/' . $idcustomer . '/';
 	
 	$conexionbd  = mysqli_connect($sql_host,$sql_login,$sql_pass,$sql_base) or die("Error en la conexión a la Base de Datos...:".mysqli_connect_error());
 	mysqli_select_db($conexionbd,$sql_base) OR  die ('Error en la selección de la Base de Datos...' . mysqli_error());
@@ -144,10 +144,11 @@
 	?>
 	<input type="hidden" name="atributos" id="atributos" value="<?php echo $json_string?>">
 	<input type="hidden" name="idcontenttemplate" id="idcontenttemplate" value="<?php echo $idcontenttemplate?>">
-	<input type="hidden" name="idcontent" id="idcontent" value="<?php echo $idcontent?>">
-	<input type="hidden" name="oldimage" id="oldimage" value="<?=$old_image?>">
-	<input type="hidden" name="destinationPath" id="destinationPath" value="<?=$destination_path?>">
-	<input type="hidden" name="idcampaign" id="idcampaign" value="<?=$idcampaign?>">
+        <input type="hidden" name="idcontent" id="idcontent" value="<?php echo $idcontent?>">
+        <input type="hidden" name="oldimage" id="oldimage" value="<?=$old_image?>">
+        <input type="hidden" name="destinationPath" id="destinationPath" value="<?=$destination_path?>">
+        <input type="hidden" name="idcampaign" id="idcampaign" value="<?=$idcampaign?>">
+        <input type="hidden" name="idcustomer" id="idcustomer" value="<?= $idcustomer ?>">
 
 <!DOCTYPE html>
 <html lang="en">
@@ -240,8 +241,10 @@
 				var oldimage = document.getElementById("oldimage").value;
 				var destinationPath = document.getElementById("destinationPath").value;
 
-				var contenedor =
-								 "<html lang='es'><head><meta http-equiv='Content-type' content='text/html; charset=utf-8'>"+
+                                var idcustomer = document.getElementById("idcustomer").value;
+
+                                var contenedor =
+                                                                 "<html lang='es'><head><meta http-equiv='Content-type' content='text/html; charset=utf-8'>"+
 								 //"<title>Plantilla de menus diarios</title>"+								 
 								 
 								"<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'>"+
@@ -281,42 +284,50 @@
 								 "</div></body></html>";
 
 	//			$('.loading').css('display','block');
- resp={ 
-					html : contenedor,
-				  	atributos: atributos,
-				  	plantilla: plantilla,
-				  	contenido: contenido,
-				  	idcampaign: idcampaign,
-				  	imagen: $('#saveplantilla').data('imagen'),
-				  	oldimage: oldimage,
-				  	destinationPath: destinationPath
-				  	 };
-					   console.log(resp);
-				$.ajax({
-				  url: "../grabaplantilla.php",
-				  method: "POST",
-				  data: { 
-					html : contenedor,
-				  	atributos: atributos,
-				  	plantilla: plantilla,
-				  	contenido: contenido,
-				  	idcampaign: idcampaign,
-				  	imagen: $('#saveplantilla').data('imagen'),
-				  	oldimage: oldimage,
-				  	destinationPath: destinationPath
-				  	 },
-				  dataType: "json"
-				})
-				.done(function(result) {
-					if(result.success) {
-						console.log(result);
-						parent.postMessage(result.data, '*');
-					}
-				}).fail(function( jqXHR, textStatus, errorThrown ) {
-					console.log(jqXHR  );
-				}).always(function(){
-					window.close();
-				});				
+                                var requestPayload = {
+                                        html : contenedor,
+                                        atributos: atributos,
+                                        plantilla: plantilla,
+                                        contenido: contenido,
+                                        idcampaign: idcampaign,
+                                        idcustomer: idcustomer,
+                                        imagen: $('#saveplantilla').data('imagen'),
+                                        oldimage: oldimage,
+                                        destinationPath: destinationPath
+                                         };
+
+                                var $saveButton = $('#saveplantilla');
+
+                                function enableSaveButton() {
+                                        $saveButton.removeClass('disabled');
+                                        $saveButton.off('click').on('click', grabarplantilla);
+                                }
+
+                                $.ajax({
+                                  url: "../grabaplantilla.php",
+                                  method: "POST",
+                                  data: requestPayload,
+                                  dataType: "json"
+                                })
+                                .done(function(result) {
+                                        if(result && result.success) {
+                                                console.log(result);
+                                                parent.postMessage(result.data, '*');
+                                                window.close();
+                                        } else {
+                                                var message = (result && result.error) ? result.error : 'Se ha producido un error al guardar la plantilla.';
+                                                alert(message);
+                                                enableSaveButton();
+                                        }
+                                }).fail(function(jqXHR) {
+                                        console.log(jqXHR  );
+                                        var message = 'Se ha producido un error al guardar la plantilla.';
+                                        if (jqXHR.responseJSON && jqXHR.responseJSON.error) {
+                                                message = jqXHR.responseJSON.error;
+                                        }
+                                        alert(message);
+                                        enableSaveButton();
+                                });
 				
 
 			}
