@@ -181,7 +181,6 @@ if(isset($_POST["LINKEDIN"])){	$linkedin = true;}
 <input type="hidden" name="oldimage" id="oldimage" value="<?=$old_image?>">
 <input type="hidden" name="destinationPath" id="destinationPath" value="<?=$destination_path?>">
 <input type="hidden" name="idcampaign" id="idcampaign" value="<?=$idcampaign?>">
-<input type="hidden" name="idcustomer" id="idcustomer" value="<?= $idcustomer ?>">
 <!--- ENDJCAM -->
 
 
@@ -256,10 +255,8 @@ if(isset($_POST["LINKEDIN"])){	$linkedin = true;}
 				var oldimage = document.getElementById("oldimage").value;
 				var destinationPath = document.getElementById("destinationPath").value;
 
-                                var idcustomer = document.getElementById("idcustomer").value;
-
-                                var contenedor =
-                                                                 "<html lang='es'><head><meta http-equiv='Content-type' content='text/html; charset=utf-8'>"+
+				var contenedor =
+								 "<html lang='es'><head><meta http-equiv='Content-type' content='text/html; charset=utf-8'>"+
 								 //"<title>Plantilla de menus diarios</title>"+								 
 								 
 								"<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'>"+
@@ -299,45 +296,26 @@ if(isset($_POST["LINKEDIN"])){	$linkedin = true;}
 								 "</div></body></html>";
 
 
-                                var $saveButton = $('#saveplantilla');
-
-                                function enableSaveButton() {
-                                        $saveButton.removeClass('disabled');
-                                        $saveButton.off('click').on('click', grabarplantilla);
-                                }
-
-                                $.ajax({
-                                  url: "../grabaplantilla.php",
-                                  method: "POST",
-                                  data: {
-                                        html : contenedor,
-                                        atributos: atributos,
-                                        plantilla: plantilla,
-                                        contenido: contenido,
-                                        idcampaign: idcampaign,
-                                        idcustomer: idcustomer,
-                                        imagen: $('#saveplantilla').data('imagen'),
-                                        oldimage: oldimage,
-                                        destinationPath: destinationPath
-                                         },
-                                  dataType: "json"
-                                })
-                                .done(function(result) {
-                                        if (result && result.success) {
-                                                window.close();
-                                        } else {
-                                                var message = (result && result.error) ? result.error : 'Se ha producido un error al guardar la plantilla.';
-                                                alert(message);
-                                                enableSaveButton();
-                                        }
-                                }).fail(function(jqXHR){
-                                        var message = 'Se ha producido un error al guardar la plantilla.';
-                                        if (jqXHR.responseJSON && jqXHR.responseJSON.error) {
-                                                message = jqXHR.responseJSON.error;
-                                        }
-                                        alert(message);
-                                        enableSaveButton();
-                                });
+				$.ajax({
+				  url: "../grabaplantilla.php",
+				  method: "POST",
+				  data: { 
+					html : contenedor,
+				  	atributos: atributos,
+				  	plantilla: plantilla,
+				  	contenido: contenido,
+				  	idcampaign: idcampaign,
+				  	imagen: $('#saveplantilla').data('imagen'),
+				  	oldimage: oldimage,
+				  	destinationPath: destinationPath
+				  	 },
+				  dataType: "json"
+				})
+				.done(function() {
+				}).fail(function(){
+				}).always(function(){
+					window.close();
+				});				
 				
 
 			}
