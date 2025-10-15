@@ -75,7 +75,7 @@ $directoriocliente = $directoriobase."/".$idcustomer."/";
 $dirbase = "ladorianids.com";
 $dirbase = "dev.ladorianids.com";
 $dirbase = "idsv4.ladorianids.es";
-$plantillascontenido = "/plantillascontenidov4/".$idcustomer."/";
+$plantillascontenido = BASE_PATH . '/' . $idcustomer . '/';
 //$dirbase = "idsv2.ladorian.es";
 
  

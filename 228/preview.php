@@ -13,6 +13,8 @@
 ?>
 
 <?php
+        require_once __DIR__ . '/../accesomysql.php';
+
 	$template			= $_POST["TEMPLATE"];
 	$template_number	= substr($template, -1);
 	$idcustomer = 228;
@@ -40,7 +42,7 @@
 		$data['price_c'] = ($c_pos + 1 !== $pl) ? substr($p, $c_pos - $pl + 1) : '';
 	}
 
-    $template_dir = '/plantillascontenidov4/228';
+    $template_dir = BASE_PATH . '/228';
     $path_upload = $template_dir ."/uploads";
     $destination_path = getcwd().DIRECTORY_SEPARATOR . "uploads/";
     if($_FILES['IMG']['name']!=""){

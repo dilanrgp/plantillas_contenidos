@@ -12,12 +12,14 @@
 ?>
 
 <?php
+        require_once __DIR__ . '/../accesomysql.php';
+
 	$template			= $_POST["TEMPLATE"];
 	$template_number	= substr($template, -1);
 	$idcustomer = 229;
 	$dev = ($_SERVER['HTTP_HOST'] === 'localhost');
 
-    $template_dir = '/plantillascontenidov4/229';
+    $template_dir = BASE_PATH . '/229';
     $path_upload = $template_dir ."/uploads";
     $destination_path = getcwd().DIRECTORY_SEPARATOR . "uploads/";
     if(isset($_FILES['IMG']) && $_FILES['IMG']['name']!=""){

@@ -68,7 +68,7 @@ include("../accesomysql.php");
 $directoriocliente = $directoriobase."/".$idcustomer."/";
 $dirbase = "ladorianids.com";
 $dirbase = "idsv4.ladorianids.es";
-$plantillascontenido = "/plantillascontenidov4/".$idcustomer."/";
+$plantillascontenido = BASE_PATH . '/' . $idcustomer . '/';
  
 $conexionbd  = mysqli_connect($sql_host,$sql_login,$sql_pass,$sql_base) or die("Error en la conexión a la Base de Datos...:".mysqli_connect_error());
 mysqli_select_db($conexionbd,$sql_base) OR  die ('Error en la selección de la Base de Datos...' . mysqli_error());

@@ -1,14 +1,15 @@
 <?php
 error_reporting(E_ALL);
+require_once __DIR__ . '/accesomysql.php';
 // Si ya estaba definido el campo html (el que incluye la pagina WEB) se graba la plantilla
 // ya que los parametros se pasan por POST
 $response="KO";
 $archivo= "0plantilla.txt"; // el nombre de tu archivo
-$fch= fopen($archivo, "w"); // Abres el archivo para escribir en él	
+$fch= fopen($archivo, "w"); // Abres el archivo para escribir en él
 
-if(isset($_POST['plantilla'])) {  
-	// Generar fichero HTML y caratula para el fichero HTML
-	$rutaurl = "https://" .$_SERVER["HTTP_HOST"]. "/plantillascontenidov4/";	
+if(isset($_POST['plantilla'])) {
+        // Generar fichero HTML y caratula para el fichero HTML
+        $rutaurl = rtrim(BASE_URL, '/') . '/';
 	$rutafile = "ficheros/";
 		
 	fwrite($fch, "ruta...".$rutaurl."____"."file...".$rutafile.PHP_EOL); // Grabas		

@@ -24,7 +24,7 @@ include("../accesomysql.php");
 $directoriocliente = $directoriobase."/".$idcustomer."/";
 $dirbase = "dev.ladorianids.com";
 $dirbase = "idsv4.ladorianids.es";
-$plantillascontenido = "/plantillascontenidov4/".$idcustomer."/";
+$plantillascontenido = BASE_PATH . '/' . $idcustomer . '/';
  
 
  
